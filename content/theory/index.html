@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теория</title>
+    <link rel="stylesheet" href="../../css/style.css" class="css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">Теория</h1>
+    <div class="after-h1">Базовый знания не зависимо от языка</div>
+    <ul class="menu">
+        <li><a href="#programming">Основы программирования</a></li>
+        <li><a href="#abbreviation">Сокращения</a></li>
+        <li><a href="#micros">Микросервисы</a></li>
+        <li><a href="#protocols">Протоколы</a></li>
+        <li><a href="#oop">Основы ОПП</a></li>
+        <li><a href="#data"></a>Структуры данных</li>
+        <li><a href="#bigo">Big O</a></li>
+        <li><a href="#solid">SOLID</a></li>
+        <li><a href="#patterns">Паттерны проектирования</a></li>
+        <li><a href="#regex">Регулярные выражения</a></li>
+        <li><a href="#endpoint">Как называть endpoint'ы</a></li>
+        <li><a href="./algorithm">Алгоритмы</a></li>
+    </ul>
+    <div class="back-panel">
+        <a href="../../" class="button button--home">На главную</a>
+    </div>
+</section>
+
+<section class="container" id="programming">
+    <h1>Основы программирования <span class="update-time">10.06.2023 16:26</span></h1>
+
+    <h3>Программирование всегда занимает больше времени чем вы думаете</h3>
+    <p>
+        Я не умничаю это следствие
+        <a href="https://psj.nsu.ru/razn/humour/two.html">закона Мерфи</a>.
+    </p>
+    <hr>
+    <h3 class="no_mb">Полезный курс для начинающих:</h3>
+    <p><a href="https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5">CS50 (Гарвард)</a></p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="abbreviation">
+    <h1>Сокращения <span class="update-time">10.06.2023 13:38</span></h1>
+    <hr>
+    <p></p>
+    <p><strong>HTML</strong> (HyperText Markup Language) — язык гипертекстовой разметки</p>
+    <p><strong>CSS</strong> (Cascading Style Sheets) — каскадные таблицы стилей</p>
+    <hr>
+    <p></p>
+    <p><strong>API</strong> (Application Programming Interface)</p>
+    <p><strong>REST</strong> (Representational State Transfer) - дословно: передача представительского состояния;<br>определенный
+        набор правил взаимодействия API.</p>
+    <div>
+        <p class="no_mb"><strong>RESTful API</strong> - это API которое следует всем правилам REST.</p>
+        <p class="example">Кратко: RESTful API позволяет делать CRUD операции над всеми бизнес-объектами в системе.</p>
+    </div>
+    <p><strong>CRUD</strong> - аббревиатура 4-х базовых операций, которые можно произвести с объектом.</p>
+    <p><strong>CLI</strong> (Command Line Interface) - набор команд для работы через терминал.</p>
+    <div>
+        <p class="no_mb">
+            <strong>CI/CD</strong>
+            - Continuous Integration (Непрерывная интеграция) и Continuous Delivery (непрерывная поставка).
+        </p>
+        <p class="example">
+            CI и CD представляют собой культуру, набор принципов и практик, которые позволяют разработчикам чаще и
+            надежнее развертывать изменения программного обеспечения.
+        </p>
+    </div>
+    <hr>
+    <p></p>
+    <div>
+        <p class="no_mb">
+            <strong>DSL</strong> (Domain-Specific Language)
+            - предметно-ориентированный язык («язык, специфический для предметной области»)
+        </p>
+        <p class="example">
+            SQL для СУБД; HTML для разметки документов;
+        </p>
+    </div>
+    <hr>
+    <p></p>
+    <p><strong>POM</strong>(pom.xml) - Project Object Model</p>
+    <div>
+        <p class="no_mb">
+            <strong>ORM</strong> (Object-Relational Mapping)
+            - это технология программирования (рус. Объектно-реляционное отображение), которая позволяет преобразовывать
+            несовместимые типы моделей в ООП, в частности, между хранилищем данных и объектами программирования.
+        </p>
+        <p>
+            <a href="http://internetka.in.ua/orm-intro/#:~:text=ORM%20%D0%B8%D0%BB%D0%B8%20Object%2Drelational%20mapping,%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%D0%BC%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F."
+               class="link-to-source" target="_blank">Подробнее</a>
+        </p>
+    </div>
+    <p>
+        <strong>POJO</strong> (Plain Old Java Object)
+        - объект, не унаследованный от какого-то специфического объекта и не реализующий никаких служебных интерфейсов
+        сверх тех, которые нужны для бизнес-модели.
+    </p>
+    <p class="no_mb">
+        <strong>SpEL</strong> (Spring Expression Language)
+        - это язык выражений, созданный для Spring Framework, который поддерживает запросы и управление графом объектов во
+        время выполнения.
+    </p>
+    <p class="example">
+        Также важно отметить, что SpEL создан в виде API-интерфейса, позволяющего интегрировать его в другие приложения
+        и фрэймворки.
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="micros">
+    <h1>Микросервисы</h1>
+    <p><strong>Архитектурный стиль микросервис</strong>
+        - это подход, при котором система строится как набор независимых и слабосвязанных сервисов.
+        Которые можно создавать используя различные языка программирования и технологии хранения данных.</p>
+    <hr>
+    <p></p>
+    <p class="bold">Слабосвязаность</p>
+    <p class="no_mb">Пример:</p>
+    <p class="tab-1" style="font-size: smaller">
+        Есть два класса A и B, которые взаимодействуют друг с другом. Если они слабосвязаны, то класс A
+        будет делать то что он должен делать не зная подробностей реализации класса B. </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="protocols">
+    <h1>Протоколы</h1>
+    <p><strong>Протокол</strong> - набор определенных правил или соглашений интерфейса логического уровня, который
+        определяет обмен между различными устройствами.</p>
+    <p>Семейство <span class="bold">TCP/IP</span> протоколов.</p>
+    <p class="no_mb">Модель:</p>
+    <p class="no_mb tab-1">Канальный уровень / Link layer</p>
+    <p class="no_mb tab-1">Сетевой уровень / Internal layer</p>
+    <p class="no_mb tab-1">Транспортный уровень / Transport layer </p>
+    <p class="tab-1">Прикладной уровень / Application layer</p>
+
+    <p class="bold no_mb">Примеры:</p>
+    <p class="no_mb tab-1"><strong>TCP</strong> (Transport Control Protocol)</p>
+    <p class="no_mb tab-1"><strong>IP</strong> (Internet Protocol)</p>
+    <p class="no_mb tab-1"><strong>HTTP</strong> (Hyper Text Transport Protocol)</p>
+    <p class="no_mb tab-1"><strong>FTP</strong> (File Transfer Protocol)</p>
+    <p class="no_mb tab-1"><strong>POP3</strong> (Post Office Protocol)</p>
+    <p class="no_mb tab-1"><strong>SMPT</strong> (Simple Mail Transfer Protocol)</p>
+    <p class="no_mb tab-1"><strong>UDP</strong> (User Datagram Protocol)</p>
+    <p class="no_mb tab-1"><strong>TELNET</strong> (Teletype network)</p>
+
+</section>
+
+<section class="container" id="oop">
+    <h1>Принципы ООП</h1>
+    <p>Принципы</p>
+    <ul>
+        <li><strong>наследование</strong>: абстрагирование - создание моделей(классов)</li>
+        <li><strong>полиморфизм</strong>: по факту интерфейсы (в каждом классе своя реализация метода)</li>
+        <li><strong>инкапсуляция</strong>: скрытие реализации и контролируемый доступ к данным</li>
+    </ul>
+    <p><a href="../java_questions/core/oop/">В ключе JAVA</a></p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="data">
+    <h1>Структуры данных</h1>
+    <hr>
+    <h3>Cтруктуры данных</h3>
+    <p class="no_mb">Классические</p>
+    <ul>
+        <li>Массив</li>
+        <li>Хэш-Таблица</li>
+        <li>Стек</li>
+        <li>Очередь</li>
+        <li>Связный список</li>
+        <li>Дерево</li>
+        <li>Граф</li>
+        <li>Строка</li>
+    </ul>
+
+    <p class="bold no_mb">Хэш-Таблица</p>
+    <p class="no_mb">Вычисляемая таблица соответствий значений определенным позициям во множестве данных</p>
+    <p class="no_mb tab-1"><strong>Хэш-функция</strong> - преобразует объект в число.</p>
+    <p class="no_mb tab-1">Основные свойства:</p>
+    <ul class="tab-2">
+        <li>У двух одинаковых объектов хэш-функция должна возвращать одно и то же значение.</li>
+        <li>Для разных объектов может возвращать одинаковые значения, это значит что после нахождения по значению
+            функции объект необходимо сравнить с искомым.
+        </li>
+    </ul>
+
+    <p class="bold no_mb">Очередь и стек</p>
+    <p class="no_mb">Упорядоченное множество, в котором добавление и удаление элементов происходит в определенном
+        порядке.</p>
+    <p>Очередь - FIFO, Стек - LIFO</p>
+
+    <p class="bold">Связные списки</p>
+    <p class="no_mb">Односвязные и двусвязные</p>
+    <p>Основной недостаток - сложность доступа к произвольному элементу - O(n)</p>
+
+    <hr>
+    <h3>Деревья</h3>
+    <p class="bold no_mb">Бинарное (двоичное) дерево</p>
+    <p>У root родитель null, у каждого родителя не больше 2-х потомков, если нет потомков называется
+        лист</p>
+    <p class="no_mb tab-1">Принцип организации:</p>
+    <ul class="tab-2">
+        <li>Все потомки слева (если они есть) меньше текущего элемента</li>
+        <li>Все потомки справа больше либо равны</li>
+    </ul>
+    <p>Сложность O(h), где h - высота дерева</p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="bigo">
+    <h1>BIG O</h1>
+    <p> Зачем?</p>
+    <ul>
+        <li>Концепцию Big O необходимо понимать, что бы уметь увидеть и исправить не оптимальный код</li>
+        <li>Ни один серьезный проект не обходится без Big O (в том числе собеседование)</li>
+        <li>Не понимание Big O ведет к серьезной потери производительности ваших алгоритмов</li>
+    </ul>
+
+    <p><strong>Основная идея</strong> показать какое кол-во шагов надо сделать
+        что бы алгоритм закончил свое выполнение. </p>
+
+    <p class="no_mb"><strong>Big O</strong> - математическое обозначение для сравнения
+        асимптотического поведения функции (Википедия).</p>
+    <p class="no_mb">кстати об асимптотах:</p>
+    <p class="tab-2" style="font-size: smaller">
+        Асимптотой кривой y=f(x), имеющей бесконечную ветвь, называется прямая, расстояние которой от точки
+        (x, f(x)), лежащей на кривой, стремится к нулю при неограниченном движении вдоль ветви к бесконечности.
+        Асимптоты могут быть вертикальными, наклонными и горизонтальными. Горизонтальную асимптоту часто рассматривают
+        как частный случай наклонной асимптоты. Функции, которые являются непрерывными на всем множестве действительных
+        чисел, вертикальных асимптот не имеют.
+    </p>
+
+    <p class=""><strong>Big O</strong> - (доступно в рамках computer scinece) - показывает
+        <strong>верхнюю границу</strong> зависимости между
+        <strong>входными параметрами</strong>функции и
+        <strong>количеством операций</strong>, которые выполнит процессор.</p>
+
+    <p class="bold no_mb">Отбрасывание констант</p>
+    <p class="tab-1">Big O описывает только скорость роста, поэтому мы отбрасывает константы при оценке сложности.
+        Поэтому алгоритм, описываемый как O(2N) должен описываться как O(N)</p>
+    <p class="bold no_mb"> Неважная сложность</p>
+    <p class="tab-1">O(N²+N²) = O(N²), т.к. в понимании Big O N²>N значительно больше (т.е. больше чем в два раза), т.о.
+        сложность N значительно меньше и ей можно пренебречь.</p>
+
+    <hr>
+    <h3></h3>
+    <p><a href="https://www.youtube.com/watch?v=ZRdOb4yR0kk" target="_blank">Хорошее видео на тему</a></p>
+    <p><a href="https://tproger.ru/articles/computational-complexity-explained/" target="_blank">Много букв на тему</a>
+    </p>
+    <p><a href="ttps://habr.com/ru/post/188010/" target="_blank">хорошо|приемлемо|плохо (справочно)</a></p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="solid">
+    <h1 class="no_mb">SOLID</h1>
+    <p>Принципы ООП и проектирования</p>
+    <a href="#" class="button button--top"></a>
+
+    <p class="main-mind no_mb">Принцип единой ответственности<br> Single Responsibility Principle</p>
+    <p class="no_mb"> Для каждого класса должно быть определено единственное назначение.
+        Все ресурсы необходимые для его осуществления
+        должны быть инкапсулированы в этот класс и подчинены только этой задаче.</p>
+    <p class="example">Класс должен отвечать за одну какую-то логику.</p>
+
+    <p class="main-mind no_mb">Принцип открытости/закрытости<br>Open-close Principle</p>
+    <p class="no_mb">Программные сущности должны быть открыты для расширения, но закрыты для модификации.</p>
+    <p class="example">Расширение с помощью наследников (не меняя сущности родителя).</p>
+
+    <p class="main-mind no_mb">Принцип подстановки Барбары Лисков<br>Liskov Substitution Principle</p>
+    <p class="no_mb">Производный класс должен быть взаимозаменяем с родительским.</p>
+    <p class="example">Объекты в программе можно заменить их наследниками без изменения свойств программы.</p>
+
+    <p class="main-mind no_mb">Принцип разделения интерфейса<br>Interface Segregation Principle</p>
+    <p class="no_mb">Много интерфейсов, специально предназначенных для клиентов, лучше,
+        чем один интерфейс общего назначения.</p>
+    <p class="example">Клиенты не должны быть вынуждены реализовывать методы, которые они не будут
+        использовать.</p>
+
+    <p class="main-mind no_mb">Принцип инверсии зависимостей<br>Dependency Inversion Principle</p>
+    <p class="no_mb">Зависимость на абстракции. Нет зависимости на что-то конкретное.</p>
+    <p class="example">Зависимости внутри системы строятся на основе абстракций.</p>
+
+</section>
+
+<section class="container" id="patterns">
+    <h1>Паттерны проектирования</h1>
+    <p class="no_mb"><span class="bold">Паттерн</span> (шаблон) проектирования
+        (рассматриваем только вариант для программирования).</p>
+    <p>Способ организации программного кода, представляющего собой решение некоторой часто возникающей проблемы
+        проектирования.</p>
+    <p class="no_mb">Паттерны проектирования:</p>
+    <ul>
+        <li><strong>Порождающие</strong>(creational) - удобное и безопасное создание новых объектов;</li>
+        <li><strong>Структурные</strong>(structural) - построение, удобной в поддержке, иерархии классов;</li>
+        <li><strong>Поведенческие</strong>(behavioral) - эффективное и безотказное взаимодействие;</li>
+    </ul>
+    <hr>
+    <h3></h3>
+    <div class="flex" style="max-width: 500px;">
+        <div class="min-w-150">
+            <p class="main-mind">Порождающие</p>
+            <p>Фабричный метод</p>
+            <p>Абстрактная ф-ка</p>
+            <p>Строитель</p>
+            <p>Прототип</p>
+            <p>Одиночка</p>
+        </div>
+        <div class="min-w-150">
+            <p class="main-mind">Структурные</p>
+            <p>Адаптер</p>
+            <p>Мост</p>
+            <p>Компоновщик</p>
+            <p>Декоратор</p>
+            <p>Фасад</p>
+            <p>Легковес</p>
+            <p>Заместитель</p>
+        </div>
+        <div class="min-w-150">
+            <p class="main-mind">Поведенческие</p>
+            <p>Итератор</p>
+            <p>Посредник</p>
+            <p>Стратегия</p>
+            <p>Наблюдатель</p>
+            <p>Команда</p>
+            <p>Цепочка...</p>
+            <p>Снимок</p>
+            <p>Состояние</p>
+            <p>Шаблон</p>
+            <p>Посетитель</p>
+        </div>
+    </div>
+    <hr>
+
+    <h3>ПОРОЖДАЮЩИЕ</h3>
+    <p class="bold no_mb">Паттерн Singleton (одиночка)</p>
+    <p>Позволяет создавать объект некоторого класса в единственном экземпляре, и запрещает создание новых объектов этого
+        класса. (ex: соединение с БД, создание "тяжелых" объектов, ситуация когда объект в принципе может быть только
+        один: кэши, логгеры, драйверы)</p>
+    <p class="bold no_mb">Паттерн Factory (фабрика)</p>
+    <p>Используется в случаях, когда у некого класса есть множество классов-наследников, и в зависимости от входных
+        данных нам необходимо получать один из этих классов наследников. Позволяет спрятать логику определения и
+        создания этих классов-наследников в класс-фабрику.</p>
+    <p class="bold no_mb">Паттерн Abctract Factory (абстрактная фабрика)</p>
+    <p>Задает интерфейс создания нескольких вариаций объектов одного интерфейса, а каждая конкретная реализация фабрики
+        порождает объекты одной из вариаций.</p>
+
+    <hr>
+    <h3>СТРУКТУРНЫЕ</h3>
+    <p class="bold no_mb">Паттерн Decorator (декоратор)</p>
+    <p>Используется для изменения функциональности объекта в процессе выполнения, не затрагивая при этом другие объекты
+        этого же класса и не меняя их поведение.</p>
+    <p class="bold no_mb">Паттерн Adapter (адаптер)</p>
+    <p>Позволяет объектам с несовместимыми интерфейсами работать вместе.</p>
+    <p class="bold no_mb">Паттерн Brige (мост)</p>
+    <p>Позволяет разделить один или несколько классов на две отдельные иерархии - абстракцию и реализацию, давая
+        возможность изменить их независимо друг от друга.</p>
+
+    <hr>
+    <h3>ПОВЕДЕНЧЕСКИЕ</h3>
+    <p class="bold no_mb">Паттерн Strategy (стратегия)</p>
+    <p>Позволяет выделить в отдельные классы и инкапсулировать несколько вариантов алгоритма или поведения и обеспечить
+        их взаимозаменяемость при использовании в других классах.</p>
+    <p class="bold no_mb">Паттерн Observer (наблюдатель)</p>
+    <p>Реализуется реализует отношение "one-to-may" между объектами таким образом, что при изменении состояния одного
+        объекта ("издатель") автоматически оповещаются и обновляются все зависимые объекты ("подписчики")</p>
+    <p class="bold no_mb">Паттерн Iterator</p>
+    <p>Задает способ перебора некоторого множества объектов</p>
+
+    <hr>
+    <h3></h3>
+    <p><a href="https://refactoring.guru/ru/design-patterns">Целый сайт о паттернах и рефакторинге</a></p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="regex">
+    <h1>Регулярные выражения</h1>
+    <p><a href="https://regex101.com/" target="_blank">Проверка регулярных выражений (regex101)</a></p>
+
+    <hr>
+    <h3>Готовые паттерны</h3>
+    <p class="bold no_mb">\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}</p>
+    <p>для номер телефона</p>
+    <p><a href="https://htmlweb.ru/html/form/form_input_pattern.php" target="_blank">Тут больше примеров</a></p>
+
+    <hr>
+    <h3>Шпаргалки</h3>
+    <p>
+        <a href="https://medium.com/nuances-of-programming/%D1%88%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0-%D0%BF%D0%BE-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%BC-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85-53820a5f3435"
+           target="_blank">
+            просто с примерами</a></p>
+
+    <p><a href="http://javatutor.net/articles/using-regexp-groups" target="_blank">Поиск чисел</a></p>
+    <p><a href="http://www.javenue.info/post/43#regex-search"
+          target="_blank">Matcher, Pattern, PatternSyntaxException</a></p>
+
+    <hr>
+    <h3>Видео</h3>
+    <p><a href="https://www.youtube.com/watch?v=_pLpx6btq6U" target="_blank">Курс (коротко внятно)</a></p>
+    <p><a href="https://www.youtube.com/watch?v=0rwYISzL-c8&list=PLSuO7KUfnDfK2qx7e1pOfuNRANHu0HzNl" target="_blank">
+        Курс (типа классический и полный)</a></p>
+    <p><a href="https://www.youtube.com/watch?v=p8_DQjnALSo&list=PLSuO7KUfnDfK2qx7e1pOfuNRANHu0HzNl&index=8"
+          target="_blank">про группы (из курса выше, пересмотреть и хорошенько запомнить)</a></p>
+
+    <hr>
+    <h3>Таблица</h3>
+    <p><a href="https://www.exlab.net/tools/sheets/regexp.html" target="_blank">Табличка (распечатать на бумажку!)</a>
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="endpoint">
+    <h1>Как называть endpoint'ы<span class="update-time">07.06.2023 14:57</span></h1>
+    <p class="code bold">
+        [GET|POST|PUT|DELETE|...]
+        <br>/ {имя сущности(тей)} / {id_сущности} / {уточнение какие данные info | tradeobjects}
+    </p>
+
+    <p class="no_mb">Если надо получить весь список сущностей</p>
+    <div class="code bold">
+        <p>GET /orders</p>
+        <p>GET /objects</p>
+        <p>GET /workers</p>
+    </div>
+
+    <p class="no_mb">Связанные сущности</p>
+    <p class="code bold">GET /objects/workers</p>
+
+    <p class="no_mb">По конкретной сущности</p>
+    <p class="code bold">GET /order/{id}/objects</p>
+
+    <p class="no_mb">Что то конкретное про дату (например)</p>
+    <div class="code bold">
+        <p>GET /order/{id}/data/start</p>
+        <p>GET /order/{id}/data/final</p>
+    </div>
+
+    <p class="no_mb">Создание новой</p>
+    <div class="code bold">
+        <p>POST /order</p>
+        <p>POST /object</p>
+        <p>POST /object/{id}/worker</p>
+    </div>
+
+    <p class="no_mb">Обновляешь всю сущность то просто</p>
+    <p class="code bold">PUT /order/{id}</p>
+
+    <p class="no_mb">Если например обновляешь не всю сущность, а какую-то часть, то</p>
+    <p class="code bold">PUT /order/{id}/status</p>
+
+    <a class="button--top" href="#"></a>
+</section>
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+</html>

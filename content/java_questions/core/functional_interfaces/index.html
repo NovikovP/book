@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA Functional Interfaces</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">Функциональные интерфейсы</h1>
+    <div class="after-h1">Вопросы к собеседованию</div>
+    <div class="breadcrumbs">
+        <p><a href="../../../../">главная</a></p>
+        <p><a href="../../">Questions</a></p>
+        <p><a href="..">core</a></p>
+        <p>Functional Interfaces</p>
+    </div>
+    <h4 class="no_mt">Вопросы:</h4>
+    <ol class="menu">
+        <li><a href="#q1">Определение</a></li>
+        <li><a href="#q2">Лямбда-выражения</a></li>
+        <li><a href="#q3">Ссылка на метод</a></li>
+    </ol>
+</section>
+
+<section class="container" id="q1">
+    <h1>Функциональные интерфейсы</h1>
+    <p class="main-mind">
+        Функциональный интерфейс - это интерфейс, который определяет только один абстрактный метод.
+    </p>
+    <p class="main-mind">
+        Основное назначение – использование в лямбда выражениях и method reference.
+    </p>
+    <p class="no_mb">
+        Чтобы точно определить интерфейс как функциональный, добавлена аннотация
+        <an>@FunctionalInterface</an>
+        , работающая по принципу @Override.
+    </p>
+    <p> Она обозначит замысел и не даст определить второй абстрактный метод в интерфейсе. </p>
+    <p>
+        Интерфейс может включать сколько угодно default методов и при этом оставаться функциональным,
+        потому что default методы - не абстрактные.
+    </p>
+    <hr>
+    <h4>Встроенные функциональные интерфейсы:</h4>
+    <ul class="sparse-li">
+        <li>
+            <p class="bold">Predicate&lt;T&gt;</p>
+            <p class="code-word example"> public interface Predicate&lt;T&gt; { boolean test(T t); } </p>
+            <p>
+                Проверяет соблюдение некоторого условия. Если оно соблюдается, то возвращается значение true.
+                В качестве параметра лямбда-выражение принимает объект типа&nbsp;T.
+            </p>
+        </li>
+        <li>
+            <p class="bold">Function&lt;T, R></p>
+            <p class="code-word example">public interface Function&lt;T, R&gt; { R apply(T t); }</p>
+            <p>Представляет функцию перехода от объекта типа T к объекту типа R </p>
+        </li>
+        <li>
+            <p class="bold">Supplier&lt;T&gt;</p>
+            <p class="code-word example">public interface Supplier&lt;T&gt; { T get(); }</p>
+            <p>Не принимает никаких аргументов, но должен возвращать объект типа T </p>
+        </li>
+        <li>
+            <p class="bold">Consumer&lt;T&gt;</p>
+            <p class="code-word example">public interface Consumer&lt;T&gt; { void accept(T t); }</p>
+            <p> Выполняет некоторое действие над объектом типа T, при этом ничего не возвращая</p>
+        </li>
+        <li>
+            <p class="bold">UnaryOperator&lt;T&gt;</p>
+            <p class="code-word example">public interface UnaryOperator&lt;T&gt; { T apply(T t); }</p>
+            <p>
+                принимает в качестве параметра объект типа T, выполняет над ними операции и
+                возвращает результат операций в виде объекта типа T
+            </p>
+        </li>
+        <li>
+            <p class="bold">BinaryOperator&lt;T&gt;</p>
+            <p class="code-word example">public interface BinaryOperator&lt;T&gt; { T apply(T t1, T t2); }</p>
+            <p>
+                принимает в качестве параметра два объекта типа T, выполняет над ними бинарную
+                операцию и возвращает ее результат также в виде объекта типа T
+            </p>
+        </li>
+    </ul>
+    <table class="list list--dictionary" aria-label="Встроенные функциональные интерфейсы">
+        <thead>
+        <tr>
+            <th>Интерфейс</th>
+            <th>Пример использования</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>Predicate&lt;T&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.function.Predicate;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1">public static void main(String[] args) {</p>
+                    <p class="tab-2">Predicate&lt;Integer&gt; isPositive = x -> x > 0;</p>
+                    <p class="tab-2">System.out.println(isPositive.test(5)); // true</p>
+                    <p class="tab-2">System.out.println(isPositive.test(-7)); // false</p>
+                    <p class="tab-1">}</p>
+                    <p>}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Function&lt;T,R&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.function.Function;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1">public static void main(String[] args) {</p>
+                    <p class="tab-2">Function&lt;Integer, String&gt; convert = x-> String.valueOf(x) + " долларов";</p>
+                    <p class="tab-2">System.out.println(convert.apply(5)); // 5 долларов</p>
+                    <p class="tab-1">}</p>
+                    <p>}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Supplier&lt;T&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.Scanner;</p>
+                    <p>import java.util.function.Supplier;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1 mb10">public static void main(String[] args) {</p>
+                    <p class="tab-2">Supplier&lt;User&gt; userFactory =&nbsp;()&nbsp;->&nbsp;{</p>
+                    <p class="tab-3">Scanner in = new Scanner(System.in);</p>
+                    <p class="tab-3">System.out.println("Введите имя: ");</p>
+                    <p class="tab-3">String name = in.nextLine();</p>
+                    <p class="tab-3">return new User(name);</p>
+                    <p class="tab-2 mb10">};</p>
+                    <p class="tab-2">User user1 = userFactory.get();</p>
+                    <p class="tab-2 mb10">User user2 = userFactory.get();</p>
+                    <p class="tab-2">System.out.println("Имя user1: " + user1.getName());</p>
+                    <p class="tab-2">System.out.println("Имя user2: " + user2.getName());</p>
+                    <p class="tab-1">}</p>
+                    <p class="mb10">}</p>
+                    <p>Введите имя:</p>
+                    <p>Том</p>
+                    <p>Введите имя:</p>
+                    <p>Сэм</p>
+                    <p>Имя user1: Том</p>
+                    <p>Имя user2: Сэм</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Consumer&lt;T&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.function.Consumer;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1">public static void main(String[] args) {</p>
+                    <p class="tab-2">Consumer&lt;Integer&gt; printer = x-> System.out.printf("%d долларов \n", x);</p>
+                    <p class="tab-2">printer.accept(600); // 600 долларов</p>
+                    <p class="tab-1">}</p>
+                    <p>}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>UnaryOperator&lt;T&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.function.UnaryOperator;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1">public static void main(String[] args) {</p>
+                    <p class="tab-2">UnaryOperator&lt;Integer&gt; square = x -> x*x;</p>
+                    <p class="tab-2">System.out.println(square.apply(5)); // 25</p>
+                    <p class="tab-1">}</p>
+                    <p>}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>BinaryOperator&lt;T&gt;</td>
+            <td>
+                <div class="code no_margin">
+                    <p>import java.util.function.BinaryOperator;</p>
+                    <p>public class LambdaApp {</p>
+                    <p class="tab-1">public static void main(String[] args) {</p>
+                    <p class="tab-2">BinaryOperator&lt;Integer&gt; multiply = (x, y) -> x * y;</p>
+                    <p class="tab-2">System.out.println(multiply.apply(3, 5)); // 15</p>
+                    <p class="tab-2"> System.out.println(multiply.apply(10, -2)); // -20</p>
+                    <p class="tab-1">}</p>
+                    <p>}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q2">
+    <h1>Лямбда-выражения</h1>
+    <p class="main-mind">
+        Представляет набор инструкций, которые можно выделить в отдельную переменную и затем
+        многократно вызвать в различных местах программы.
+    </p>
+    <p class="main-mind">
+        Образует реализацию метода, определенного в функциональном интерфейсе. При этом важно, что функциональный
+        интерфейс должен содержать только один единственный метод без реализации.
+    </p>
+    <p class="code-word">список параметров выражения -> тело лямбда-выражения (действия)</p>
+
+    <p>
+        Параметры лямбда-выражения должны соответствовать по типу параметрам метода из функционального интерфейса.
+    </p>
+    <p class="no_mb">
+        B лямбда-выражении <strong>использование обобщений не допускается</strong>. В этом случае нам надо типизировать
+        объект интерфейса определенным типом, который потом будет применяться в лямбда-выражении:
+    </p>
+    <div class="code">
+        <p>public class LambdaApp {</p>
+        <p class="tab-1 mb10">public static void main(String[] args) {</p>
+        <p class="tab-2">Operationable&lt;Integer&gt; operation1 = (x, y)-> x + y;</p>
+        <p class="tab-2 mb10"> Operationable&lt;String&gt; operation2 = (x, y) -> x + y;</p>
+        <p class="tab-2">System.out.println(operation1.calculate(20, 10)); //30</p>
+        <p class="tab-2 mb10">System.out.println(operation2.calculate("20", "10")); //2010</p>
+        <p class="tab-1">}</p>
+        <p class="mb10">}</p>
+        <p>interface Operationable&lt;T&gt; {</p>
+        <p class="tab-1">T calculate(T x, T y);</p>
+        <p>}</p>
+    </div>
+    <hr>
+    <h4>Важно:</h4>
+    <p class="main-mind no_mb">
+        Одним из ключевых моментов в использовании лямбд является отложенное выполнение (deferred execution).
+    </p>
+    <p>
+        То есть мы определяем в одном месте программы лямбда-выражение и затем можем его
+        вызывать при необходимости неопределенное количество раз в различных частях программы.
+    </p>
+    <p class="no_mb">Отложенное выполнение может потребоваться, к примеру, в следующих случаях:</p>
+    <ul class="tab-2">
+        <li>Выполнение кода отдельном потоке</li>
+        <li>Выполнение одного и того же кода несколько раз</li>
+        <li>Выполнение кода в результате какого-то события</li>
+        <li>Выполнение кода только в том случае, когда он действительно необходим и если он необходим</li>
+    </ul>
+
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q3">
+    <h1>Ссылка на метод</h1>
+    <p class="main-mind">
+        Ссылки на методы (Method References) – это компактные лямбда выражения для методов,
+        у которых уже есть имя.
+    </p>
+    <p>Ссылки на методы бывают четырех видов:</p>
+    <ul>
+        <li>
+            <p style="margin-bottom: 10px">Ссылка <strong>на статический метод</strong>
+                - <span class="code-word example">ContainingClass::staticMethodName</span>
+            </p>
+            <div class="code">
+                <p>Function &lt;String, Boolean&gt; function = e -> Boolean.valueOf(e);</p>
+                <p>System.out.println(function.apply("TRUE"));</p>
+                <p>Function &lt;String, Boolean&gt; function = Boolean::valueOf;</p>
+                <p>System.out.println(function.apply("TRUE"));</p>
+            </div>
+        </li>
+        <li>
+            <p style="margin-bottom: 10px"> Ссылка
+                <strong>на нестатический метод конкретного объекта</strong>
+                - <span class="code-word example">containingObject::instanceMethodName</span></p>
+            <div class="code">
+                <p>Consumer &lt;String&gt; consumer = e -> System.out.println(e);</p>
+                <p>consumer.accept("OCPJP 8");</p>
+                <p>Consumer &lt;String&gt; consumer = System.out::println;</p>
+                <p>consumer.accept("OCPJP 8");</p>
+            </div>
+        </li>
+        <li>
+            <p style="margin-bottom: 10px">Ссылка
+                <strong>на нестатический метод любого объекта конкретного типа</strong>
+                - <span class="code-word example">ContainingType::methodName</span>
+            </p>
+            <div class="code">
+                <p>Function &lt;String, String&gt; function = s -> s.toLowerCase();</p>
+                <p>System.out.println(function.apply("OCPJP 8"));</p>
+                <p>Function &lt;String, String&gt; function = String::toLowerCase;</p>
+                <p>System.out.println(function.apply("OCPJP 8"));</p>
+            </div>
+        </li>
+        <li>
+            <p style="margin-bottom: 10px">Ссылка
+                <strong>на конструктор</strong> - <span class="code-word example">ClassName::new</span></p>
+            <div class="code">
+                <p>Function &lt;String, Integer&gt; function = (d) -> new Integer(d);</p>
+                <p>System.out.println(function.apply("4"));</p>
+                <p>Function &lt;String, Integer&gt; function = Integer::new;</p>
+                <p>System.out.println(function.apply("4"));</p>
+            </div>
+        </li>
+    </ul>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<div class="navi">
+    <a class="navi-button navi--prev" href="../collections/">Коллекции</a>
+    <a class="navi-button navi--next" href="../stream_api/">Stream API</a>
+</div>
+
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+</html>

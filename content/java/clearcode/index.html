@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление кода</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">Оформление кода</h1>
+    <p class="after-h1">Или что бы у других кровь из глазок не капала</p>
+    <ul class="menu">
+        <li><a href="#guide">GUIDE</a></li>
+        <li><a href="#naming">Код и нейминг</a></li>
+        <li><a href="#clear-function">Чистые функции</a></li>
+        <li><a href="#dry">Не повторяйся</a></li>
+        <li><a href="#boolean">Boolean в методах</a></li>
+        <li><a href="#refactoring">Рефакторинг</a></li>
+        <li><a href="#comments">Комментарии</a></li>
+    </ul>
+    <div class="back-panel">
+        <a href="../" class="button button--back">Назад</a>
+        <a href="../../../" class="button button--home">На главную</a>
+    </div>
+</section>
+
+<section class="container" id="guide">
+    <h1>Google Java Style Guide</h1>
+    <p>Очень важно, чтобы код выглядел опрятно и в едином стиле, т.к. это залог успешного взаимодействия внутри и
+        между командами разработчиков. Если вы хотите увидеть все правила разом, то прилагаю
+        <a href="https://google.github.io/styleguide/javaguide.html">ссылку</a>
+        .
+    </p>
+    <p>Читать её от корки до корки, сейчас не стоит, но будет здорово если посмотрите пункты 4 и 5.
+    </p>
+    <p>В IDEA есть функция, которая сделает за вас часть работы по форматированию: выделите фрагмент кода мышкой или
+        <span class="key_combination">Ctrl+A</span>, и потом нажмите
+        <span class="key_combination">Ctrl+Alt+L</span>
+        - код должен автоматически выровняться.
+        Нажатие без выделения отформатирует весь текст в файле.
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="naming">
+    <h1>Код и нейминг</h1>
+    <p class="no_mb">Переменные называются существительными</p>
+    <p class="no_mb">Нельзя назвать переменные глаголами или начинать с глагола</p>
+    <div class="code">
+        <p>private isBlocked; // очень плохо, начало с глагола</p>
+        <p>private blocked; // тоже плохо, т.е. тоже глагол</p>
+        <p>private block; // OK!</p>
+    </div>
+    <p>
+        Методы всегда следует называть с маленькой буквы (кроме конструкторов) и в названии должен быть глагол -
+        <span class="accent-mono">sendMail</span>,
+        <span class="accent-mono">getAge</span>,
+        <span class="accent-mono">calculateSalary</span> и т.п.
+    </p>
+    <p class="no_mb">
+        Если метод возвращает сложную структуру вроде Map, то в методе следует пояснить, что в ключах и в значениях,
+        если
+        это не очевидно:
+    </p>
+    <div class="code">
+        <p>public Map&lt;Integer, Integer&gt; getBalancesByAccountIds() {</p>
+        <p class="tab-1">...</p>
+        <p>}</p>
+    </div>
+    <p class="no_mb">Если метод печатает что-то на экран, можно начать его со слова
+        <span class="accent-mono">print</span>:
+    </p>
+    <div class="code">
+        <p>public void printAge() {</p>
+        <p class="tab-1">System.out.println("My age is " + age);</p>
+        <p>}</p>
+    </div>
+    <p class="no_mb">Метод-геттер, возвращающий <span class="accent-mono">boolean</span> принято называть с префиксом
+        <span class="accent-mono">is</span>
+        или
+        <span class="accent-mono">has</span>.
+        Пример:</p>
+    <div class="code">
+        <p>boolean isAlive() {</p>
+        <p class="tab-1">...</p>
+        <p>}</p>
+    </div>
+    <p class="no_mb">Примеры неудачных названий методов:</p>
+    <div class="code no_mb">
+        <p>public Map&lt;Integer, Integer&gt; getMap() {</p>
+        <p class="tab-1">...</p>
+        <p>}</p>
+    </div>
+    <p>
+        Этот метод плохо называется, т.к. мы не получаем никакой смысловой информации что он делает и что возвращает. То
+        что он возвращает тип Map видно и так из типа возвращаемого значения. Но что в ключах, а что в значениях…
+        Непонятно
+    </p>
+    <p class="no_mb">Второй пример:</p>
+    <div class="code no_mb">
+        <p>public boolean checkBalance(int balance) {</p>
+        <p class="tab-1">...</p>
+        <p>}</p>
+    </div>
+    <p>
+        Слово
+        <span class="accent-mono">check</span>
+        очень перегруженное. Из имени совершенно не ясно что делает проверка, и что будет если она не
+        пройдет.
+    </p>
+    <p class="no_mb">Более удачные имена:</p>
+    <div class="code">
+        <p>public boolean isBalancePositive(int balance) {</p>
+        <p class="tab-1">...</p>
+        <p>}</p>
+    </div>
+    <p>
+        Выбор понятного имени - довольно сложная задача, и иногда, если совершенно не получается придумать имя, то это
+        знак того что метод делает слишком много и его следует разбить на более мелкие части.
+    </p>
+    <p>
+        Посмотрите главу 2 в
+        <a href="clean_code_proglib.pdf" target="_blank">этой книжке</a>
+        - она вся про культуру именования
+    </p>
+    <p>
+        кому лень читать -
+        <a href="https://www.youtube.com/watch?v=5vsfYifNqzk">смотрите</a>
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="clear-function">
+    <h1>Чистые функции</h1>
+    <p class="no_mb">В программировании есть понятие чистая функция.</p>
+    <p>Чистая функция это функция удовлетворяющая двум условиями:</p>
+    <div class="main-mind">
+        <ul class="tab-1">
+            <li>При передаче одних и тех же аргументов, она всегда возвращает одно и то же значение. Независимо от
+                внешних
+                условий, времени и т.п.
+            </li>
+            <li>Функция не обладает побочными эффектами (не меняет глобальные переменные, не выводит или принимает текст
+                от
+                пользователя, с жесткого диска или из сети)
+            </li>
+        </ul>
+    </div>
+    <p class="no_mb">Например:</p>
+    <div class="code">
+        <p>class Foo {</p>
+        <p class="tab-1">private static int d = 1;</p>
+        <p class="tab-1">// чистая функция.</p>
+        <p class="tab-1">int pureFunction(int x) {</p>
+        <p class="tab-2">return x > 0 ? x * x : 0;</p>
+        <p class="tab-1">}</p>
+        <p class="tab-1">// не чистая (меняется d)</p>
+        <p class="tab-1">int impureFunction1(int x) {</p>
+        <p class="tab-2">d--;</p>
+        <p class="tab-2">return x > 0 ? x * x : 0;</p>
+        <p class="tab-1">}</p>
+        <p class="tab-1">// тоже не чистая: одинаковые аргументы необязательно </p>
+        <p class="tab-1">// приводят к одинаковому результату (это зависит от d)</p>
+        <p class="tab-1">int impureFunction(int x) {</p>
+        <p class="tab-2">return d > 0 ? x * x : 0;</p>
+        <p class="tab-1">}</p>
+        <p class="tab-1">// тоже не чистая: изменяется внешнее состояние - </p>
+        <p class="tab-1">// - текст вывелся на экран.</p>
+        <p class="tab-1">int anotherImpure(int x) {</p>
+        <p class="tab-2">System.out.println("Method was called");</p>
+        <p class="tab-2">return x;</p>
+        <p class="tab-1">}</p>
+        <p>}</p>
+    </div>
+    <p>
+        С чистыми функциями работать - одно удовольствие. Их очень легко тестировать, отлаживать в дебаггере, а также
+        переиспользовать. Их можно вызывать любое число раз не опасаясь последствий. В чисто-функциональных языках
+        программирования, например в haskel все функции чистые, а код, который работает с вводом-выводом вынесен в
+        отдельные изолированные участки кода (монады).
+    </p>
+    <p>
+        <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D1%82%D0%BE%D1%82%D0%B0_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8"
+           target="_blank">
+            Классическое описание
+        </a></p>
+    <p><a href="https://ru.hexlet.io/courses/programming-basics/lessons/pure/theory_unit" target="_blank">
+        Тут видео на эту тему
+    </a></p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="dry">
+    <h1>DRY или "Не повторяйся"</h1>
+    <p class="no_mb">Есть принцип <strong>"DRY"</strong>.</p>
+    <p>Он расшифровывается как <strong>"Не повторяйся"</strong> (Don't repeat yourself).</p>
+    <p>
+        Этот принцип о том, что для изменения единственного элемента программы, нам должно потребоваться изменить код
+        только в одном месте. Другими словами, нам не нужно бегать по всему проекту в поисках мест, отвечающих за
+        поведение одного компонента. Код получается концентрированным, а не разбросанным и это уменьшает шансы что-то
+        упустить при изменениях.
+    </p>
+    <p class="main-mind">Если вы замечаете один и тот же фрагмент кода встречается в нескольких местах,
+        значит скорее всего он нарушен, и стоит это поправить.</p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="boolean">
+    <h1>Boolean в методах</h1>
+    <p class="no_mb">Если
+        <span class="accent-mono">boolean</span>
+        переменная передается в метод как аргумент - <strong>"... это зло!!!"</strong></p>
+    <p>Можно использовать на начале разработки, но потом обязательно <strong>рефакторить в ENUM</strong>.</p>
+    <p>Подробности
+        <a href="https://softwareengineering.stackexchange.com/questions/147977/is-it-wrong-to-use-a-boolean-parameter-to-determine-behavior"
+           target="_blank"> читайте тут </a>
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="refactoring">
+    <h1>Рефакторинг</h1>
+    <p>Для начала следим да следующим:</p>
+    <p class="tab-1">
+        <a href="https://refactoring.guru/ru/replace-magic-number-with-symbolic-constant">Магические числа</a>
+    </p>
+    <p class="tab-1"><a href="https://refactoring.guru/ru/smells/dead-code">Мертвый код</a></p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="comments">
+    <h1>Комментарии</h1>
+
+    <h3>Простой строчный комментарий</h3>
+    <p class="no_mb">Обычно для комментария реализации</p>
+    <div class="code">// текст комментария</div>
+
+    <h3>Блок с комментарием</h3>
+    <p class="no_mb">вложения не допускаются</p>
+    <div class="code">
+        <p>/*</p>
+        <p>текст комментария</p>
+        <p>*/</p>
+    </div>
+
+    <h3>Документационный комментарий (см.&nbsp;JAVA&nbsp;Docs)</h3>
+    <p class="no_mb">Отображается когда наводишь на класс</p>
+    <div class="code">
+        <p>/**</p>
+        <p>* текст комментария</p>
+        <p>* описание работы и и т.п.</p>
+        <p>* @param a - первый параметр</p>
+        <p>* @param b - второй параметр</p>
+        <p>* @return - возвращаемый результат</p>
+        <p>*/</p>
+    </div>
+    <p class="no_mb">Ссылка на класс</p>
+    <div class="code">{@link package.class label}</div>
+    <p class="no_mb">Ссылка на метод или переменную в классе</p>
+    <div class="code">{@link package.class#member label}</div>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+</html>

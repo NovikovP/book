@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA Questions</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">JAVA Questions</h1>
+    <div class="after-h1">Вопросы и ответы для подготовки к собеседованиям</div>
+    <div class="breadcrumbs">
+        <p><a href="../../">главная</a></p>
+        <p>Questions</p>
+    </div>
+    <h3 class="no_mt no_mb">Оглавление <span class="submenu-total">(показать все)</span></h3>
+    <div class="search-box icon-search mb20">
+        <input type="text" name="search" id="search" placeholder="Поиск..." autocomplete="off">
+        <label for="search" id="search-label">Поиск...</label>
+    </div>
+    <ul class="menu">
+        <li>
+            <p class="mb10">
+                <a href="./core/">Core</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ul class="menu submenu no-display">
+                <li>
+                    <p class="mb10">
+                        <a href="./core/oop/">ООП</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/oop/#q1">Что такое ООП?</a></li>
+                        <li><a href="./core/oop/#q2">Какие преимущества у ООП?</a></li>
+                        <li><a href="./core/oop/#q3">Какие недостатки у ООП?</a></li>
+                        <li><a href="./core/oop/#q4">Назовите основные принципы ООП.</a></li>
+                        <li><a href="./core/oop/#q5">Что такое инкапсуляция? (с&nbsp;примером)</a></li>
+                        <li><a href="./core/oop/#q6">Что такое наследование?(с&nbsp;примером)</a></li>
+                        <li><a href="./core/oop/#q7">Что такое полиморфизм? (с&nbsp;примером)</a></li>
+                        <li><a href="./core/oop/#q8">Что такое ассоциация, агрегация и композиция?</a></li>
+                        <li><a href="./core/oop/#q9">Расскажите про раннее (статическое) и позднее (динамическое)
+                            связывание.</a>
+                        </li>
+                        <li><a href="../theory/#solid">SOLID</a></li>
+                        <li><a href="./core/oop/#q11">REST</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/base/">Базовые знания</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/base/#q1">Какая основная идея языка?</a></li>
+                        <li><a href="./core/base/#q2">За счет чего обеспечивается кроссплатформенность?</a></li>
+                        <li><a href="./core/base/#q3">Какие преимущества у JAVA?</a></li>
+                        <li><a href="./core/base/#q4">Какие недостатки у JAVA?</a></li>
+                        <li><a href="./core/base/#q5">Что такое JDK? Что в него входит?</a></li>
+                        <li><a href="./core/base/#q6">Что такое JRE? Что в него входит?</a></li>
+                        <li><a href="./core/base/#q7">Что такое JVM?</a></li>
+                        <li><a href="./core/base/#q8">Что такое byte code?</a></li>
+                        <li><a href="./core/base/#q9">Что такое загрузчик классов (classloader)?</a></li>
+                        <li><a href="./core/base/#q10">Что такое JIT?</a></li>
+                        <li><a href="./core/base/#q11">Что такое сборщик мусора? (Garbage collector)</a></li>
+                        <li><a href="./core/base/#q12">Что такое Heap и Stack память в Java? Чем они отличаются?</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/datatypes/">Типы данных</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/datatypes/#q1">Какие примитивные типы данных есть в Java?</a></li>
+                        <li><a href="./core/datatypes/#q2">Что такое классы-обертки?</a></li>
+                        <li><a href="./core/datatypes/#q3">Что такое Aвтоупаковка и Aвтораспаковка</a></li>
+                        <li><a href="./core/datatypes/#q4">Расскажите про приведение типов</a></li>
+                        <li><a href="./core/datatypes/#q5">Что такое пул интов?</a></li>
+                        <li><a href="./core/datatypes/#q6">Какие нюансы у строк в Java?</a></li>
+                        <li><a href="./core/datatypes/#q7">Что такое пул строк?</a></li>
+                        <li><a href="./core/datatypes/#q8">Почему String неизменяемый и финализированный класс?</a></li>
+                        <li><a href="./core/datatypes/#q9">Какая основная разница между String, StringBuffer,
+                            StringBuilder?</a></li>
+                        <li><a href="./core/datatypes/#q10">Что такое сигнатура метода?</a></li>
+                        <li><a href="./core/datatypes/#q11">Каким образом переменные передаются в методы?</a></li>
+                    </ol>
+
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/classes/">Классы и Object</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/classes/#q1">Какие виды классов есть в java?</a></li>
+                        <li><a href="./core/classes/#q2">Что такое вложенный класс</a></li>
+                        <li><a href="./core/classes/#q3">Что такое локальный класс?</a></li>
+                        <li><a href="./core/classes/#q4">Что такое анонимные классы?</a></li>
+                        <li><a href="./core/classes/#q5">Что такое перечисления (enum)?</a></li>
+                        <li><a href="./core/classes/#q6">Что такое конструктор?</a></li>
+                        <li><a href="./core/classes/#q7">Модификаторы доступа</a></li>
+                        <li><a href="./core/classes/#q8">Использование модификаторов</a></li>
+                        <li><a href="./core/classes/#q9">Абстрактные классы</a></li>
+                        <li><a href="./core/classes/#q10">Интерфейсы</a></li>
+                        <li><a href="./core/classes/#q11">Порядок вызова конструкторов</a></li>
+                        <li><a href="./core/classes/#q12">Object, equals и hashCode</a></li>
+                    </ol>
+
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/exceptions/">Исключения в JAVA</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/exceptions/#q1">Что такое исключение?</a></li>
+                        <li><a href="./core/exceptions/#q2">Иерархия исключений</a></li>
+                        <li><a href="./core/exceptions/#q3">Обработка исключений</a></li>
+                        <li><a href="./core/exceptions/#q4">Механизм Try-catch-finally</a></li>
+                        <li><a href="./core/exceptions/#q5">Механизм Try-with-resources</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/serialization/">Сериализация и копирование</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/serialization/#q1">Сериализация</a></li>
+                        <li><a href="./core/serialization/#q2">Процесс с использованием Serializable</a></li>
+                        <li><a href="./core/serialization/#q3">Изменение и настрой сериализации</a></li>
+                        <li><a href="./core/serialization/#q4">Клонирование объектов</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/generics/">Дженерики</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/generics/#q1">Что такое дженерики?</a></li>
+                        <li><a href="./core/generics/#q2">Для чего нужны дженерики?</a></li>
+                        <li><a href="./core/generics/#q3">Что такое сырые типы (raw type)?</a></li>
+                        <li><a href="./core/generics/#q4">Что такое вайлдкарды (маски)?</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/collections/">Коллекции</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/collections/#q1">Базовые интерфейсы</a></li>
+                        <li><a href="./core/collections/#q2">Интерфейс Collection</a></li>
+                        <li><a href="./core/collections/#q3">Реализации интерфейса List</a></li>
+                        <li><a href="./core/collections/#q4">Реализации интерфейса Set</a></li>
+                        <li><a href="./core/collections/#q5">Реализации интерфейса Queue</a></li>
+                        <li><a href="./core/collections/#q6">Реализации интерфейса Map</a></li>
+                        <li><a href="./core/collections/#q7">Другие коллекции</a></li>
+                        <li><a href="./core/collections/#q8">Синхронизированные коллекции</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/functional_interfaces/">Функциональные интерфейсы</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/functional_interfaces/#q1">Определение</a></li>
+                        <li><a href="./core/functional_interfaces/#q2">Лямбда-выражения</a></li>
+                        <li><a href="./core/functional_interfaces/#q3">Ссылка на метод</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/stream_api/">Stream API</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/stream_api/#q1">Что такое Stream API?</a></li>
+                        <li><a href="./core/stream_api/#q2">Способы создания стрима</a></li>
+                        <li><a href="./core/stream_api/#q3">Промежуточные методы</a></li>
+                        <li><a href="./core/stream_api/#q4">Терминальные методы</a></li>
+                        <li><a href="./core/stream_api/#q5">Класс Collectors</a></li>
+                        <li><a href="./core/stream_api/#q6">Параллельная обработка</a></li>
+                        <li><a href="./core/stream_api/#q7">Стримы для примитивов</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./core/java_8/">Java 8</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./core/java_8/#q1">Нововведения</a></li>
+                        <li><a href="./core/java_8/#q2">Новые классы для даты</a></li>
+                        <li><a href="./core/java_8/#q3">Optional</a></li>
+                        <li><a href="./core/java_8/#q4">Что такое Nashorn?</a></li>
+                        <li><a href="./core/java_8/#q5">Что такое jjs?</a></li>
+                        <li><a href="./core/java_8/#q6">Класс для (де)кодировки</a></li>
+                        <li><a href="./core/java_8/#q7">Новые методы для maps</a></li>
+                        <li><a href="./core/java_8/#q8">Что такое LocalDateTime?</a></li>
+                        <li><a href="./core/java_8/#q9">Что такое ZonedDateTime?</a></li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p class="mb10">
+                <a href="./multithreading/">Multithreading</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ol class="menu submenu no-display">
+                <li><a href="./multithreading/#q1">Чем процесс отличается от потока?</a></li>
+                <li><a href="./multithreading/#q2">Thread и Runnable</a></li>
+                <li><a href="./multithreading/#q3">Монитор и synchronized</a></li>
+                <li><a href="./multithreading/#q4">Синхронизация</a></li>
+                <li><a href="./multithreading/#q5">Методы wait(), notify() и notifyAll()</a></li>
+                <li><a href="./multithreading/#q6">Состояния потока</a></li>
+                <li><a href="./multithreading/#q7">Семафор</a></li>
+                <li><a href="./multithreading/#q8">Volatile</a></li>
+                <li><a href="./multithreading/#q9">Типы данных Atomic</a></li>
+                <li><a href="./multithreading/#q10">Демон потоки</a></li>
+                <li><a href="./multithreading/#q11">Приоритет потока</a></li>
+                <li><a href="./multithreading/#q12">Метод Thread.join()</a></li>
+                <li><a href="./multithreading/#q13">Отличия yield() и sleep()</a></li>
+                <li><a href="./multithreading/#q14">Остановка потока</a></li>
+                <li><a href="./multithreading/#q15">Runnable и Callable</a></li>
+                <li><a href="./multithreading/#q16">FutureTask</a></li>
+                <li><a href="./multithreading/#q17">Deadlock</a></li>
+                <li><a href="./multithreading/#q18">Levelock</a></li>
+                <li><a href="./multithreading/#q19">Race Condition</a></li>
+                <li><a href="./multithreading/#q20">Фреймворк Fork/Join</a></li>
+                <li><a href="./multithreading/#q21">Concurrent Collections (кратко)</a></li>
+                <li><a href="./multithreading/#q22">Stream API & ForkJoinPool</a></li>
+            </ol>
+        </li>
+        <li>
+            <p class="mb10">
+                <a href="./spring/">Spring</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ol class="menu submenu no-display">
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q1">Инверсия контроля (IoC) и внедрение зависимостей (DI)</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q1_ioc">Inversion of Control (IoC)</a></li>
+                        <li><a href=./spring/"#q1_di">Dependency Injection (DI)</a></li>
+                    </ol>
+                </li>
+                <li><a href="./spring/#q2">IoC Container</a></li>
+                <li><a href="./spring/#q3">Bean в Spring</a></li>
+                <li><a href="./spring/#q4">Аннотация @Bean</a></li>
+                <li><a href="./spring/#q5">Аннотация @Component</a></li>
+                <li><a href="./spring/#q6">Отличия @Bean и @Component</a></li>
+                <li><a href="./spring/#q7">Отличия @Service и @Repository</a></li>
+                <li><a href="./spring/#q8">Аннотация @Autowired</a></li>
+                <li><a href="./spring/#q9">Аннотация @Resource</a></li>
+                <li><a href="./spring/#q10">Аннотация @Inject</a></li>
+                <li><a href="./spring/#q11">Аннотация @Lookup</a></li>
+                <li><a href="./spring/#q12">Можно ли вставить бин в статическое поле?</a></li>
+                <li><a href="./spring/#q13">Аннотации @Primary и @Qualifier</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q14">Как заинжектить примитив?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q14_value">@Value</a></li>
+                        <li><a href="./spring/#q14_spel">@Value with SpEL</a></li>
+                        <li><a href="./spring/#q14_map">@Value with Map</a></li>
+                        <li><a href="./spring/#q14_constructor">@Value with Constructor</a></li>
+                        <li><a href="./spring/#q14_setter">@Value with Setter</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q15">Как заинжектить коллекцию?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q15_array">Array Injection</a></li>
+                        <li><a href="./spring/#q15_collection">Collections Injection</a></li>
+                        <li><a href="./spring/#q15_beans">Коллекции бинов одного типа</a></li>
+                        <li><a href="./spring/#q15_qualifier">Использование @Qualifier</a></li>
+                        <li><a href="./spring/#q15_sort">Упорядочивание элементов массивов/списков</a></li>
+                    </ol>
+                </li>
+                <li><a href="./spring/#q16">Аннотация @Conditional</a></li>
+                <li><a href="./spring/#q17">Аннотация @ComponentScan</a></li>
+                <li><a href="./spring/#q18">Аннотация @Profile</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q19">ApplicationContext и BeanFactory</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q19_bf">BeanFactory</a></li>
+                        <li><a href="./spring/#q19_ac">ApplicationContext</a></li>
+                        <li><a href="./spring/#q19_eq">ApplicationContext vs. BeanFactory</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q20">Жизненный цикл бина, аннотации @PostConstruct и @PreDestroy</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q20_beans">Жизненный цикл бинов</a></li>
+                        <li><a href="./spring/#q20_predestroy">@PreDestroy</a></li>
+                        <li><a href="./spring/#q20_postconstuct">@PostConstruct</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q21">Scope бинов</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#q21_singleton">Singleton</a></li>
+                        <li><a href="./spring/#q21_prototype">Prototype</a></li>
+                        <li><a href="./spring/#q21_request">Request</a></li>
+                        <li><a href="./spring/#q21_session">Session</a></li>
+                        <li><a href="./spring/#q21_application">Application</a></li>
+                        <li><a href="./spring/#q21_websocket">Websocket</a></li>
+                        <li><a href="./spring/#q21_custom">Custom thread scope</a></li>
+                    </ol>
+                </li>
+                <li><a href="./spring/#q22">АОП в Spring</a></li>
+                <li><a href="./spring/#q23">Транзакции и аннотация @Transactional</a></li>
+                <li><a href="./spring/#q24">Паттерн MVC в Spring</a></li>
+                <li><a href="./spring/#q25">ViewResolver</a></li>
+                <li><a href="./spring/#q26">Паттерн Front Controller в Spring</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q27">Отличия Model, ModelMap и ModelAndView</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#model">Model</a></li>
+                        <li><a href="./spring/#model_map">ModelMap</a></li>
+                        <li><a href="./spring/#model_view">ModelAndView</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./spring/#q28">Аннотации @Controller и @RestController</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ol class="menu submenu no-display">
+                        <li><a href="./spring/#controller">@Controller</a></li>
+                        <li><a href="./spring/#rest_controller">@RestController</a></li>
+                        <li><a href="./spring/#response_entity">ResponseEntity</a></li>
+                    </ol>
+                </li>
+                <li><a href="./spring/#q29">Filters, Listeners и Interceptors</a></li>
+                <li><a href="./spring/#q30">Передача параметров в GET-запросе</a></li>
+                <li><a href="./spring/#q31">Spring Security</a></li>
+                <li><a href="./spring/#q32">Spring Boot</a></li>
+                <li><a href="./spring/#q33">Нововведения Spring 5</a></li>
+                <li><a href="./spring/#q34">Servlet</a></li>
+            </ol>
+        </li>
+        <li>
+            <p class="mb10">
+                <a href="./jpa/">JPA & HIBERNATE</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ol class="menu submenu no-display">
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q1">Что такое ORM, JPA, Hibernate?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q1_orm">Что такое ORM?</a></li>
+                        <li><a href="./jpa/#q1_jpa">Что такое JPA</a></li>
+                        <li><a href="./jpa/#q1_hibernate">Что такое Hibernate?</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q2">Что такое EntityManager? Какие функции он выполняет?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q2_entity_manager">EntityManager</a></li>
+                        <li><a href="./jpa/#q2_entity_manager_function">Основные функции EntityManager</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q3">Каким условиям должен удовлетворять класс, чтобы являться Entity?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q3_entity">Entity</a></li>
+                        <li><a href="./jpa/#q3_entity_jpa">Требования к Entity классу в JPA</a></li>
+                        <li><a href="./jpa/#q3_entity_hibernate">Требования к Entity классу в Hibernate</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q4">Может ли абстрактный класс быть Entity?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q5">Наследование Entity классов</a>
+                        <span class="submenu-button"></span></p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q5_entity_inherit_not_entity">
+                            Может ли Entity класс наследоваться от не
+                            Entity классов (non-entity classes)?</a></li>
+                        <li><a href="./jpa/#q5_entity_inherit_entity">
+                            Может ли Entity класс наследоваться от Entity
+                            классов?</a></li>
+                        <li><a href="./jpa/#q5_not_entity_inherit_entity">
+                            Может ли не Entity класс наследоваться от
+                            Entity класса?</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q6">
+                            Что такое встраиваемый (Embeddable) класс?
+                            Какие требования JPA предъявляет к встраиваемым (Embeddable) классам?
+                        </a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q6_embeddable">Встраиваемый (Embeddable) класс</a></li>
+                        <li><a href="./jpa/#q6_embeddable_features">Особенности встраиваемых классов</a></li>
+                        <li><a href="./jpa/#q6_embeddable_requirement">Требования к встраиваемым классам</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q7">Что такое Mapped Superclass?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q7_feature">Особенности Mapped Superclass</a></li>
+                        <li><a href="./jpa/#q7_vs_embeddable">Mapped Superclass vs. Embeddable class</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q8">
+                            Какие три стратегии маппинга при наследовании сущностей
+                            (Entity Inheritance Mapping Strategies) описаны в JPA?
+                        </a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q8_single">Одна таблица на всю иерархию классов</a></li>
+                        <li><a href="./jpa/#q8_joined">Стратегия «соединения» (JOINED)</a></li>
+                        <li><a href="./jpa/#q8_everyone">Таблица для каждого конкретного класса сущностей</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q9">Как мапятся Enum`ы?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q10_">Как мапятся даты (до Java 8 и после)</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q10_sql">java.sql</a></li>
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q10_util">java.util</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul class="menu submenu no-display">
+                                <li><a href="./jpa/#q10_date">java.util.Date</a></li>
+                                <li><a href="./jpa/#q10_calendar">java.util.Calendar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./jpa/#q10_time">java.time</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q11">Как сохранять в базе данных коллекции базовых типов?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q12">Какие существуют виды связей?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q12_multiplicity">Множественность в отношениях сущностей</a></li>
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q12_direction">Направление в отношениях сущностей</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul class="menu submenu no-display">
+                                <li><a href="./jpa/#q12_bidirectional">Двунаправленные отношения</a></li>
+                                <li><a href="./jpa/#q12_unidirectional">Однонаправленные отношения</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./jpa/#q12_request">Запросы и направление отношений</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q13">Что такое "владелец связи"?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q13_owner">Владелец связи и владеемый</a></li>
+                        <li><a href="./jpa/#q13_parent">Родительская сущность (таблица)</a></li>
+                        <li><a href="./jpa/#q13_child">Дочерняя сущность (таблица)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q14">Что такое каскадные операции?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q14_orphans">Удаление сирот в отношениях (Orphan Removal)</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q15">Какие два типа fetch-стратегии в JPA вы знаете?</a></li>
+                <li><a href="./jpa/#q16">
+                    Какие четыре статуса жизненного цикла Entity-объекта (Entity Instance’s Life Cycle)
+                    вы можете перечислить?</a>
+                </li>
+                <li><a href="./jpa/#q17">Как влияет операция persist на объекты Entity каждого статуса?</a></li>
+                <li><a href="./jpa/#q18">Как влияет операция remove на объекты Entity каждого статуса?</a></li>
+                <li><a href="./jpa/#q19">Как влияет операция merge на объекты Entity каждого статуса?</a></li>
+                <li><a href="./jpa/#q20">Как влияет операция refresh на объекты Entity каждого статуса?</a></li>
+                <li><a href="./jpa/#q21">Как влияет операция detach на объекты Entity каждого статуса?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q22">Для чего нужна аннотация @Basic?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q22_">Базовый тип значений</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q23">Для чего нужна аннотация @Column?</a></li>
+                <li><a href="./jpa/#q24">Для чего нужна аннотация @Access?</a></li>
+                <li><a href="./jpa/#q25">Для чего нужна аннотация @Cacheable?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q26">Для чего нужны аннотации @Embedded и @Embeddable?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q26_embeddable">@Embeddable</a></li>
+                        <li><a href="./jpa/#q26_embedded">@Embedded</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q27">Как смаппить составной ключ?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q27_id_class">@IdClass</a></li>
+                        <li><a href="./jpa/#q27_embedded_id">@EmbeddedId</a></li>
+                        <li><a href="./jpa/#q27_comparison">@IdClass vs @EmbeddedId</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q28">Для чего нужна аннотация @ID? Какие GeneratedValue вы знаете?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q28_id">@Id</a></li>
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q28_strategy">Стратегии генерации Id</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul>
+                                <li><a href="./jpa/#q28_auto">AUTO</a></li>
+                                <li><a href="./jpa/#q28_identity">IDENTITY</a></li>
+                                <li><a href="./jpa/#q28_sequence">SEQUENCE</a></li>
+                                <li><a href="./jpa/#q28_table">TABLE</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q29">Расскажите про аннотации @JoinColumn, @JoinColumns и @JoinTable.
+                            Где и для чего они используются?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q29_join_column">@JoinColumn</a></li>
+                        <li><a href="./jpa/#q29_join_columns">@JoinColumns</a></li>
+                        <li><a href="./jpa/#q29_join_table">@JoinTable</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q30">Для чего нужны аннотации @OrderBy и @OrderColumn,
+                            чем они отличаются друг от друга?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q30_">@OrderBy</a></li>
+                        <li><a href="./jpa/#q30_">@OrderColumn</a></li>
+                        <li><a href="./jpa/#q30_">@OrderBy vs @OrderColumn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#q31">Для чего нужна аннотация @Transient?</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q32">Какие шесть режимов блокировок (lock modes) описаны в спецификации JPA
+                            (или какие есть значения у enum LockModeType в JPA)?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q32_optimistic">Оптимистичное блокирование</a></li>
+                        <li><a href="./jpa/#q32_pessimistic">Пессимистичное блокирование </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q33">Какие два вида кэшей (cache) вы знаете в JPA и для чего они нужны?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q33_l1">Кэш первого уровня</a></li>
+                        <li><a href="./jpa/#q33_l2">Кэш второго уровня</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q34">Как работать с кэшем 2 уровня?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q34_shared_cache_mode"></a>shared-cache-mode</li>
+                        <li><a href="./jpa/#q34_cache">@Cache</a></li>
+                        <li><a href="./jpa/#q34_query_cache">Кэш запросов (Query Cache)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q35">Что такое JPQL/HQL и чем он отличается от SQL?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q35_jpql">Java Persistence query language (JPQL)</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul class="menu submenu no-display">
+                                <li><a href="./jpa/#q35_polymorph">Полиморфные запросы</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./jpa/#q35_hql">Hibernate Query Language (HQL)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q36">Что такое Criteria API и для чего он используется?</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q36_hibernate_criteria">Hibernate Criteria API</a></li>
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q36_jpa_criteria">JPA Criteria API</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul class="menu submenu no-display">
+                                <li><a href="./jpa/#q36_metamodel">Metamodel и типобезопасность</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./jpa/#q37">Расскажите про проблему N+1 Select и путях ее решения</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./jpa/#q37_eager">N+1 при FetchType.EAGER</a></li>
+                        <li><a href="./jpa/#q37_lazy">N+1 при FetchType.LAZY</a></li>
+                        <li>
+                            <p class="mb10">
+                                <a href="./jpa/#q37_solution">Решения проблемы N+1</a>
+                                <span class="submenu-button"></span>
+                            </p>
+                            <ul class="menu submenu no-display">
+                                <li><a href="./jpa/#q37_join_fetch">JOIN FETCH</a></li>
+                                <li><a href="./jpa/#q37_entity_graph">EntityGraph</a></li>
+                                <li><a href="./jpa/#q37_sub_select">@Fetch(FetchMode.SUBSELECT)</a></li>
+                                <li><a href="./jpa/#q37_batch_size">@BatchSize</a></li>
+                                <li><a href="./jpa/#q37_mapping">HibernateSpecificMapping, SqlResultSetMapping</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="./jpa/#38">Что такое Entity Graph? Как и для чего его использовать?</a></li>
+            </ol>
+        </li>
+        <li>
+            <p class="mb10">
+                <a href="./sql/">SQL</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ul class="menu submenu no-display">
+                <li><a href="./jpa/#"></a></li>
+            </ul>
+        </li>
+        <li>
+            <p class="mb10">
+                <a href="./patterns/">Patterns</a>
+                <span class="submenu-button"></span>
+            </p>
+            <ul class="menu submenu no-display">
+                <li><a href="./patterns/#intro">Введение</a></li>
+                <li>
+                    <p class="mb10">
+                        <a href="./patterns/#cp">Порождающие(creational) паттерны</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./patterns/#factory_method">Фабричный метод (Factory Method)</a></li>
+                        <li><a href="./patterns/#abstract_factory">Абстрактная ф-ка (Abstract Factory)</a></li>
+                        <li><a href="./patterns/#singleton">Одиночка (Singleton)</a></li>
+                        <li><a href="./patterns/#builder">Строитель (Builder)</a></li>
+                        <li><a href="./patterns/#prototype">Прототип (Prototype)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./patterns/#sp">Структурные(structural) паттерны</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./patterns/#adapter">Адаптер (Adapter)</a></li>
+                        <li><a href="./patterns/#bridge">Мост (Bridge)</a></li>
+                        <li><a href="./patterns/#composite">Компоновщик (Composite)</a></li>
+                        <li><a href="./patterns/#decorator">Декоратор (Decorator)</a></li>
+                        <li><a href="./patterns/#facade">Фасад (Facade)</a></li>
+                        <li><a href="./patterns/#flyweigtht">Приспособленец (Flyweight)</a></li>
+                        <li><a href="./patterns/#proxy">Заместитель (Proxy)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="mb10">
+                        <a href="./patterns/#bp">Поведенческие(behavioral) паттерны</a>
+                        <span class="submenu-button"></span>
+                    </p>
+                    <ul class="menu submenu no-display">
+                        <li><a href="./patterns/#iterator">Итератор (Iterator)</a></li>
+                        <li><a href="./patterns/#mediator">Посредник (Mediator)</a></li>
+                        <li><a href="./patterns/#strategy">Стратегия (Strategy)</a></li>
+                        <li><a href="./patterns/#observer">Наблюдатель (Observer)</a></li>
+                        <li><a href="./patterns/#command">Команда (Command)</a></li>
+                        <li><a href="./patterns/#chain">Цепочка ответственности (Chain Of Responsibility)</a></li>
+                        <li><a href="./patterns/#state">Состояние (State)</a></li>
+                        <li><a href="./patterns/#template">Шаблонный метод (Template method)</a></li>
+                        <li><a href="./patterns/#visitor">Посетитель (Visitor)</a></li>
+                        <li><a href="./patterns/#interpreter">Интерпретатор (Interpreter)</a></li>
+                        <li><a href="./patterns/#memento">Хранитель (Memento)</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="container" id="video">
+    <h1></h1>
+    <p class="no_mb">
+        <a href="https://www.youtube.com/playlist?list=PL4DF-Dpx_ABoXN1wJ2nA-BcdrxFrrp1TL" target="_blank">
+            Несколько видео с разбором реальных собеседований</a>
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+<script src="../../js/submenu.js"></script>
+
+</html>

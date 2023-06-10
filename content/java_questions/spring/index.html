@@ -1,0 +1,3542 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPRING</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">SPRING</h1>
+    <div class="after-h1">Вопросы к собеседованию</div>
+    <div class="breadcrumbs">
+        <p><a href="../../../">главная</a></p>
+        <p><a href="..">Questions</a></p>
+        <p>spring</p>
+    </div>
+    <h3 class="no_mt">Вопросы:</h3>
+    <ol class="menu">
+        <li>
+            <p>
+                <a href="#q1">Инверсия контроля (IoC) и внедрение зависимостей (DI)</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#q1_ioc">Inversion of Control (IoC)</a></p>
+                <p><a href="#q1_di">Dependency Injection (DI)</a></p>
+            </div>
+        </li>
+        <li><a href="#q2">IoC Container</a></li>
+        <li><a href="#q3">Bean в Spring</a></li>
+        <li><a href="#q4">Аннотация @Bean</a></li>
+        <li><a href="#q5">Аннотация @Component</a></li>
+        <li><a href="#q6">Отличия @Bean и @Component</a></li>
+        <li><a href="#q7">Отличия @Service и @Repository</a></li>
+        <li><a href="#q8">Аннотация @Autowired</a></li>
+        <li><a href="#q9">Аннотация @Resource</a></li>
+        <li><a href="#q10">Аннотация @Inject</a></li>
+        <li><a href="#q11">Аннотация @Lookup</a></li>
+        <li><a href="#q12">Можно ли вставить бин в статическое поле?</a></li>
+        <li><a href="#q13">Аннотации @Primary и @Qualifier</a></li>
+        <li>
+            <p>
+                <a href="#q14">Как заинжектить примитив?</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#q14_value">@Value</a></p>
+                <p><a href="#q14_spel">@Value with SpEL</a></p>
+                <p><a href="#q14_map">@Value with Map</a></p>
+                <p><a href="#q14_constructor">@Value with Constructor</a></p>
+                <p><a href="#q14_setter">@Value with Setter</a></p>
+            </div>
+        </li>
+        <li>
+            <p>
+                <a href="#q15">Как заинжектить коллекцию?</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#q15_array">Array Injection</a></p>
+                <p><a href="#q15_collection">Collections Injection</a></p>
+                <p><a href="#q15_beans">Коллекции бинов одного типа</a></p>
+                <p><a href="#q15_qualifier">Использование @Qualifier</a></p>
+                <p><a href="#q15_sort">Упорядочивание элементов массивов/списков</a></p>
+            </div>
+        </li>
+        <li><a href="#q16">Аннотация @Conditional</a></li>
+        <li><a href="#q17">Аннотация @ComponentScan</a></li>
+        <li><a href="#q18">Аннотация @Profile</a></li>
+        <li>
+            <p>
+                <a href="#q19">ApplicationContext и BeanFactory</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#q19_bf">BeanFactory</a></p>
+                <p><a href="#q19_ac">ApplicationContext</a></p>
+                <p><a href="#q19_eq">ApplicationContext vs. BeanFactory</a></p>
+            </div>
+        </li>
+        <li>
+            <p>
+                <a href="#q20">Жизненный цикл бина, аннотации @PostConstruct и @PreDestroy</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p class="no_mb"><a href="#q20_beans">Жизненный цикл бинов</a></p>
+                <ul class="tab-3">
+                    <li class="no_mb">Парсирование конфигурации и создание BeanDefinition</li>
+                    <li class="no_mb">Настройка созданных BeanDefinition</li>
+                    <li class="no_mb">Создание кастомных FactoryBean (только для XML-конфигурации)</li>
+                    <li class="no_mb">Создание экземпляров бинов</li>
+                    <li class="no_mb">Настройка созданных бинов</li>
+                    <li class="no_mb">Бины готовы к использованию</li>
+                    <li class="no_mb">Закрытие контекста</li>
+                </ul>
+                <p><a href="#q20_predestroy">@PreDestroy</a></p>
+                <p><a href="#q20_postconstuct">@PostConstruct</a></p>
+            </div>
+        </li>
+        <li>
+            <p>
+                <a href="#q21">Scope бинов</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#q21_singleton">Singleton</a></p>
+                <p><a href="#q21_prototype">Prototype</a></p>
+                <p><a href="#q21_request">Request</a></p>
+                <p><a href="#q21_session">Session</a></p>
+                <p><a href="#q21_application">Application</a></p>
+                <p><a href="#q21_websocket">Websocket</a></p>
+                <p><a href="#q21_custom">Custom thread scope</a></p>
+            </div>
+        </li>
+        <li><a href="#q22">АОП в Spring</a></li>
+        <li><a href="#q23">Транзакции и аннотация @Transactional</a></li>
+        <li><a href="#q24">Паттерн MVC в Spring</a></li>
+        <li><a href="#q25">ViewResolver</a></li>
+        <li><a href="#q26">Паттерн Front Controller в Spring</a></li>
+        <li>
+            <p>
+                <a href="#q27">Отличия Model, ModelMap и ModelAndView</a>
+                <span class="spoiler-button"></span>
+            </p>
+            <div class="spoiler">
+                <p><a href="#model">Model</a></p>
+                <p><a href="#model_map">ModelMap</a></p>
+                <p><a href="#model_view">ModelAndView</a></p>
+            </div>
+        </li>
+        <li>
+            <p>
+                <a href="#q28">Аннотации @Controller и @RestController</a>
+                <span class="spoiler-button"></span>
+            </p>
+
+            <div class="spoiler">
+                <p><a href="#controller">@Controller</a></p>
+                <p><a href="#rest_controller">@RestController</a></p>
+                <p><a href="#response_entity">ResponseEntity</a></p>
+            </div>
+        </li>
+        <li><a href="#q29">Filters, Listeners и Interceptors</a></li>
+        <li><a href="#q30">Передача параметров в GET-запросе</a></li>
+        <li><a href="#q31">Spring Security</a></li>
+        <li><a href="#q32">Spring Boot</a></li>
+        <li><a href="#q33">Нововведения Spring 5</a></li>
+        <li><a href="#q34">Servlet</a></li>
+    </ol>
+</section>
+
+<section class="container" id="q1">
+    <h1>Инверсия контроля (IoC) и внедрение зависимостей (DI)</h1>
+    <hr>
+    <h3 id="q1_ioc">Inversion of Control (IoC)</h3>
+    <p class="main-mind">Инверсия (от латинского inversio) - перестановка.</p>
+    <p class="no_mb main-mind">
+        Инверсия контроля (инверсия управления) — это <strong>принцип</strong> в разработке программного обеспечения,
+        при котором <strong>управление объектами</strong> или частями программы
+        <strong>передается контейнеру или фреймворку</strong>.
+    </p>
+    <p class="example">Чаще всего этот принцип используется в контексте объектно-ориентированного программирования.</p>
+    <p>
+        В отличие от традиционного программирования, в котором наш пользовательский код обращается напрямую к
+        библиотекам, IoC позволяет фреймворку контролировать ход программы и обращаться к нашему коду, когда это
+        необходимо. Для этого, фреймворки используют абстракции со встроенным дополнительным поведением. Если мы хотим
+        добавить наше собственное поведение, нам нужно расширить классы фреймворка или подключить наши собственные
+        классы.
+    </p>
+    <p class="no_mb">Преимущества этой архитектуры:</p>
+    <ul class="tab-2">
+        <li><strong>отделение выполнения задачи от ее реализации</strong>;</li>
+        <li>легкое <strong>переключение между различными реализациями</strong>;</li>
+        <li>большая <strong>модульность</strong> программы;</li>
+        <li>
+            более легкое <strong>тестирование</strong> программы путем изоляции компонента или проверки его
+            зависимостей и обеспечения взаимодействия компонентов через контракты.
+        </li>
+    </ul>
+    <p>
+        Инверсия управления может быть достигнута с помощью различных механизмов, таких как: шаблон проектирования
+        “Стратегия”, шаблон “Локатор служб”, шаблон “Фабрика” и внедрение зависимостей (DI).
+    </p>
+    <hr>
+    <h3 id="q1_di">Dependency Injection (DI)</h3>
+    <p class="main-mind">
+        Внедрение зависимостей — это <strong>шаблон</strong> проектирования для реализации IoC,
+        где <strong>инвертируемым (переопределяемым) элементом контроля является настройка зависимостей объекта</strong>.
+    </p>
+    <p>
+        <strong>Соединение</strong> объектов с другими объектами или «внедрение»
+        объектов в другие объекты <strong>выполняется <a href="#q2">контейнером IoC</a></strong>, а не самими объектами.
+    </p>
+    <p class="main-mind">
+        В Spring Framework инверсия контроля достигается именно внедрением зависимостей.
+    </p>
+    <p class="main-mind">
+        В Spring Framework инверсия контроля и внедрение зависимостей считаются одним и тем же.
+    </p>
+    <p>
+        В Spring Framework внедрение зависимостей описывается как процесс, посредством которого <strong>объект
+        определяет свои зависимости</strong> (то есть другие объекты, с которыми он работает) <strong>только через
+        аргументы конструктора, аргументы фабричного метода или свойства</strong>, которые устанавливаются в экземпляре
+        объекта после того, как он создан или возвращен из метода фабрики.
+        После чего <strong>контейнер IoC внедряет</strong> эти зависимости в компонент <strong>при его создании</strong>.
+    </p>
+    <p>
+        Мы можем создать зависимость объекта следующим традиционным способом,
+        <strong>без использования принципа IoC</strong>:
+    </p>
+    <div class="code no_mb">
+        <p>public class Store {</p>
+        <p class="tab-1">private Item item;</p>
+        <p class="tab-1">public Store() {</p>
+        <p class="tab-2">item = new ItemImpl1();</p>
+        <p class="tab-1">}</p>
+        <p>}</p>
+    </div>
+    <p class="example">
+        В приведенном выше примере мы создаем экземпляр конкретной реализации интерфейса Item (ItemImpl1) внутри самого
+        класса Store.
+    </p>
+
+    <p>
+        <strong>Используя DI</strong> , мы можем переписать пример без указания конкретной реализации Item, не создавая
+        её внутри нашего объекта, а ожидая её получение извне (от внешнего фреймворка - контейнера IoC):
+    </p>
+    <div class="code no_mb">
+        <p>public class Store {</p>
+        <p class="tab-1">private Item item;</p>
+        <p class="tab-1">public Store(Item item) {</p>
+        <p class="tab-2">this.item = item;</p>
+        <p class="tab-1">}</p>
+        <p>}</p>
+    </div>
+    <p class="example">
+        В данном случае инверсия контроля — это переход контроля над зависимостями от объекта Store к контейнеру IoC.
+        Объект Store более не контролирует инстанцирование своего поля (зависимости) item, не создаёт этот объект
+        самостоятельно, а делегирует этот процесс внешним силам - контейнеру IoC, который в нашем примере передаёт в
+        конструктор Store любую из реализаций Item.
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q2">
+    <h1>IoC Container?</h1>
+    <p>
+        В Spring Framework IoC Container <strong> отвечает за создание, настройку и сборку объектов, известных как бины,
+        а также за управление их жизненным циклом</strong>.
+    </p>
+    <p>Он (контейнер) представлен интерфейсом ApplicationContext.</p>
+    <p>Spring Framework предоставляет несколько реализаций интерфейса ApplicationContext:</p>
+    <ul class="tab-2 sparse-li">
+        <li>
+            <p>ClassPathXmlApplicationContext и FileSystemXmlApplicationContext</p>
+            <p class="example">- для автономных приложений;</p>
+        </li>
+        <li>
+            <p>WebApplicationContext</p>
+            <p class="example">- для веб-приложений;</p>
+        </li>
+        <li>
+            <p>AnnotationConfigApplicationContext</p>
+            <p class="example">
+                - для обычной Java-конфигурации,в качестве аргумента которому передается класс, либо список классов с
+                аннотацией
+                <an>@Configuration</an>
+                , либо с любой другой аннотацией JSR-330, в том числе и
+                <an>@Component</an>
+                .
+            </p>
+
+        </li>
+    </ul>
+
+    <p>
+        Контейнер получает инструкции о том, какие объекты создавать, настраивать и собирать, через метаданные
+        конфигурации, которые представлены в виде XML, Java-аннотаций или Java-кода:
+    </p>
+    <ul class="tab-2 sparse-li">
+        <li>XML - Метаданные считываются из файла с расширением *.xml;</li>
+        <li>
+            Java-аннотации - В Spring 2.5 появилась поддержка метаданных конфигурации на основе аннотаций, которая
+            использует данные байт-кода для подключения компонентов.
+            Вместо того, чтобы использовать XML-файл для описания связывания компонентов, разработчик перемещает
+            конфигурацию в сам класс компонента, используя аннотации к соответствующему классу, методу или полю.
+            При этом, сам XML-файл с базовыми настройками остаётся. Контейнер считывает аннотации перед
+            считыванием XML, поэтому, если бин конфигурируется и через аннотации и через XML-файл, то
+            <strong>настройки XML переопределят настройки аннотаций</strong>.
+        </li>
+        <li>
+            <p>
+                Java-код - Начиная со Spring 3.0, используя Java-код, а не файлы XML, мы можем определять настройки в
+                специальном классе, помеченном аннотацией
+                <an>@Configuration</an>
+                .
+            </p>
+            <p class="example">
+                Появились аннотации
+                <an>@Configuration</an>
+                ,
+                <an>@Bean</an>
+                ,
+                <an>@Import</an>
+                и
+                <an>@DependsOn</an>
+                и т.д.
+            </p>
+        </li>
+    </ul>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q3">
+    <h1>Bean в Spring?</h1>
+    <p>
+        В Spring объекты, образующие основу приложения и управляемые контейнером Spring IoC, называются бинами.
+    </p>
+    <p class="main-mind no_mb">
+        Бин — это объект, который создается, собирается и управляется контейнером <a href="#q2">Spring IoC</a>.
+    </p>
+    <p class="example">Иначе говоря, бин — это просто один из множества объектов в вашем приложении.</p>
+    <p> Бины и их зависимости отражаются в метаданных конфигурации, используемых контейнером. </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q4">
+    <h1>Аннотация @Bean</h1>
+    <p class="main-mind">
+        @Bean - Это аннотация Spring Framework, она используется над методом для указания того, что данный метод
+        создает, настраивает и инициализирует новый объект, управляемый Spring IoC контейнером.
+    </p>
+    <p>
+        Такие методы можно использовать как в классах с аннотацией
+        <an>@Configuration</an>
+        , так и в классах с аннотацией
+        <an>@Component</an>
+        (или её наследниках).
+    </p>
+    <p class="no_mb"> Позволяет дополнительно определить у бина: </p>
+    <table class="list list--dictionary" aria-label="">
+        <thead>
+        <tr>
+            <th>Параметр</th>
+            <th>Описание</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>name</td>
+            <td>имя (уникальный идентификатор) бина;</td>
+        </tr>
+        <tr>
+            <td>initMethod</td>
+            <td>имя метода для вызова во время инициализации бина;</td>
+        </tr>
+        <tr>
+            <td>destroyMethod</td>
+            <td>имя метода для вызова во время удаления бина из контекста;</td>
+        </tr>
+        <tr>
+            <td>autowireCandidate</td>
+            <td>является ли этот бин кандидатом на автоматическое внедрение в другой бин.</td>
+        </tr>
+    </table>
+    <p>
+        Классы, аннотированные
+        <an>@Configuration</an>, <strong>проксируются через CGLIB</strong>.
+    </p>
+    <p>
+        Классы
+        <an>@Component</an>
+        <strong>или обычные классы не проксируются</strong> и не перехватывают вызовы методов с аннотациями @Bean, что
+        означает, что вызовы не будут маршрутизироваться через контейнер
+        и каждый раз будет возвращаться новый экземпляр бина.
+    </p>
+    <p>
+        Также методы бинов, вызывая друг друга в таких классах, не будут создавать бины, а будет просто выполняться код
+        метода, ведь в данном случае они отработают не через прокси.
+    </p>
+    <p>
+        <span class="bold">CGLIB (Code Generation Library)</span>
+        - Это библиотека инструментария байтов, используемая во многих средах Java, таких
+        как Hibernate или Spring. Инструментарий байт-кода позволяет манипулировать или создавать классы после фазы
+        компиляции программы.
+    </p>
+    <p class="no_mb"> Hibernate использует CGLIB для генерации динамических прокси. </p>
+    <p class="example">
+        Например, он не вернет полный объект, хранящийся в базе данных, но вернет инструментальную версию хранимого
+        класса, которая лениво загружает значения из базы данных по требованию.
+    </p>
+    <p>
+        <span class="bold">Прокси</span>
+        — это шаблон проектирования. Создаем и используем его для добавления и изменения функционала уже существующих
+        классов. В таком случае, прокси-объект применяется вместо исходного. Обычно он использует тот же метод, что и
+        оригинальный, и в Java прокси-классы расширяют исходные.
+    </p>
+    <hr>
+    <h3>Имена бинов</h3>
+    <p>
+        <strong>Имя бина</strong>, которое в контейнере является одновременно и его
+        <strong>уникальным идентификатором</strong>, по умолчанию соответствует имени метода, аннотированного @Bean.
+    </p>
+    <p class="no_mb">
+        Но если требуется указать иное имя, то можно использовать <strong>атрибут name</strong>, который
+        принимает String. Однако, атрибут name также <strong>может принимать массив String</strong>,
+        что позволяет использовать несколько имен.
+    </p>
+    <p>
+        <strong>
+            Первый элемент массива будет являться именем и уникальным
+            идентификатором бина, а остальные будут его псевдонимами.
+        </strong>
+    </p>
+    <div class="code">
+        <p><an>@Bean</an>({"b1", "b2"}) //
+            <span class="good">bean available as 'b1' and 'b2'</span>, <span class="bad">but not 'myBean'</span></p>
+        <p>public MyBean myBean() {</p>
+        <p class="tab-1">// instantiate and configure MyBean obj</p>
+        <p class="tab-1">return obj;</p>
+        <p>}</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q5">
+    <h1>Аннотация @Component</h1>
+    <p class="no_mb">Если хотим, <strong>чтобы из этого класса был создан бин</strong>, то используем
+        <an>@Component</an></p>
+    <p class="example"> Именно эту аннотацию ищет Spring Framework, когда сканирует наши классы.</p>
+    <p class="no_mb"><strong>Именем бина будет название класса с маленькой буквы</strong>. </p>
+    <p class="example">Можно указать имя (Id) для создаваемого бина.</p>
+
+    <p class="no_mb"> Аннотация @Component имеет наследников: </p>
+    <p class="no_mb"><an>@Repository</an>, <an>@Service</an> и <an>@Controller</an>.</p>
+    <p class="example no_mb">
+        Все они являются частными случаями использования @Component для слоёв DAO, сервиса и
+        контроллера MVC соответственно.
+    </p>
+    <p class="example no_mb">Также эти аннотации могут иметь дополнительный смысл в будущих версиях Spring
+        Framework.</p>
+    <p class="example">В остальных же случаях достаточно использовать аннотацию @Component.</p>
+
+    <table class="list list--dictionary" aria-label="@Component">
+        <thead>
+        <tr>
+            <th>Аннотация</th>
+            <th>Описание</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>@Component</td>
+            <td>Spring определяет этот класс как кандидата для создания bean.</td>
+        </tr>
+        <tr>
+            <td>@Service</td>
+            <td>
+                <p>указывает, что класс содержит бизнес-логику и вызывает методы на уровне хранилища.</p>
+                <p class="example">Ничем не отличается от классов с @Component.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>@Repository</td>
+            <td>
+                <p>указывает, что класс выполняет роль хранилища (объект доступа к DAO).</p>
+                <p class="example">
+                    Задача @Repository заключается в том, чтобы отлавливать определенные исключения персистентности и
+                    пробрасывать их как одно непроверенное исключение Spring Framework.
+                    Для этого Spring оборачивает эти классы в прокси, и в контекст должен быть добавлен класс
+                    PersistenceExceptionTranslationPostProcessor.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>@Controller</td>
+            <td>
+                <p>указывает, что класс выполняет роль контроллера MVC.</p>
+                <p class="example">DispatcherServlet просматривает такие классы для поиска @RequestMapping.</p>
+            </td>
+        </tr>
+    </table>
+    <p>
+        <span class="bold">@RequestMapping</span> используется для мапинга (связывания) с URL для всего класса
+        или для конкретного метода обработчика.
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q6">
+    <h1>Отличия @Bean и @Component</h1>
+    <p class="main-mind">
+        Аннотация @Component (как и @Service и @Repository) используется для автоматического обнаружения и
+        автоматической настройки бинов в ходе сканирования путей к классам.
+    </p>
+    <p class="main-mind no_mb">Аннотация @Bean используется для явного объявления бина.</p>
+    <p class="no_mb">
+        A не для того, чтобы Spring делал это автоматически в ходе сканирования путей к классам:
+    </p>
+    <ul class="tab-2">
+        <li>прописываем <strong>вручную метод для создания бина</strong>;</li>
+        <li>
+            делает возможным <strong>объявление бина независимо от объявления класса</strong>,
+            что позволяет использовать классы из сторонних библиотек,
+            у которых мы не можем указать аннотацию @Component;
+        </li>
+        <li>
+            аннотацией @Bean <strong>можно настроить initMethod, destroyMethod, autowireCandidate</strong>,
+            делая создание бина более гибким.
+        </li>
+    </ul>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q7">
+    <h1>Отличия @Service и @Repository</h1>
+    <p class="no_mb">
+        @Service и @Repository являются частными случаями @Component.
+    </p>
+    <p>
+        <strong>Технически они одинаковы</strong> , но мы используем их<strong>для разных целей</strong>.
+    </p>
+    <p class="no_mb">
+        Задача @Repository заключается в том, чтобы отлавливать определенные исключения персистентности и пробрасывать
+        их как одно непроверенное исключение Spring Framework.
+    </p>
+    <p> Для этого в контекст должен быть добавлен класс PersistenceExceptionTranslationPostProcessor. </p>
+    <p class="no_mb"> Мы помечаем бины аннотацией @Service, чтобы указать, что они содержат бизнес-логику. </p>
+    <p>Так что нет никакого другого предназначения, кроме как использовать ее на уровне сервиса.</p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q8">
+    <h1>Аннотация @Autowired</h1>
+    <p class="main-mind">
+        Аннотация Spring Framework, которой отмечают конструктор, поле, сеттер-метод или метод конфигурации,
+        указывая, что им обязательно требуется внедрение зависимостей.
+    </p>
+    <p>
+        Если в контейнере не будет обнаружен необходимый для вставки бин, то будет выброшено исключение, либо можно
+        указать <an>@Autowired(required = false)</an>, означающее, что внедрение зависимости в данном месте
+        необязательно.
+    </p>
+    <p>
+        Аннотация @Autowired является альтернативой Java-аннотации @Inject, не имеющей required = false (зависимость
+        должна быть обязательно внедрена).
+    </p>
+    <p class="no_mb">
+        Начиная со Spring Framework 4.3, аннотация @Autowired для конструктора больше не требуется, если целевой
+        компонент определяет только один конструктор.
+    </p>
+    <p>
+        Однако, если доступно несколько конструкторов и нет
+        основного/стандартного конструктора, по крайней мере один из конструкторов должен быть аннотирован @Autowired,
+        чтобы указать контейнеру, какой из них использовать.
+    </p>
+    <p class="no_mb">
+        <strong>По умолчанию Spring распознает объекты для вставки по типу</strong>.
+    </p>
+    <p>
+        Если в контейнере доступно более одного бина одного и того же типа, будет исключение. Для избежания этого можно
+        указать аннотацию Spring Framework - <an>@Qualifier</an>("fooFormatter"), где fooFormatter — это имя (Id) одного
+        из нескольких бинов одного типа, находящихся в контейнере и доступных для внедрения:
+    </p>
+    <div class="code">
+        <p>public class FooService {</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1"><an>@Qualifier("fooFormatter")</an></p>
+        <p class="tab-1">private Formatter formatter;</p>
+        <p>}</p>
+    </div>
+    <hr>
+    <h4>Выбор из нескольких бинов</h4>
+    <p>
+        <strong>При выборе</strong> между несколькими бинами при автоматическом внедрении
+        <strong>используется имя поля</strong>.
+        Это поведение по умолчанию, если нет других настроек.
+    </p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@Qualifier("fooFormatter")</an></p>
+        <p>public class FooFormatter implements Formatter {</p>
+        <p class="tab-1">//...</p>
+        <p class="mb10">}</p>
+        <p><an>@Component</an></p>
+        <p><an>@Qualifier("barFormatter")</an></p>
+        <p>public class BarFormatter implements Formatter {</p>
+        <p class="tab-1">//...</p>
+        <p class="mb10">}</p>
+        <p>public class FooService {</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">private Formatter fooFormatter;</p>
+        <p>}</p>
+    </div>
+    <p>
+        В этом случае Spring определит, что нужно внедрить бин с именем FooFormatter, поскольку имя поля соответствует
+        значению, которое мы использовали в аннотации @Component для этого бина.
+    </p>
+    <hr>
+    <h4>Вставка всех бинов</h4>
+    <p>
+        Мы также можем указать Spring предоставить все бины определенного типа из ApplicationContext, добавив аннотацию
+        @Autowired в поле или метод с массивом или коллекцией этого типа:
+    </p>
+    <div class="code">
+        <p><an>@Autowired</an></p>
+        <p class="mb10">private MovieCatalog[] movieCatalogs;</p>
+        <p class="mb10">или</p>
+        <p><an>@Autowired</an></p>
+        <p class="mb10">private Set &lt;MovieCatalog&gt; movieCatalogs;</p>
+        <p class="mb10">или</p>
+        <p><an>@Autowired</an></p>
+        <p>public void setMovieCatalogs(Set &lt;MovieCatalog&gt; movieCatalogs) {</p>
+        <p class="tab-1">this.movieCatalogs = movieCatalogs;</p>
+        <p>}</p>
+    </div>
+    <p class="no_mb">Даже коллекции типа Map могут быть подключены автоматически, если тип ключа - String.</p>
+    <p>Ключами будут имена бинов, а значениями - сами бины:</p>
+    <div class="code">
+        <p class="mb10">public class MovieRecommender {</p>
+        <p class="tab-1 mb10">private Map&lt;String, MovieCatalog&gt; movieCatalogs;</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public void setMovieCatalogs(Map&lt;String, MovieCatalog&gt; movieCatalogs) {</p>
+        <p class="tab-2">this.movieCatalogs = movieCatalogs;</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1 mb10">//...</p>
+        <p>}</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q9">
+    <h1>Аннотация @Resource</h1>
+    <p><strong>Java-аннотация</strong>@Resource может применяться к классам, полям и методам.</p>
+    <p class="main-mind">
+        Она пытается получить зависимость: сначала по имени, затем по типу, затем по описанию (Qualifier).
+    </p>
+    <p>
+        Имя извлекается <strong>из имени аннотируемого сеттера или поля,
+        либо</strong> берется из параметра <strong>name</strong>.
+    </p>
+    <p>
+        <strong>При аннотировании классов имя не извлекается из имени класса</strong>
+        по умолчанию, поэтому оно <strong>должно быть указано явно</strong>.
+    </p>
+    <p>
+        Указав данную аннотацию у полей или методов с аргументом name, в контейнере будет произведен поиск компонентов с
+        данным именем, и <strong>в контейнере должен быть бин</strong> с таким именем:
+    </p>
+    <div class="code">
+        <p><an>@Resource(name="namedFile")</an></p>
+        <p>private File defaultFile;</p>
+    </div>
+    <p>
+        Если указать её без аргументов, то Spring Framework может найти бин по типу.
+    </p>
+    <p>
+        Если в контейнере несколько бинов-кандидатов на внедрение, то нужно использовать аннотацию <an>@Qualifier</an>
+    </p>
+    <div class="code">
+        <p><an>@Resource</an></p>
+        <p><an>@Qualifier("defaultFile")</an></p>
+        <p>private File dependency1;</p>
+        <p class="mb10"></p>
+        <p><an>@Resource</an></p>
+        <p><an>@Qualifier("namedFile")</an></p>
+        <p>private File dependency2;</p>
+    </div>
+
+    <hr>
+    <h4>Разница с @Autowired:</h4>
+    <ul class="tab-2 sparse-li">
+        <li>ищет бин сначала по имени, а потом по типу;</li>
+        <li>не нужна дополнительная аннотация для указания имени конкретного бина;</li>
+        <li>@Autowired позволяет отметить место вставки бина как необязательное @Autowired(required=false);</li>
+        <li>при замене Spring Framework на другой фреймворк, менять аннотацию @Resource не нужно.</li>
+    </ul>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q10">
+    <h1>Аннотация @Inject</h1>
+    <p>
+        <strong>Java-аннотация</strong>
+        @Inject входит в пакет javax.inject и, чтобы её использовать, нужно добавить зависимость:
+    </p>
+    <div class="code">
+        <p>&lt;dependency&gt;</p>
+        <p class="tab-1">&lt;groupId&gt;javax.inject&lt;/groupId&gt;</p>
+        <p class="tab-1">&lt;artifactId&gt;javax.inject&lt;/artifactId&gt;</p>
+        <p class="tab-1">&lt;version&gt;1&lt;/version&gt;</p>
+        <p>&lt;/dependency&gt;</p>
+    </div>
+    <p>Размещается над полями, методами, и конструкторами с аргументами.</p>
+    <p class="main-mind">
+        @Inject как и @Autowired в первую очередь пытается подключить зависимость по типу, затем по описанию и только
+        потом по имени.
+    </p>
+    <p>
+        Это означает, что даже если имя переменной ссылки на класс отличается от имени компонента, но
+        они одинакового типа, зависимость все равно будет разрешена:
+    </p>
+    <div class="code">
+        <p><an>@Inject</an></p>
+        <p>private ArbitraryDependency fieldInjectDependency;</p>
+    </div>
+    <p>отличается от имени компонента, настроенного в контексте приложения:</p>
+    <div class="code">
+        <p><an>@Bean</an></p>
+        <p>public ArbitraryDependency injectDependency() {</p>
+        <p class="tab-1">ArbitraryDependency injectDependency = new ArbitraryDependency();</p>
+        <p class="tab-1">return injectDependency;</p>
+        <p>}</p>
+    </div>
+    <p>
+        Разность имён injectDependency и fieldInjectDependency не имеет значения, зависимость будет подобрана по типу
+        ArbitraryDependency.
+    </p>
+    <br>
+    <p>
+        Если в контейнере <strong>несколько бинов-кандидатов</strong> на внедрение,
+        то нужно использовать аннотацию <strong>@Qualifier</strong>:
+    </p>
+    <div class="code">
+        <p><an>@Inject</an></p>
+        <p><an>@Qualifier("defaultFile")</an></p>
+        <p class="mb10">private ArbitraryDependency defaultDependency;</p>
+        <p><an>@Inject</an></p>
+        <p><an>@Qualifier("namedFile")</an></p>
+        <p>private ArbitraryDependency namedDependency;</p>
+    </div>
+    <br>
+    <p>При использовании конкретного имени (Id) бина используем @Named:</p>
+    <div class="code">
+        <p><an>@Inject</an></p>
+        <p><an>@Named("yetAnotherFieldInjectDependency")</an></p>
+        <p>private ArbitraryDependency yetAnotherFieldInjectDependency;</p>
+    </div>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q11">
+    <h1>Аннотация @Lookup</h1>
+    <p>
+        Обычно бины в приложении Spring являтся синглтонами, и для внедрения зависимостей
+        мы используем конструктор или сеттер.
+    </p>
+    <p>
+
+    </p>
+    <p>
+        Но бывает и другая ситуация: имеется бин Car – синглтон (singleton bean), и ему требуется каждый раз новый
+        экземпляр бина Passenger. То есть Car – синглтон, а Passenger – так называемый прототипный бин (prototype bean).
+        Жизненные циклы бинов разные. Бин Car создается контейнером только раз, а бин Passenger создается каждый раз
+        новый – допустим, это происходит каждый раз при вызове какого-то метода бина Car. Вот здесь-то и пригодится
+        <strong>внедрение бина с помощью Lookup-метода</strong> . Оно происходит не при инициализации контейнера, а
+        позднее: <strong>каждый раз, когда вызывается метод</strong>.
+    </p>
+    <p>
+        Суть в том, что мы создаём метод-заглушку в бине Car и помечаем его специальным образом – аннотацией @Lookup.
+        Этот метод должен возвращать бин Passenger, каждый раз новый. Контейнер Spring под капотом создаст
+        прокси-подкласс и переопределит этот метод и будет нам выдавать новый экземпляр бина Passenger при каждом вызове
+        аннотированного метода. Даже если в нашей заглушке он возвращает null (а так и надо делать - всё равно этот
+        метод будет переопределен в прокси-подклассе):
+    </p>
+    <div class="code">
+        <p>@Component</p>
+        <p class="mb10">public class Car {</p>
+        <p class="tab-1"><an>@Lookup</an></p>
+        <p class="tab-1">public Passenger createPassenger() {</p>
+        <p class="tab-2">return null;</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1">public String drive(String name) {</p>
+        <p class="tab-2">Passenger passenger = createPassenger();</p>
+        <p class="tab-2">passenger.setName(name);</p>
+        <p class="tab-2">return "car with " + passenger.getName();</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+    <p>
+        Допустим, в бине есть метод drive(), и при каждом вызове метода drive() бину Car требуется новый экземпляр бина
+        Passenger – сегодня пассажир Петя, завтра – Вася. То есть <strong></strong>бин Passenger прототипный. Для
+        получения этого бина
+        надо написать метод-заглушку createPassenger() и аннотировать его с помощью @Lookup.
+    </p>
+    <p>
+        Контейнер Spring переопределит этот метод-заглушку и будет выдавать при его вызове каждый раз новый экземпляр
+        Passenger.
+    </p>
+    <p>
+        Переопределяем бин Passenger как прототипный:
+    </p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@Scope("prototype")</an></p>
+        <p class="mb10">public class Passenger {</p>
+        <p class="tab-1">private String name;</p>
+        <p class="tab-1">// + геттер и сеттер</p>
+        <p>}</p>
+    </div>
+    <p>
+        Теперь при вызове метода drive() мы можем везти каждый раз нового пассажира. Имя его передаётся в аргументе
+        метода drive(), и затем задается сеттером во вновь созданном экземпляре пассажира.
+    </p>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q12">
+    <h1>Можно ли вставить бин в статическое поле?</h1>
+    <p class="main-mind">Spring не позволяет внедрять бины напрямую в статические поля.</p>
+    <p>Пример:</p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p class="mb10">public class TestDataInit {</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1 mb10">private static OrderItemService orderItemService;</p>
+        <p>}</p>
+    </div>
+    <p>
+        <strong>Если вы распечатать TestDataInit.orderItemService, там будет null.</strong>
+    </p>
+    <p>Чтобы исправить это, необходимо создать нестатический сеттер-метод:</p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p class="mb10">public class TestDataInit {</p>
+        <p class="tab-1 mb10">private static OrderItemService orderItemService;</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public void setOrderItemService(OrderItemService orderItemService) {</p>
+        <p class="tab-2">TestDataInit.orderItemService = orderItemService;</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q13">
+    <h1>Аннотации @Primary и @Qualifier</h1>
+    <p class="main-mind">
+        @Primary - эта аннотация указывает, какой компонент определенного типа должен внедряться по умолчанию.
+    </p>
+    <div class="code no_mb">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class Config { </p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public Employee JohnEmployee() {</p>
+        <p class="tab-2">return new Employee("John");</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Primary</an></p>
+        <p class="tab-1">public Employee TonyEmployee() {</p>
+        <p class="tab-2">return new Employee("Tony");</p>
+        <p class="tab-1 mb10">}</p>
+        <p></p>
+        <p>}</p>
+    </div>
+    <p class="example no_mb">или</p>
+    <div class="code no_mb">
+        <p><an>@Component</an></p>
+        <p class="mb10">public class DepartmentManager implements Manager {</p>
+        <p class="tab-1"><an>@Override</an></p>
+        <p class="tab-1">public String getManagerName() {</p>
+        <p class="tab-2">return "Department manager";</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="mb10">}</p>
+        <p><an>@Component</an></p>
+        <p><an>@Primary</an></p>
+        <p class="mb10">public class GeneralManager implements Manager {</p>
+        <p class="tab-1"><an>@Override</an></p>
+        <p class="tab-1">public String getManagerName() {</p>
+        <p class="tab-2">return "General manager";</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+    <p class="example">
+        Теперь, где будут требоваться бины типа Employee и Manager будут созданы и внедрены TonyEmployee и
+        GeneralManager.
+    </p>
+    <p class="example no_mb">Когда есть несколько бинов одного типа, подходящих для внедрения</p>
+    <p>
+        Aннотация @Qualifier позволяет указать в качестве аргумента имя конкретного бина, который следует внедрить.
+    </p>
+    <p class="example no_mb">При совместном применении</p>
+    <p>Аннотация @Qualifier будет иметь над @Primary приоритет.</p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q14">
+    <h1 class="mb10">Как заинжектить примитив?</h1>
+    <div class="after-h1">
+        <p class="tab-2"><a href="#q14_value">@Value</a></p>
+        <p class="tab-2"><a href="#q14_spel">@Value with SpEL</a></p>
+        <p class="tab-2"><a href="#q14_map">@Value with Map</a></p>
+        <p class="tab-2"><a href="#q14_constructor">@Value with Constructor</a></p>
+        <p class="tab-2"><a href="#q14_setter">@Value with Setter</a></p>
+
+    </div>
+    <h3 id="q14_value">@Value</h3>
+    <p>Внедрить в поле примитив можно с помощью аннотации @Value на уровне параметров поля или конструктора/метода.</p>
+    <p>Значения, которые необходимо внедрить аннотацией @Value, определяются в файле свойств (*.properties)</p>
+    <p class="no_mb"></p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@PropertySource("classpath:values.properties")</an></p>
+        <p>public class CollectionProvider {</p>
+        <p class="tab-1">//...</p>
+        <p>}</p>
+    </div>
+    <p class="no_mb">Содержимое файла values.properties:</p>
+    <div class="code">
+        <p>value.from.file=Value got from the file</p>
+        <p>priority=high</p>
+        <p>listOfValues=A,B,C</p>
+    </div>
+    <p class="no_mb">Внедряем значение value.from.file, равное “Value got from the file”:</p>
+    <div class="code">
+        <p><an>@Value("${value.from.file}")</an></p>
+        <p>private String valueFromFile;</p>
+    </div>
+    <p>
+        Если из файла не подтянутся значения по тем или иным причинам, то можно указать значения,
+        которые будут внедрены по умолчанию.
+    </p>
+    <p class="no_mb">В данном примере, если не будет доступен value.from.file, то внедрится значение “some default”:</p>
+    <div class="code">
+        <p><an>@Value("${value.from.file:some default}")</an></p>
+        <p>private String someDefault;</p>
+    </div>
+    <p class="no_mb">
+        Если нужно внедрить несколько значений, то можно их определить в файле *.properties через запятую и Spring
+        внедрит их как массив:
+    </p>
+    <div class="code">
+        <p><an>@Value("${listOfValues}")</an></p>
+        <p>private String[] valuesArray;</p>
+    </div>
+    <hr>
+    <h3 id="q14_spel">@Value with SpEL</h3>
+    <p> Кроме того, для внедрения значений можно использовать язык SpEL (Spring Expression Language):</p>
+    <div class="code no_mb">
+        <p><an>@Value("#{systemProperties['priority']}")</an></p>
+        <p>private String spelValue;</p>
+    </div>
+    <p class="example no_mb">или со значениями по умолчанию:</p>
+    <div class="code">
+        <p><an>@Value("#{systemProperties['unknown'] ?: 'some default'}")</an></p>
+        <p>private String spelSomeDefault;</p>
+    </div>
+    <p class="no_mb"> Можно использовать значение поля из другого бина. </p>
+    <p class="example no_mb">
+        Предположим, есть бин с именем someBean с полем someValue, равным 10. В поле будет записано число 10:
+    </p>
+    <div class="code">
+        <p><an>@Value("#{someBean.someValue}")</an></p>
+        <p>private Integer someBeanValue;</p>
+    </div>
+    <p class="no_mb">Можно манипулировать свойствами, чтобы получить список значений.</p>
+    <p class="example no_mb">Получаем список строковых значений A, B и C:</p>
+    <div class="code">
+        <p><an>@Value("#{'${listOfValues}'.split(',')}")</an></p>
+        <p>private List&lt;String&gt; valuesList;</p>
+    </div>
+    <hr>
+    <h3 id="q14_map">@Value with Map</h3>
+    <p>Можно использовать аннотацию @Value для добавления свойств в Map.</p>
+    <p class="no_mb">Свойство в файле свойств должно быть определено в формате {key: 'value'}:</p>
+    <div class="code">
+        <p>valuesMap={key1: '1', key2: '2', key3: '3'}</p>
+    </div>
+    <p class="no_mb">Вставка:</p>
+    <div class="code">
+        <p><an>@Value("#{${valuesMap}}")</an></p>
+        <p>private Map &lt;String, Integer&gt; valuesMap;</p>
+    </div>
+    <p class="no_mb">Можем просто внедрить значение по ключу:</p>
+    <div class="code">
+        <p><an>@Value("#{${valuesMap}.key1}")</an></p>
+        <p>private Integer valuesMapKey1;</p>
+    </div>
+    <p class="no_mb">
+        Если достоверно не известно, содержит ли Map определенный ключ, то нужно выбрать более безопасное выражение,
+        которое не будет генерировать исключение, а установит значение в null, если ключ не найден:
+    </p>
+    <div class="code">
+        <p><an>@Value("#{${valuesMap}['unknownKey']}")</an></p>
+        <p>private Integer unknownMapKey;</p>
+    </div>
+    <p class="no_mb"> Можно установить значения по умолчанию для свойств или ключей, которые могут не существовать: </p>
+    <div class="code">
+        <p><an>@Value("#{${unknownMap : {key1: '1', key2: '2'}}}")</an></p>
+        <p class="mb10">private Map&lt;String, Integer&gt; unknownMap;</p>
+        <p><an>@Value("#{${valuesMap}['unknownKey'] ?: 5}")</an></p>
+        <p>private Integer unknownMapKeyWithDefaultValue;</p>
+    </div>
+    <p class="no_mb"> Записи карты также могут быть отфильтрованы перед внедрением.</p>
+    <p class="example no_mb"> Предположим, нам нужно получить только те записи, значения которых больше единицы: </p>
+    <div class="code">
+        <p><an>@Value("#{${valuesMap}.?[value>'1']}")</an></p>
+        <p>private Map&lt;String, Integer&gt; valuesMapFiltered;</p>
+    </div>
+    <p class="no_mb"> Мы также можем использовать аннотацию @Value для добавления всех текущих системных свойств: </p>
+    <div class="code">
+        <p><an>@Value("#{systemProperties}")</an></p>
+        <p>private Map&gt;String, String&gt; systemPropertiesMap;</p>
+    </div>
+    <hr>
+    <h3 id="q14_constructor">@Value with Constructor</h3>
+    <p class="no_mb">
+        Можно внедрять значения в конструкторе, если оно не найдено, то будет внедрено значение по умолчанию:
+    </p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@PropertySource("classpath:values.properties")</an></p>
+        <p class="mb10">public class PriorityProvider {</p>
+        <p class="tab-1 mb10">private String priority;</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public PriorityProvider(<an>@Value("${priority:normal}")</an> String priority) {</p>
+        <p class="tab-2">this.priority = priority;</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1 mb10">//standard getter</p>
+        <p>}</p>
+    </div>
+    <hr>
+    <h3 id="q14_setter">@Value with Setter</h3>
+    <p>В приведенном коде используется выражение SpEL для добавления списка значений в метод setValues:</p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@PropertySource("classpath:values.properties")</an></p>
+        <p class="mb10">public class CollectionProvider {</p>
+        <p class="tab-1 mb10">private List&lt;String&gt; values = new ArrayList<>();</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public void setValues(<an>@Value("#{'${listOfValues}'.split(',')}")</an>
+            List&lt;String&gt; values) {</p>
+        <p class="tab-2">this.values.addAll(values);</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q15">
+    <h1 class="mb10">Как заинжектить коллекцию?</h1>
+    <div class="after-h1">
+        <p class="tab-2"><a href="#q15_array">Array Injection</a></p>
+        <p class="tab-2"><a href="#q15_collection">Collections Injection</a></p>
+        <p class="tab-2"><a href="#q15_beans">Коллекции бинов одного типа</a></p>
+        <p class="tab-2"><a href="#q15_qualifier">Использование @Qualifier</a></p>
+        <p class="tab-2"><a href="#q15_sort">Упорядочивание элементов массивов/списков</a></p>
+    </div>
+    <hr>
+    <h3 id="q15_array">Array Injection</h3>
+    <p>
+        Можно вставлять массивы примитивов и ссылочных типов. Со всеми массивами и коллекциями можно использовать
+        внедрение через конструкторы, сеттеры или поля:
+    </p>
+    <div class="code">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class ArrayExample {</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public TestBean testBean() {</p>
+        <p class="tab-2">return new TestBean();</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public String[] strArray() {</p>
+        <p class="tab-2">return new String[]{"two", "three", "four"};</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="mb10">}</p>
+        <p class="mb10">public class TestBean {</p>
+        <p class="tab-1 mb10">private String[] stringArray;</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public void setStringArray (String[] stringArray) {</p>
+        <p class="tab-2">this.stringArray = stringArray;</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+
+    <hr>
+    <h3 id="q15_collection">Collections Injection</h3>
+    <div class="code">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class ListExample {</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public TestBean testBean() {</p>
+        <p class="tab-2">return new TestBean();</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public List&lt;String&gt; strList() {</p>
+        <p class="tab-2">return Arrays.asList("two", "three", "four");</p>
+        <p class="tab-1">}</p>
+        <p class="mb10">}</p>
+        <p class="mb10">public class TestBean {</p>
+        <p class="tab-1 mb10">private List &lt;String&gt; stringList;</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1">public void setStringList (List&lt;String&gt; stringList) {</p>
+        <p class="tab-2">this.stringList = stringList;</p>
+        <p class="tab-1">}</p>
+        <p>}</p>
+    </div>
+
+    <hr>
+    <h3 id="q15_beans">Коллекции бинов одного типа</h3>
+    <p class="no_mb">
+        Можно собрать все бины одного типа, находящиеся в контейнере, и внедрить их в коллекцию или массив:
+    </p>
+    <div class="code">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class SetInjection {</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public TestBean testBean() {</p>
+        <p class="tab-2">return new TestBean();</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public RefBean refBean1() {</p>
+        <p class="tab-2">return new RefBean("bean 1");</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public RefBean refBean2() {</p>
+        <p class="tab-2">return new RefBean2("bean 2");</p>
+        <p class="tab-1 mb10">}</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public RefBean refBean3() {</p>
+        <p class="tab-2">return new RefBean3("bean 3");</p>
+        <p class="tab-1 mb20">}</p>
+
+        <p class="tab-1 mb10">public static class TestBean {</p>
+        <p class="tab-2 example">// All bean instances of type RefBean will be injecting here</p>
+        <p class="tab-2"><an>@Autowired</an></p>
+        <p class="tab-2 mb10">private Set&lt;RefBean&gt; refBeans;</p>
+        <p class="tab-2 mb10">...</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1 mb10">public static class RefBean {</p>
+        <p class="tab-2 mb10"> private String str;</p>
+        <p class="tab-2">public RefBean(String str) {</p>
+        <p class="tab-3">this.str = str;</p>
+        <p class="tab-2 mb10">}</p>
+        <p class="tab-2 mb10">...</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p>}</p>
+    </div>
+
+    <p class="no_mb">
+        Если нужно внедрить вышеупомянутые бины RefBean в Map, то значениями Map будут сами бины, а ключами будут
+        имена бинов:
+    </p>
+    <div class="code">
+        <p>{refBean1 = RefBean{str='bean 1'}, refBean2 = RefBean{str='bean 2'},
+            refBean3 = RefBean{str='bean 3'}}</p>
+    </div>
+
+    <hr>
+    <h3 id="q15_qualifier">Использование @Qualifier</h3>
+    <p class="no_mb">
+        Методы класса JavaConfig (те, которые аннотированы @Bean) могут быть объявлены с определенным квалифицирующим
+        типом, используя @Qualifier. Используя параметр 'name' у аннотации @Bean, чтобы указать конкретный
+        классификатор для бина, указывается не имя, а идентификатор бина, который должен быть уникальным,
+        потому что все бины хранятся в контейнере в Map.
+    </p>
+    <p>
+        В случае если необходимо чтобы несколько бинов имели одно и то же имя квалификатора, чтобы их можно было
+        внедрить в одну коллекцию с одним и тем же квалификатором, нужно использовать аннотацию @Qualifier вместе с
+        @Bean вместо элемента name.
+    </p>
+    <div class="code">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class SetInjection {</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public TestBean testBean() {</p>
+        <p class="tab-2">return new TestBean();</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public RefBean refBean1() {</p>
+        <p class="tab-2">return new RefBean("bean 1");</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Qualifier("myRefBean")</an></p>
+        <p class="tab-1">public RefBean refBean2() {</p>
+        <p class="tab-2">return new RefBean2("bean 2");</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Qualifier("myRefBean")</an></p>
+        <p class="tab-1">public RefBean refBean3() {</p>
+        <p class="tab-2">return new RefBean3("bean 3");</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1 mb10">public static class TestBean {</p>
+        <p class="tab-2"><an>@Autowired</an></p>
+        <p class="tab-2"><an>@Qualifier("myRefBean")</an></p>
+        <p class="tab-2 mb10">private Set&lt;RefBean&gt; refBeans;</p>
+        <p class="tab-2 mb10">...</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p>}</p>
+    </div>
+    <p><strong>
+        Только бины с именами refBean2 и refBean3 попадут в коллекцию, так как у них одинаковые квалификаторы -
+        myRefBean.
+    </strong></p>
+
+    <hr>
+    <h3 id="q15_sort">Упорядочивание элементов массивов/списков</h3>
+    <p class="no_mb">Бины могут быть упорядочены, когда они вставляются в списки (не Set или Map) или массивы.</p>
+    <p>Поддерживаются как аннотация @Order, так и интерфейс Ordered.</p>
+    <p class="no_mb">Например:</p>
+    <div class="code no_mb">
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class ArrayExample {</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public TestBean testBean() {</p>
+        <p class="tab-2">return new TestBean();</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Order(3)</an></p>
+        <p class="tab-1">public String refString1() {</p>
+        <p class="tab-2">return "my string 1";</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Order(1)</an></p>
+        <p class="tab-1">public String refString2() {</p>
+        <p class="tab-2">return "my string 2";</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1"><an>@Order(2)</an></p>
+        <p class="tab-1">public String refString3() {</p>
+        <p class="tab-2">return "my string 3";</p>
+        <p class="tab-1 mb10">}</p>
+
+        <p class="tab-1 mb10">private static class TestBean {</p>
+        <p class="tab-2 mb10">private String[] stringArray;</p>
+
+        <p class="tab-2"><an>@Autowired</an></p>
+        <p class="tab-2">public void setStringArray (String[] stringArray) {</p>
+        <p class="tab-3">this.stringArray = stringArray;</p>
+        <p class="tab-2 mb10">}</p>
+
+        <p class="tab-2">public String[] getStringArray() {</p>
+        <p class="tab-3">return stringArray;</p>
+        <p class="tab-2 mb10">}</p>
+
+        <p class="tab-1 mb10">}</p>
+
+        <p>}</p>
+    </div>
+    <p class="example no_mb">Массив строк будет выглядеть так:</p>
+    <p class="example">[my string 2, my string 3, my string 1]</p>
+
+    <hr>
+    <br>
+    <div class="image-box">
+        <img class="image" src="./img/inject.png" alt="схема внедрения">
+    </div>
+    <br>
+    <hr>
+    <h4>Также можно объявить бин-коллекцию и внедрять её в другие бины:</h4>
+    <div class="code">
+        <p><an>@Service</an></p>
+        <p><an>@Getter</an></p>
+        <p class="mb10">public class ActionHeroesService {</p>
+        <p class="tab-1"><an>@Autowired</an></p>
+        <p class="tab-1 mb10">List&lt;Hero&gt; actionHeroes;</p>
+        <p class="mb10">}</p>
+        <p><an>@Configuration</an></p>
+        <p class="mb10">public class HeroesConfig {</p>
+        <p class="tab-1"><an>@Bean</an></p>
+        <p class="tab-1">public List&lt;Hero&gt; action() {</p>
+        <p class="tab-2">List&lt;Hero&gt; result = new ArrayList<>();</p>
+        <p class="tab-2">result.add(new Terminator());</p>
+        <p class="tab-2">result.add(new Rambo());</p>
+        <p class="tab-2">return result;</p>
+        <p class="tab-1 mb10">}</p>
+        <p>}</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q16">
+    <h1>Аннотация @Conditional</h1>
+    <p>
+        Часто бывает полезно включить или отключить весь класс @Configuration, @Component или отдельные методы @Bean в
+        зависимости от каких-либо условий.
+    </p>
+    <p class="main-mind">
+        Аннотация @Conditional указывает, что компонент имеет право на регистрацию в контексте только тогда, когда все
+        условия соответствуют.
+    </p>
+    <p class="no_mb">Может применяться:</p>
+    <ul class="tab-2">
+        <li>над классами прямо или косвенно аннотированными @Component, включая классы @Configuration;</li>
+        <li>над методами @Bean;</li>
+        <li>как мета-аннотация при создании наших собственных аннотаций-условий.</li>
+    </ul>
+    <p>
+        Условия проверяются непосредственно перед тем, как должно быть зарегистрировано BeanDefinition компонента, и они
+        могут помешать регистрации данного BeanDefinition. Поэтому нельзя допускать, чтобы при проверке условий мы
+        взаимодействовали с бинами (которых еще не существует), с их BeanDefinition-ами можно.
+    </p>
+    <p class="no_mb">
+        Условия мы определяем в специально создаваемых нами классах, которые должны имплементировать функциональный
+        интерфейс Condition с одним единственным методом, возвращающим true или false:
+    </p>
+    <div class="code">
+        <p>boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata)</p>
+    </div>
+
+    <p class="no_mb">
+        Создав свой класс и переопределив в нем метод matches() со своей логикой, необходимо передать этот класс в
+        аннотацию @Conditional в качестве параметра:
+    </p>
+    <div class="code">
+        <p><an>@Configuration</an></p>
+        <p><an>@Conditional(OurConditionClass.class)</an></p>
+        <p>class MySQLAutoconfiguration {</p>
+        <p class="tab-1">//...</p>
+        <p>}</p>
+    </div>
+
+    <p class="no_mb">
+        Для того, чтобы проверить несколько условий, можно передать в @Conditional несколько классов с условиями:
+    </p>
+    <div class="code">
+        <p><an>@Bean</an></p>
+        <p><an>@Conditional(HibernateCondition.class, OurConditionClass.class)</an></p>
+        <p>Properties additionalProperties() {</p>
+        <p>//...</p>
+        <p>}</p>
+    </div>
+
+    <p class="main-mind">
+        Если класс @Configuration помечен как @Conditional, то на все методы @Bean, аннотации @Import и аннотации
+        @ComponentScan, связанные с этим классом, также будут распространяться указанные условия.
+    </p>
+    <p><strong>Для детальной настройки</strong> классов, аннотированных @Configuration используется интерфейс
+        <strong>ConfigurationCondition</strong></p>
+    <p class="no_mb"><strong>В одном классе - одно условие</strong>.</p>
+    <p>
+        Для создания более сложных условий можно использовать классы AnyNestedCondition,
+        AllNestedConditions и NoneNestedConditions.
+    </p>
+
+    <p class="no_mb">
+        В Spring Framework имеется множество готовых аннотаций (и связанных с ними склассами-условиями,
+        имплементирующими интерфейс Condition), которые можно применять совместно над одним определением бина:
+    </p>
+    <table class="list list--dictionary" aria-label="Conditional annotation">
+        <thead>
+        <tr>
+            <th>Аннотация</th>
+            <th>Описание</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>ConditionalOnBean</td>
+            <td>Условие выполняется, в случае если присутствует нужный бин в BeanFactory.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnClass</td>
+            <td>Условие выполняется, если нужный класс есть в classpath.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnCloudPlatform</td>
+            <td>Условие выполняется, когда активна определенная платформа.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnExpression</td>
+            <td>Условие выполняется, когда SpEL выражение вернуло положительное значение.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnJava</td>
+            <td>Условие выполняется, когда приложение запущено с определенной версией JVM.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnJndi</td>
+            <td>Условие выполняется, только если через JNDI доступен определенный ресурс.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnMissingBean</td>
+            <td>Условие выполняется, в случае если нужный бин отсутствует в контейнере.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnMissingClass</td>
+            <td>Условие выполняется, если нужный класс отсутствует в classpath.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnNotWebApplication</td>
+            <td>Условие выполняется, если контекст приложения не является веб контекстом.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnProperty</td>
+            <td>Условие выполняется, если в файле настроек заданы нужные параметры.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnResource</td>
+            <td>Условие выполняется, если присутствует нужный ресурс в classpath.</td>
+        </tr>
+        <tr>
+            <td>ConditionalOnSingleCandidate</td>
+            <td>
+                Условие выполняется, если bean-компонент указанного класса уже содержится в контейнере и он
+                единственный.
+            </td>
+        </tr>
+        <tr>
+            <td>ConditionalOnWebApplication</td>
+            <td>Условие выполняется, если контекст приложения является веб контекстом.</td>
+        </tr>
+    </table>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q17">
+    <h1>Аннотация @ComponentScan</h1>
+    <p class="no_mb">
+        Аннотация @ComponentScan используется вместе с аннотацией @Configuration для указания пакетов, которые мы хотим
+        сканировать на наличие компонентов, из которых нужно сделать бины.
+    </p>
+    <p class="no_mb">
+        @ComponentScan без аргументов указывает Spring по умолчанию сканировать текущий пакет и все его подпакеты.
+    </p>
+    <p>
+        Текущий пакет - тот, в котором находится файл конфигурации с этой самой аннотацией @ComponentScan.
+    </p>
+    <p class="no_mb">В контейнер попадут:</p>
+    <ul class="tab-2">
+        <li>бин конфигурационного класса;</li>
+        <li>бины, объявленные в конфигурационном классе с помощью @Bean;</li>
+        <li>все бины из пакета и его подпакетов.</li>
+    </ul>
+    <p>
+        Аннотация <strong>@SpringBootApplication включает</strong> в себя аннотации <strong>
+        @ComponentScan, @SpringBootConfiguration и @EnableAutoConfiguration </strong>,
+        но это не мешает разместить её ещё раз отдельно для указания конкретного пакета.
+    </p>
+
+    <p class="no_mb">
+        Если указать @ComponentScan с атрибутом <strong>basePackages</strong>, то это
+        <strong>изменит пакет</strong> по умолчанию <strong>на указанный</strong>:</p>
+    <div class="code">
+        <p><an>@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals") </an></p>
+        <p><an>@Configuration</an></p>
+        <p>public class SpringComponentScanApp {</p>
+        <p class="tab-1">//...</p>
+        <p>}</p>
+    </div>
+
+    <p class="no_mb">
+        Если указать @ComponentScan с атрибутом <strong>excludeFilters</strong>, то это позволит использовать
+        <strong>фильтр</strong> и исключить ненужные классы из процесса сканирования:
+    </p>
+    <div class="code">
+        <p><an>@ComponentScan(excludeFilters =
+        </an></p>
+        <p class="tab-1"><an>
+            @ComponentScan.Filter(type=FilterType.REGEX,
+        </an></p>
+        <p class="tab-2"><an>
+            pattern="com\\.baeldung\\.componentscan\\.springapp\\.flowers\\..*"))
+        </an></p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q18">
+    <h1>Аннотация @Profile</h1>
+    <p class="no_mb">
+        Профили — это ключевая особенность Spring Framework, позволяющая нам относить бины к разным профилям
+        (логическим группам), например, dev, test, prod.
+    </p>
+    <p>
+        Можно активировать разные профили в разных средах, чтобы загрузить только те бины, которые нужны.
+    </p>
+    <p class="main-mind no_mb">Аннотацию @Profile, относит бин к конкретному профилю.</p>
+    <p class="example">Можно применять на уровне класса или метода.</p>
+    <p class="no_mb">Аннотация @Profile принимает в качестве аргумента имя одного или нескольких профилей.</p>
+    <p class="example">Она фактически реализована с помощью гораздо более гибкой аннотации @Conditional.</p>
+
+    <h4>Пример:</h4>
+    <p class="no_mb">
+        Есть бин, который должен быть активным только во время разработки, но не должен использоваться в продакшене.
+    </p>
+    <p class="no_mb">
+        Аннотируем этот компонент с профилем <span class="code-word">«dev»</span>, и он будет присутствовать в
+        контейнере только во время разработки - во время продакшена профиль dev просто не будет активен:
+    </p>
+    <div class="code">
+        <p><an>@Component</an></p>
+        <p><an>@Profile("dev")</an></p>
+        <p>public class DevDatasourceConfig {...}</p>
+    </div>
+    <p class="no_mb">
+        В качестве быстрого обозначения имена профилей также могут начинаться с оператора NOT, например «!dev», чтобы
+        исключить их из профиля:
+    </p>
+    <div class="code no_mb">
+        <p><an>@Component</an></p>
+        <p><an>@Profile("!dev")</an></p>
+        <p>public class DevDatasourceConfig {...}</p>
+    </div>
+    <p class="example">Тут компонент активируется, только если профиль «dev» не активен.</p>
+    <p>
+        Следующим шагом является активация нужного профиля для того, чтобы в контейнере были зарегистрированы только
+        бины, соответствующие данному профилю.
+        <strong>Одновременно могут быть активны несколько профилей.</strong>
+    </p>
+    <p class="no_mb">
+        По умолчанию, <strong>если профиль бина не определен</strong>, то он относится
+        <strong>к профилю "default"</strong>.
+    </p>
+    <p>
+        Spring также предоставляет способ установить профиль по умолчанию, когда другой профиль не активен, используя
+        свойство «spring.profiles.default».
+    </p>
+    <p>
+        В Spring Boot есть возможность иметь один файл настроек application.properties, в котором будут основные
+        настройки для всех профилей, и иметь по файлу настроек для каждого профиля application-dev.properties и
+        application-prod.properties, содержащие свои собственные дополнительные настройки.
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q19">
+    <h1 class="no_mb">ApplicationContext и BeanFactory</h1>
+    <div class="after-h1">
+        <p>Чем отличаются? В каких случаях что стоит использовать?</p>
+        <p class="tab-2"><a href="#q19_bf">BeanFactory</a></p>
+        <p class="tab-2"><a href="#q19_ac">ApplicationContext</a></p>
+        <p class="tab-2"><a href="#q19_eq">ApplicationContext vs. BeanFactory</a></p>
+    </div>
+    <h3 id="q19_bf">BeanFactory</h3>
+    <p class="main-mind">
+        BeanFactory — это интерфейс, который предоставляет механизм конфигурации, способный управлять объектами любого
+        типа.
+    </p>
+    <p class="no_mb">
+        В общем, BeanFactory предоставляет инфраструктуру конфигурации и основные функциональные возможности.
+    </p>
+    <p>BeanFactory легче по сравнению с ApplicationContext.</p>
+
+    <hr>
+    <h3 id="q19_ac">ApplicationContext</h3>
+    <p class="main-mind">
+        ApplicationContext является наследником BeanFactory и полностью реализует его функционал, добавляя больше
+        специфических enterprise-функций.
+    </p>
+    <hr>
+    <h3 id="q19_eq">ApplicationContext vs. BeanFactory</h3>
+    <table class="list list--content-center" aria-label="">
+        <thead>
+        <tr>
+            <th>Особенность</th>
+            <th>BeanFactory</th>
+            <th>ApplicationContext</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>Bean instantiation/wiring</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Integrated lifecycle management</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Automatic BeanPostProcessor registration</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Automatic BeanFactoryPostProcessor registration</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Convenient MessageSource access (for internalization)</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Built-in ApplicationEvent publication mechanism</td>
+            <td>No</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+    <ul class="sparse-li">
+        <li>ApplicationContext загружает все бины при запуске, а BeanFactory - по требованию.</li>
+        <li>
+            <p class="mb10">
+                ApplicationContext расширяет BeanFactory и предоставляет функции, которые подходят для корпоративных
+                приложений:
+            </p>
+            <ul class="sparse-li">
+                <li>поддержка внедрения зависимостей на основе аннотаций;</li>
+                <li>удобный доступ к MessageSource (для использования в интернационализации);</li>
+                <li>публикация ApplicationEvent - для бинов, реализующих интерфейс ApplicationListener, с помощью
+                    интерфейса ApplicationEventPublisher;
+                </li>
+                <li>простая интеграция с функциями Spring AOP.</li>
+            </ul>
+        </li>
+        <li>
+            <p>ApplicationContext поддерживает автоматическую регистрацию BeanPostProcessor и
+                BeanFactoryPostProcessor.</p>
+            <p class="example">
+                Поэтому всегда желательно использовать ApplicationContext, потому что Spring 2.0 (и выше) интенсивно
+                использует BeanPostProcessor.
+            </p>
+        </li>
+        <li>
+            ApplicationContext поддерживает практически все типы scope для бинов, а BeanFactory поддерживает только два
+            - Singleton и Prototype.
+        </li>
+        <li>
+            В BeanFactory не будут работать транзакции и Spring AOP. Это может привести к путанице, потому что
+            конфигурация с виду будет корректной.
+        </li>
+    </ul>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q20">
+    <h1>Жизненный цикл бина, аннотации @PostConstruct и @PreDestroy </h1>
+    <div class="after-h1">
+        <p class="tab-2"><a href="#q20_beans">Жизненный цикл бинов</a></p>
+        <p class="tab-2"><a href="#q20_predestroy">@PreDestroy</a></p>
+        <p class="tab-2"><a href="#q20_postconstuct">@PostConstruct</a></p>
+    </div>
+    <h3 id="q20_beans">Жизненный цикл бинов</h3>
+    <ol class="tab-2 sparse-li">
+        <li class="no_mb"><a href="#lifecircle_1">Парсирование конфигурации и создание BeanDefinition</a></li>
+        <li class="no_mb"><a href="#lifecircle_2">Настройка созданных BeanDefinition</a></li>
+        <li class="no_mb"><a href="#lifecircle_3">Создание кастомных FactoryBean (только для XML-конфигурации)</a></li>
+        <li class="no_mb"><a href="#lifecircle_4">Создание экземпляров бинов</a></li>
+        <li class="no_mb"><a href="#lifecircle_5">Настройка созданных бинов</a></li>
+        <li class="no_mb"><a href="#lifecircle_6">Бины готовы к использованию</a></li>
+        <li class="no_mb"><a href="#lifecircle_7">Закрытие контекста</a></li>
+    </ol>
+    <a class="button button--content_table" href="#q20"></a>
+
+    <hr>
+    <div class="mb20">
+        <div>
+            <h4>Простая схема</h4>
+            <div class="image-box">
+                <img class="image" src="img/beans_lifecycle_simple.png" alt="beans_lifecycle_simple">
+            </div>
+        </div>
+        <div>
+            <h4>Схема с колбеками</h4>
+            <p>Вызываются после вызова сеттеров</p>
+            <div class="image-box">
+                <img class="image" src="img/beans_lifecycle.png" alt="beans_lifecycle">
+            </div>
+            <p class="no_mb">Порядок выполнения колбеков такая же, как на схеме:</p>
+            <ul class="tab-2 no_mb">
+                <li>Первым, будет выполнен метод помеченный аннотацией;</li>
+                <li>Вторым, метод перезаписанный при имплементации соответствующего интерфейса;</li>
+                <li>Третьим, метод указанный в xml;</li>
+            </ul>
+            <p>&nbsp;</p>
+        </div>
+        <div>
+            <h4>Схема с пост-процессорами</h4>
+            <div class="image-box">
+                <img class="image" src="img/beans_lifecycle_post_processor.png" alt="beans_lifecycle_post_processor">
+            </div>
+            <p>Пост-процессоров может быть несколько.</p>
+        </div>
+    </div>
+
+    <hr>
+    <div id="lifecircle_1">
+        <h4>1. Парсирование конфигурации и создание BeanDefinition</h4>
+
+        <p class="main-mind">Цель первого этапа — это создание всех BeanDefinition.</p>
+        <p class="no_mb">
+            Объекты BeanDefinition — это <strong>набор метаданных будущего бина</strong>, макет, по которому нужно
+            будет создавать бин в случае необходимости.
+        </p>
+        <p class="example">
+            То есть для каждого бина создается свой объект BeanDefinition, в
+            котором хранится описание того, как создавать и управлять этим конкретным бином.
+            Сколько бинов в программе - столько и объектов BeanDefinition, их описывающих.
+        </p>
+        <p>BeanDefinition содержат (среди прочего) следующие метаданные:</p>
+        <ol class="sparse-li">
+            <li>Имя класса с указанием пакета: обычно это фактический класс бина.</li>
+            <li>
+                Элементы поведенческой конфигурации бина, которые определяют, как бин должен вести себя в контейнере
+                (scope,
+                обратные вызовы жизненного цикла и т.д.).
+            </li>
+            <li>
+                <p> Ссылки на другие bean-компоненты, которые необходимы для его работы.</p>
+                <p>Эти ссылки также называются зависимостями.</p>
+            </li>
+            <li>
+                Другие параметры конфигурации для установки во вновь созданном объекте - например, ограничение размера
+                пула
+                или количество соединений, используемых в бине, который управляет пулом соединений.
+            </li>
+        </ol>
+        <p> Эти метаданные преобразуются в набор свойств, которые составляют каждое BeanDefinition. </p>
+        <table class="list" aria-label="BeanDefinition">
+            <thead>
+            <tr>
+                <th>Свойство</th>
+                <th>Ссылка с описанием</th>
+            <tr>
+            </thead>
+            <tr>
+                <td>Class</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-class"
+                       target="_blank">
+                        Instantiating Beans
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-beanname"
+                       target="_blank">
+                        Naming Beans
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Scope</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-scopes"
+                       target="_blank">
+                        Bean Scopes
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Constructor arguments</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-collaborators"
+                       target="_blank">
+                        Dependency Injection
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Properties</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-collaborators"
+                       target="_blank">
+                        Dependency Injection
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Autowiring mode</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-autowire"
+                       target="_blank">
+                        Autowiring Collaborators
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Lazy initialization mode</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lazy-init"
+                       target="_blank">
+                        Lazy-initialized Beans
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Initialization method</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle-initializingbean"
+                       target="_blank">
+                        Initialization Callbacks
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Destruction method</td>
+                <td>
+                    <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle-disposablebean"
+                       target="_blank">
+                        Destruction Callbacks
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <p>
+            При конфигурации через аннотации с указанием пакета для сканирования или JavaConfig используется класс
+            <strong>AnnotationConfigApplicationContext</strong> . Регистрируются все классы с
+            @Configuration для дальнейшего парсирования, затем регистрируется специальный
+            BeanFactoryPostProcessor, а именно
+            <strong>BeanDefinitionRegistryPostProcessor</strong>, который при
+            помощи класса <span class="accent-mono">ConfigurationClassParser</span> парсирует JavaConfig,
+            загружает описания бинов (BeanDefinition), <span class="accent-mono">создаёт граф</span> зависимостей
+            (между бинами) и создаёт:
+        </p>
+        <div class="code">
+            Map&lt;String,&nbsp;BeanDefinition&gt; beanDefinitionMap = new&nbsp;ConcurrentHashMap<>(256);
+        </div>
+        <p>в которой хранятся все описания бинов, обнаруженных в ходе парсинга конфигурации.</p>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_2">
+        <h4>2. Настройка созданных BeanDefinition</h4>
+        <p>
+            После первого этапа у нас имеется коллекция Map, в которой хранятся BeanDefinition-ы.
+            BeanFactoryPostProcessor-ы на этапе создания BeanDefinition-ов могут их настроить как нам необходимо.
+            BeanFactoryPostProcessor-ы могут даже настроить саму BeanFactory ещё до того, как она начнет работу по
+            созданию бинов.
+        </p>
+        <p>В интерфейсе BeanFactoryPostProcessor всего один метод:</p>
+        <div class="code">
+            <p>public interface BeanFactoryPostProcessor {</p>
+            <p class="tab-1">
+                void postProcessBeanFactory(ConfigurableListableBeanFactory&nbsp;beanFactory) throws&nbsp;BeansException;
+                }
+            </p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_3">
+        <h4>3. Создание кастомных FactoryBean (только для XML-конфигурации)</h4>
+        <p class="example tab-2">тут что-то происходит...</p>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_4">
+        <h4>4. Создание экземпляров бинов</h4>
+        <p class="no_mb">
+            <strong>Сначала BeanFactory</strong>
+            из коллекции Map с объектами BeanDefinition достаёт те из них, из которых
+            <strong>создаёт все BeanPostProcessor-ы</strong>, необходимые для настройки обычных бинов.
+        </p>
+        <p>
+            Создаются экземпляры бинов через BeanFactory на основе ранее созданных BeanDefinition.
+        </p>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_5">
+        <h4>5. Настройка созданных бинов</h4>
+        <p>На данном этапе бины уже созданы, их можно лишь донастроить.</p>
+        <p>
+            <span class="accent-mono">Интерфейс BeanPostProcessor</span>
+            позволяет вклиниться в процесс настройки
+            <span class="accent-mono">до того, как бины попадут в контейнер</span>.
+        </p>
+        <p class="no_mb">
+            ApplicationContext автоматически обнаруживает любые бины с реализацией BeanPostProcessor и помечает
+            их как “post-processors” для того, чтобы создать их определенным способом.
+        </p>
+        <p class="example">
+            Например, в Spring есть реализации BeanPostProcessor-ов, которые обрабатывают аннотации
+            @Autowired, @Inject, @Value и @Resource.
+        </p>
+        <p class="no_mb">Интерфейс несет в себе два метода:</p>
+        <div class="scroll">
+            <p>
+                <span class="code-word">postProcessBeforeInitialization(Object&nbsp;bean, String&nbsp;beanName)</span>
+            </p>
+            <p>
+                <span class="code-word">postProcessAfterInitialization(Object&nbsp;bean, String&nbsp;beanName)</span>
+            </p>
+        </div>
+        <p>
+            У обоих методов параметры абсолютно одинаковые.
+            Разница только в порядке их вызова. Первый вызывается до init-метода, второй - после.
+        </p>
+        <p>
+            Как правило, BeanPostProcessor-ы, которые
+            <strong>заполняют бины через маркерные интерфейсы</strong> или тому подобное,
+            реализовывают метод <strong>postProcessBeforeInitialization()</strong>.
+        </p>
+        <p>
+            BeanPostProcessor-ы, которые <strong>оборачивают бины в прокси</strong>,
+            обычно реализуют <strong>postProcessAfterInitialization()</strong>.
+        </p>
+        <p class="main-mind">
+            Прокси — это класс-декорация над бином.
+        </p>
+        <div class="example">
+            <p class="no_mb">
+                Например, мы хотим добавить логику нашему бину, но джава-код уже скомпилирован, поэтому нам нужно на
+                лету сгенерировать новый класс. Этим классом мы должны заменить оригинальный класс так, чтобы никто не
+                заметил подмены.
+            </p>
+            <p class="no_mb">Есть два варианта создания этого класса:</p>
+            <p class="tab-1 no_mb">
+                1. либо он должен наследоваться от оригинального класса (CGLIB) и переопределять его методы, добавляя
+                нужную логику;
+            </p>
+            <p class="tab-1">
+                2. либо он должен имплементировать те же самые интерфейсы, что и первый класс (Dynamic Proxy).
+            </p>
+        </div>
+        <p>
+            По конвенции спринга, если какой-то из BeanPostProcessor-ов меняет что-то в классе, то он должен это делать
+            на этапе postProcessAfterInitialization(). Таким образом мы уверены, что initMethod у данного бина, работает
+            на оригинальный метод, до того, как на него накрутился прокси.
+        </p>
+
+        <p>Хронология событий:</p>
+        <ol class="sparse-li">
+            <li>Сначала сработает метод postProcessBeforeInitialization() всех имеющихся BeanPostProcessor-ов.</li>
+            <li>Затем, при наличии, будет вызван метод, аннотированный @PostConstruct.</li>
+            <li>
+                <p>Если бин имплементирует InitializingBean, то Spring вызовет метод afterPropertiesSet()</p>
+                <p class="example">не рекомендуется к использованию как устаревший.</p>
+            </li>
+            <li>При наличии, будет вызван метод, указанный в параметре initMethod аннотации @Bean.</li>
+            <li>
+                <p>В конце бины пройдут через postProcessAfterInitialization().</p>
+                <p>Создадутся прокси стандартными BeanPostProcessor-ами.</p>
+                <p>Отработают кастомные BeanPostProcessor-ы и применят нашу логику к прокси-объектам.</p>
+                <p>
+                    После чего все бины окажутся в контейнере, который будет обязательно
+                    обновлен методом refresh().</p>
+            </li>
+            <li>После этого можем еще донастроить бины ApplicationListener-ами.</li>
+            <li>Теперь всё.</li>
+        </ol>
+
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_6">
+        <h4>6. Бины готовы к использованию</h4>
+        <p>Их можно получить с помощью метода <span class="accent-mono">ApplicationContext::getBean()</span></p>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <div id="lifecircle_7">
+        <h4>7. Закрытие контекста</h4>
+        <p>Когда контекст закрывается (метод close() из ApplicationContext), бин уничтожается.</p>
+        <p>Если в бине есть метод, аннотированный @PreDestroy, то перед уничтожением вызовется этот метод.</p>
+        <p class="no_mb"> Если бин имплементирует DisposibleBean, то Spring вызовет метод destroy() </p>
+        <p class="example">не рекомендуется к использованию как устаревший.</p>
+        <p>Если в аннотации @Bean определен метод destroyMethod, то будет вызван и он.</p>
+        <a class="button button--content_table" href="#q20_beans"></a>
+    </div>
+
+    <br>
+    <hr>
+    <h3 id="q20_predestroy">Аннотация @PreDestroy</h3>
+    <p>
+        Spring вызывает методы, аннотированные @PostConstruct, только один раз, сразу после инициализации свойств
+        компонента. За данную аннотацию отвечает один из BeanPostProcessor-ов.
+    </p>
+    <p>
+        Метод, аннотированный @PostConstruct, может иметь любой уровень доступа, может иметь любой тип возвращаемого
+        значения (хотя тип возвращаемого значения игнорируется Spring-ом), метод не должен принимать аргументы. Он также
+        может быть статическим, но преимуществ такого использования метода нет, т.к. доступ у него будет только к
+        статическим полям/методам бина, и в таком случае смысл его использования для настройки бина пропадает.
+    </p>
+    <p>
+        Одним из примеров использования @PostConstruct является заполнение базы данных. Например, во время разработки
+        нам может потребоваться создать пользователей по умолчанию
+    </p>
+    <a class="button button--content_table" href="#q20"></a>
+
+    <hr>
+    <h3 id="q20_postconstuct">Аннотация @PostConstruct</h3>
+    <p>
+        Метод, аннотированный @PreDestroy, запускается только один раз, непосредственно перед тем, как Spring удаляет
+        наш компонент из контекста приложения.
+    </p>
+    <p>
+        Как и в случае с @PostConstruct, методы, аннотированные @PreDestroy, могут иметь любой уровень доступа, но не
+        могут быть статическими.
+    </p>
+    <p>
+        Целью этого метода может быть освобождение ресурсов или выполнение любых других задач очистки до уничтожения
+        бина например, закрытие соединения с базой данных.
+    </p>
+    <p>
+        Обратите внимание, что аннотации @PostConstruct и @PreDestroy являются частью Java EE, а именно пакета
+        javax.annotation модуля java.xml.ws.annotation. И поскольку Java EE устарела в Java 9, то с этой версии пакет
+        считается устаревшим (Deprecated).
+    </p>
+    <p class="no_mb">
+        С Java 11 данный пакет вообще удален, поэтому мы должны добавить
+        дополнительную зависимость для использования этих аннотаций:
+    </p>
+    <div class="code">
+        <p>&lt;dependency&gt;</p>
+        <p class="tab-1">&lt;groupId&gt;javax.annotation&lt;/groupId&gt;</p>
+        <p class="tab-1">&lt;artifactId&gt;javax.annotation-api&lt;/artifactId&gt;</p>
+        <p class="tab-1">&lt;version&gt;1.3.2&lt;/version&gt;</p>
+        <p>&lt;/dependency&gt;</p>
+    </div>
+    <a class="button button--content_table" href="#q20"></a>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q21">
+    <h1>Scope бинов</h1>
+    <div class="after-h1">
+        <p>Spring Framework поддерживает шесть scopes:</p>
+        <ol class="tab-2 sparse-li">
+            <li><a href="#q21_singleton">Singleton</a></li>
+            <li><a href="#q21_singleton">Singleton</a></li>
+            <li><a href="#q21_request">Request</a></li>
+            <li><a href="#q21_request">Request</a></li>
+            <li><a href="#q21_application">Application</a></li>
+            <li><a href="#q21_websocket">Websocket</a></li>
+            <li>
+                <a href="#q21_custom">Custom thread scope</a>
+                (Не активированный по умолчанию)
+            </li>
+        </ol>
+        <p>С 3 по 6 доступны только в веб-приложениях. Мы также можем создать свой собственный scope.</p>
+    </div>
+
+    <div class="scroll">
+        <div class="vertical-schema">
+            <div>Bean Scopes</div>
+            <div>
+                <div>
+                    <div>
+                        <p class="no_mb">Common</p>
+                        <p class="no_mb example">ApplicationContext</p>
+                    </div>
+                    <div class="vertical-schema__sub-menu">
+                        <div class="vertical-schema__sub-item"><a href="#q21_singleton">Singleton</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_singleton">Singleton</a></div>
+                        <div class="vertical-schema__sub-item">
+                            <p class="no_mb">Thread</p>
+                            <p class="no_mb example">SimpleThreadScope</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p class="no_mb">Web</p>
+                        <p class="no_mb example">WebApplicationContext</p>
+                    </div>
+                    <div class="vertical-schema__sub-menu">
+                        <div class="vertical-schema__sub-item"><a href="#q21_request">Request</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_request">Request</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_application">Application</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_websocket">Websocket</a></div>
+                    </div>
+                </div>
+                <div>
+                    <p><a href="#q21_custom">Custom</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="q21_singleton">
+        <h4><a href="#q21">Singleton</a></h4>
+        <p>
+            <strong>Является дефолтным scope</strong>.
+            В контейнере будет создан только один бин, и все запросы на него будут возвращать один
+            и тот же бин. Этот бин хранится в контейнере, и все запросы и ссылки на этот бин возвращают закэшированный
+            экземпляр.
+        </p>
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4 id="q21_prototype"><a href="#q21">Prototype</a></h4>
+        <p>
+            Scope “prototype” приводит к созданию нового бина каждый раз, когда он запрашивается.
+        </p>
+        <p>
+            Для бинов со scope "prototype" Spring <strong>не вызывает метод destroy()</strong>.
+        </p>
+        <p class="main-mind no_mb">
+            Spring не берет на себя контроль полного жизненного цикла бина со scope @prototype.
+        </p>
+        <p class="main-mind">
+            Spring не хранит такие бины в своём контексте (контейнере), а отдаёт их клиенту и больше о них не заботится
+            (в отличие от синглтон-бинов).
+        </p>
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div id="q21_request">
+        <h4><a href="#q21">Request</a></h4>
+        <p class="no_mb">
+            Контейнер создает новый экземпляр для каждого HTTP-запроса. Таким образом, если сервер в настоящее время
+            обрабатывает 50 запросов, тогда контейнер может иметь не более 50 бинов, по одному для каждого HTTP-запроса.
+        </p>
+        <p>
+            Любое изменение состояния одного экземпляра не будет видимо другим экземплярам. Эти экземпляры уничтожаются,
+            как только HTTP-запрос завершен.
+        </p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@Scope("request")</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <p class="example">или</p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@RequestScope</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div id="q21_session">
+        <h4><a href="#q21">Session</a></h4>
+        <p>
+            Бин создается в одном экземпляре для одной HTTP-сессии. Таким образом, если сервер имеет 20 активных сессий,
+            тогда контейнер может иметь не более 20 бинов, по одному для каждой сессии. Все HTTP-запросы в пределах
+            времени жизни одной сессии будут иметь доступ к одному и тому же бину.
+        </p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@Scope("session")</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <p class="example">или</p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@SessionScope</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div id="q21_application">
+        <h4><a href="#q21">Application</a></h4>
+        <p>
+            Бин со scope “application” создается в одном экземпляре для жизненного цикла ServletContext. Виден как
+            атрибут ServletContext. Синглтон - в одном экземпляре для ApplicationContext.
+        </p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@Scope("application")</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <p class="example">или</p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@ApplicationScope</an></p>
+            <p></p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div id="q21_websocket">
+        <h4><a href="#q21">Websocket</a></h4>
+        <p>
+            Бин со scope “websocket” создается в одном экземпляре для определенного сеанса WebSocket. Один и тот же бин
+            возвращается всякий раз, когда к нему обращаются в течение всего сеанса WebSocket.
+        </p>
+        <div class="code">
+            <p><an>@Component</an></p>
+            <p><an>@Scope("websocket")</an></p>
+            <p>public class BeanClass {</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q21"></a>
+    </div>
+
+    <hr>
+
+    <div id="q21_custom">
+        <h4><a href="#q21">Custom thread scope</a></h4>
+        <p>Spring по умолчанию не предоставляет thread scope, но его можно активировать.</p>
+        <p>Каждый запрос на бин в рамках одного потока будет возвращать один и тот же бин.</p>
+        <div class="code">
+            <p>Scope threadScope = new SimpleThreadScope();</p>
+            <p>context.registerScope("thread", threadScope)</p>
+        </div>
+        <p class="main-mind">
+            Т.е. его нужно создать и зарегистрировать в контексе ручками
+        </p>
+
+        <h4><a href="#q21">Other custom</a></h4>
+        <p>Любой другой кастомный scope создается также.</p>
+        <p class="no_mb">Реализуем интерфейс:</p>
+        <p class="code-word smaller">org.springframework.beans.factory.config.Scope</p>
+        <p class="no_mb">И регистрируем в контексте:</p>
+        <p class="code-word smaller">ConfigurationBeanFactory.registerScope</p>
+
+
+    </div>
+
+    <hr>
+    <h3></h3>
+    <p class="main-mind">
+        В пятой версии Spring Framework не стало Global session scope.
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q22">
+    <h1>АОП в Spring</h1>
+    <p>
+        <span class="accent-mono">Аспектно-ориентированное программирование (АОП)</span>
+        — это парадигма программирования, целью которой является
+        повышение модульности за счет разделения междисциплинарных задач. Это достигается путем добавления
+        дополнительного поведения к существующему коду без изменения самого кода.
+    </p>
+    <p>
+        АОП предоставляет возможность реализации в одном месте сквозной логики - т.е. логики, которая применяется к
+        множеству частей приложения - и обеспечения автоматического применения этой логики по всему приложению.
+    </p>
+    <p>
+        Подход Spring к АОП заключается в создании "динамических прокси" для целевых объектов и "привязывании" объектов
+        к конфигурированному совету для выполнения сквозной логики.
+    </p>
+
+    <p class="example no_mb">Если нихрена не понятно читайте</p>
+
+    <a class="link-to-source" href="https://habr.com/ru/post/428548/" target="_blank">Подробная статья</a>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q23">
+    <h1>Транзакции и аннотация @Transactional</h1>
+    <div class="after-h1">
+        <p><a href="#q23_params">Параметры аннотации @Transactional</a></p>
+    </div>
+    <p>Для работы с транзакциями Spring Framework использует AOP-прокси:</p>
+    <div class="image-box">
+        <img class="image" src="./img/transactional.png" alt="Транзакции">
+    </div>
+    <p>
+        Для включения возможности управления транзакциями первым делом нужно разместить аннотацию
+        @EnableTransactionManagement у класса-конфигурации @Configuration.
+    </p>
+    <p class="main-mind">
+        Аннотация @EnableTransactionManagement означает, что классы, помеченные @Transactional, должны быть обернуты
+        аспектом транзакций.
+    </p>
+    <p>
+
+        Однако, если мы используем Spring Boot и имеем зависимости spring-data-* или spring-tx, то
+        управление транзакциями будет включено по умолчанию.
+    </p>
+    <p class="no_mb">
+        @EnableTransactionManagement отвечает за регистрацию необходимых компонентов Spring, таких как
+        TransactionInterceptor и proxy advices - набор инструкций, выполняемых на точках среза -
+        Pointcut.
+    </p>
+    <p>
+        Регистрируемые компоненты помещают перехватчик в стек вызовов при вызове методов @Transactional.
+        Spring создает прокси для всех классов, помеченных @Transactional (либо если любой из методов класса помечен
+        этой аннотацией). Прокси-объекты позволяют Spring Framework вводить транзакционную логику до и после вызываемого
+        метода - главным образом для запуска и коммита/отката
+        транзакции.
+    </p>
+    <p> Если мы разместим аннотацию @Transactional над классом @Service, то все его методы станут транзакционными. </p>
+
+    <p class="accent-mono">Пример процесса <span class="spoiler-button"></span></p>
+    <div id="q23_example" class="spoiler mb10">
+        <p class="tab-1"> Например, при вызове метода save() произойдет примерно следующее: </p>
+        <ol class="sparse-li">
+            <li>
+                <p class="mb10">Вначале мы имеем:</p>
+                <ul class="mb20">
+                    <li>
+                        Класс TransactionInterceptor, у которого основной метод invoke(...), внутри которого вызывается
+                        метод класса-родителя TransactionAspectSupport: invokeWithinTransaction(...), в рамках которого
+                        происходит магия транзакций.
+                    </li>
+                    <li>TransactionManager: решает, создавать ли новый EntityManager и/или транзакцию.</li>
+                    <li>
+                        EntityManager proxy: EntityManager - это интерфейс, и то, что внедряется в бин в слое DAO на
+                        самом
+                        деле не является реализацией EntityManager. В это поле внедряется EntityManager proxy, который
+                        будет
+                        перехватывать обращение к полю EntityManager и делегировать выполнение конкретному EntityManager
+                        в
+                        рантайме. Обычно EntityManager proxy представлен классом SharedEntityManagerInvocationHandler.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p class="mb10 accent-mono">Transaction Interceptor</p>
+                <p>
+                    В TransactionInterceptor отработает код до работы метода save(), в котором будет определено,
+                    выполнить
+                    ли метод save() в пределах уже существующей транзакции БД или должна стартовать новая отдельная
+                    транзакция. TransactionInterceptor сам не содержит логики по принятию решения, решение начать новую
+                    транзакцию, если это нужно, делегируется TransactionManager.
+                </p>
+                <p>
+                    Грубо говоря, на данном этапе наш метод будет обёрнут в try-catch и будет добавлена логика до его
+                    вызова
+                    и после:
+                </p>
+                <div class="code mb20">
+                    <p>try {</p>
+                    <p class="tab-1">transaction.begin();</p>
+                    <p class="tab-1">// логика до</p>
+                    <p class="tab-1">service.save();</p>
+                    <p class="tab-1">// логика после </p>
+                    <p class="tab-1">transaction.commit();</p>
+                    <p>} catch(Exception ex) {</p>
+                    <p class="tab-1">transaction.rollback();</p>
+                    <p class="tab-1">throw ex;</p>
+                    <p>}</p>
+                </div>
+            </li>
+            <li>
+                <p class="mb10 accent-mono">TransactionManager</p>
+                <p class="mb10">Менеджер транзакций должен предоставить ответ на два вопроса:</p>
+                <ol class="mb20">
+                    <li>Должен ли создаться новый EntityManager?</li>
+                    <li>Должна ли стартовать новая транзакция БД?</li>
+                </ol>
+                <p class="mb10">TransactionManager принимает решение, основываясь на следующих фактах:</p>
+                <ol class="mb20">
+                    <li>Выполняется ли хоть одна транзакция в текущий момент или нет;</li>
+                    <li>
+                        <p>Атрибут «propagation» у метода, аннотированного @Transactional;</p>
+                        <p class="example">для примера, значение REQUIRES_NEW всегда стартует новую транзакцию</p>
+                    </li>
+                </ol>
+                <p class="mb10">Если TransactionManager решил создать новую транзакцию, тогда:</p>
+                <ol>
+                    <li>Создается новый EntityManager;</li>
+                    <li>EntityManager «привязывается» к текущему потоку (Thread);</li>
+                    <li>«Получается» соединение из пула соединений БД;</li>
+                    <li>Соединение «привязывается» к текущему потоку.</li>
+                </ol>
+                <p>И EntityManager и это соединение привязываются к текущему потоку, используя переменные
+                    ThreadLocal.</p>
+            </li>
+            <li>
+                <p class="mb10 accent-mono">EntityManager proxy</p>
+                <p class="mb20">
+                    Когда метод save() слоя Service делает вызов метода save() слоя DAO, внутри которого вызывается,
+                    например, entityManager.persist(), то не происходит вызов метода persist() напрямую у EntityManager,
+                    записанного в поле класса DAO. Вместо этого метод вызывает EntityManager proxy, который достает
+                    текущий
+                    EntityManager для нашего потока, и у него вызывается метод persist().
+                </p>
+            </li>
+            <li><p class="mb20 accent-mono">Отрабатывает DAO-метод save().</p></li>
+            <li>
+                <p class="mb10 accent-mono">TransactionInterceptor</p>
+                <p>
+                    Отработает код после работы метода save(), а именно будет принято решение по коммиту/откату
+                    транзакции.
+                </p>
+            </li>
+        </ol>
+    </div>
+
+    <p>
+        Кроме того, если мы в рамках одного метода сервиса обращаемся не только к методу save(), а к разным методам
+        Service и DAO, то все они буду работать в рамках одной транзакции, которая оборачивает этот метод сервиса.
+    </p>
+    <p>
+        Вся работа происходит через прокси-объекты разных классов. Представим, что у нас в классе сервиса только один
+        метод с аннотацией @Transactional, а остальные нет. Если мы вызовем метод с @Transactional, из которого вызовем
+        метод без @Transactional, то оба будут отработаны в рамках прокси и будут обернуты в нашу транзакционную логику.
+        Однако, если мы вызовем метод без @Transactional, из которого вызовем метод с @Transactional, то они уже не
+        будут работать в рамках прокси и не будут обернуты в нашу транзакционную логику.
+    </p>
+    <p class="main-mind">
+        Если внутри метода с @Transactional есть другой метод с аннотацией @Transactional (вложенная
+        транзакция), то отработает только первая (в которую вложена), из-за особенностей создания proxy.
+    </p>
+    <hr>
+    <div id="q23_params">
+        <h4>Параметры аннотации @Transactional</h4>
+        <table class="list" aria-label="">
+            <thead>
+            <tr>
+                <th>Параметр</th>
+                <th>Описание</th>
+            <tr>
+            </thead>
+            <tr>
+                <td>isolation</td>
+                <td>
+                    <p>Уровень изоляции</p>
+                    <p class="code no_margin">@Transactional<wbr>(isolation=Isolation.READ_COMMITTED)
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>timeout</td>
+                <td>
+                    <p>
+                        Время для TransactionManager-а, чтобы дождаться простоя транзакции, прежде чем принять решение
+                        об откате не отвечающих транзакций.
+                    </p>
+                    <p class="example mb10">
+                        По умолчанию используется таймаут, установленный по умолчанию для базовой транзакционной
+                        системы.
+                    </p>
+                    <p class="code no_margin">@Transactional(timeout=60)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>propagation</td>
+                <td>
+                    <p class="mb10">Схема работы с транзакциями.</p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">REQUIRED</span>
+                        — Указывает, что целевой метод не может работать без другой транзакции. Если до вызова этого
+                        метода уже была запущена транзакция, то метод будет работать в той же транзакции, если
+                        транзакции не было, то будет создана новая.
+                    </p>
+                    <p class="accent-mono smaller">Используется по умолчанию.</p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">REQUIRES_NEW</span>
+                        — Указывает, что новая транзакция должна запускаться каждый раз при вызове целевого метода. Если
+                        транзакция уже идет, она будет приостановлена, прежде чем будет запущена новая.
+                    </p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">MANDATORY</span>
+                        — Указывает, что для целевого метода требуется активная транзакция. Если активной транзакции
+                        нет, метод не сработает и будет выброшено исключение.
+                    </p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">SUPPORTS</span>
+                        — Указывает, что целевой метод может выполняться независимо от наличия транзакции. Если
+                        транзакция работает, он будет участвовать в той же транзакции. Если транзакции нет, он всё равно
+                        будет выполняться, если не будет ошибок. Методы, которые извлекают данные, являются лучшими
+                        кандидатами для этой опции.
+                    </p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">NOT_SUPPORTED</span>
+                        — Указывает, что целевой метод не требует распространения контекста транзакции. В основном те
+                        методы, которые выполняются в транзакции, но выполняют операции с оперативной памятью, являются
+                        лучшими кандидатами для этой опции.
+                    </p>
+                    <hr>
+                    <p class="smaller">
+                        <span class="accent-mono">NEVER</span>
+                        — Указывает, что целевой метод вызовет исключение, если выполняется в транзакционном процессе.
+                        Этот вариант в большинстве случаев не используется в проектах.
+                    </p>
+                    <hr class="mb10">
+                    <p class="code no_margin">@Transactional<wbr>(propagation=Propagation.REQUIRED)
+                </td>
+            </tr>
+            <tr>
+                <td>rollbackFor</td>
+                <td>
+                    <p class="mb10">
+                        В Spring все классы API бросают RuntimeException, это означает, что если какой-либо метод не
+                        выполняется, контейнер всегда откатывает текущую транзакцию. Проблема заключается только в
+                        проверяемых исключениях. Таким образом, этот параметр можно использовать для декларативного
+                        отката транзакции, если происходит Checked Exception.
+                    </p>
+                    <p class="accent-mono mb10">
+                        Значение по умолчанию: rollbackFor=RunTimeException.class
+                    </p>
+                    <p class="code no_margin">@Transactional<wbr>(rollbackFor=Exception.class)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>noRollbackFor</td>
+                <td>
+                    <p>
+                        Указывает, что откат не должен происходить, если целевой метод вызывает это исключение.
+                    </p>
+                    <p class="code no_margin">@Transactional<wbr>(noRollbackFor=IllegalStateException.class)</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q24">
+    <h1>Паттерн MVC в Spring</h1>
+    <div id="mvc">
+        <h3>MVC (Model-View-Controller)</h3>
+        <p class="main-mind">
+            Это шаблон проектирования программного обеспечения, который делит программную логику на три отдельных, но
+            взаимосвязанных компонента: модель, представление и контроллер — таким образом, что модификация каждого
+            компонента может осуществляться независимо.
+        </p>
+        <p><span class="accent-mono">Модель(Model)</span>
+            — предоставляет данные и реагирует на команды контроллера, изменяя своё состояние. Она содержит всю
+            бизнес-логику приложения.
+        </p>
+        <p><span class="accent-mono">Представление(View)</span>
+            — отвечает за отображение пользователю данных из модели в нужном формате.
+        </p>
+        <p><span class="accent-mono">Контроллер(Controller)</span>
+            — содержит код, который отвечает за обработку действий пользователя и обменивается данными с моделью (любое
+            действие пользователя в системе обрабатывается в контроллере).
+        </p>
+        <p>
+            Основная цель следования принципам MVC — отделить реализацию бизнес-логики приложения (модели) от ее
+            визуализации (вида). Такое разделение повысит возможность повторного использования кода.
+        </p>
+        <p>
+            Польза применения MVC наиболее наглядна в случаях, когда пользователю нужно предоставлять одни и те же
+            данные в разных формах. Например, в виде таблицы, графика или диаграммы (используя различные виды). При
+            этом, не затрагивая реализацию видов, можно изменить реакции на действия пользователя (нажатие мышью на
+            кнопке, ввод данных).
+        </p>
+    </div>
+
+    <hr>
+    <div>
+        <h3>Front controller (Единая точка входа)</h3>
+        <p class="main-mind">
+            Паттерн, где центральный сервлет, DispatcherServlet, принимает все
+            запросы и распределяет их между контроллерами, обрабатывающими разные URL.
+        </p>
+        <p class="mb20">
+            <a class="link-to-source" href="#q26">подробнее</a>
+        </p>
+    </div>
+
+    <hr>
+    <div id="spring_web_mvc">
+        <h3>Spring Web MVC</h3>
+        <p class="main-mind">
+            Это оригинальный веб-фреймворк, основанный на Servlet API, предназначенный для создания веб-приложений на
+            языке Java, с использованием двух самых популярных шаблонов проектирования - Front controller и MVC.
+        </p>
+        <p class="no_mb">
+            Spring MVC реализует четкое разделение задач, что позволяет нам легко разрабатывать и тестировать наши
+            приложения. Данные задачи разбиты между разными компонентами:
+        </p>
+        <ul class="tab-4 no_mb">
+            <li>Dispatcher Servlet</li>
+            <li>Controllers</li>
+            <li>View Resolvers</li>
+            <li>Views</li>
+            <li>Models</li>
+            <li>ModelAndView</li>
+            <li>Model</li>
+            <li>Session Attributes</li>
+        </ul>
+        <p class="mb20">
+            Компоненты полностью независимы друг от друга, и отвечают только за одно направление. Поэтому MVC дает нам
+            довольно большую гибкость. Он основан на интерфейсах (с предоставленными классами реализации), и мы можем
+            настраивать каждую часть фреймворка с помощью пользовательских интерфейсов.
+        </p>
+    </div>
+
+    <hr>
+    <div id="base_handlers">
+        <h3>Интерфейсы для обработки запросов</h3>
+        <div>
+            <h4>HandlerMapping</h4>
+            <p class="no_mb">
+                По запросу определяет, какие перехватчики (interceptors) с пре- и пост-процессорной обработкой запроса
+                должны отработать, а затем решает, какому контроллеру (обработчику) нужно передать данный запрос на
+                исполнение. Процесс их определения основан на некоторых критериях, детали которых зависят от реализации
+                HandlerMapping.
+            </p>
+            <p class="">
+                Двумя основными реализациями HandlerMapping являются RequestMappingHandlerMapping (который поддерживает
+                аннотированные методы @RequestMapping) и SimpleUrlHandlerMapping (который поддерживает явную регистрацию
+                путей URI для обработчиков).
+            </p>
+        </div>
+        <div>
+            <h4>HandlerAdapter</h4>
+            <p class="no_mb">
+                Помогает DispatcherServlet вызвать обработчик, сопоставленный с запросом. Для вызова аннотированного
+                контроллера необходимо прочитать аннотации над методами контроллера и принять решение.
+            </p>
+            <p> Основная цель HandlerAdapter - избавить DispatcherServlet от этой рутины.</p>
+        </div>
+        <div>
+            <h4>ViewResolver</h4>
+            <p>
+                Сопоставляет имена представлений, возвращаемых методами контроллеров, с фактическими представлениями
+                (html-файлами).
+            </p>
+        </div>
+        <div>
+            <h4>View</h4>
+            <p>
+                Отвечает за возвращение ответа клиенту в виде текстов и изображений. Используются встраиваемые
+                шаблонизаторы (Thymeleaf, FreeMarker и т.д.), так как у Spring нет родных. Некоторые запросы могут идти
+                прямо во View, не заходя в Model, другие проходят через все слои.
+            </p>
+        </div>
+        <div>
+            <h4>LocaleResolver</h4>
+            <p>
+                Определение часового пояса и языка клиента для того, чтобы предложить представления на его языке.
+            </p>
+        </div>
+        <div>
+            <h4>MultipartResolver</h4>
+            <p>
+                Обеспечивает Upload — загрузку на сервер локальных файлов клиента. По умолчанию этот интерфейс не
+                включается в приложении и необходимо указывать его в файле конфигурации. После настройки любой запрос о
+                загрузке будет отправляться этому интерфейсу.
+            </p>
+        </div>
+        <div>
+            <h4>FlashMapManager</h4>
+            <p>
+                Сохраняет и извлекает «входной» и «выходной» FlashMap, который можно использовать для передачи атрибутов
+                из одного запроса в другой, обычно через редирект.
+            </p>
+        </div>
+
+        <p>Пример <span class="spoiler-button"></span></p>
+        <div class="spoiler">
+            <p class="tab-1">Ниже приведена последовательность событий, соответствующая входящему HTTP-запросу:</p>
+            <ul class="tab-3 sparse-li">
+                <li>
+                    После получения HTTP-запроса DispatcherServlet обращается к интерфейсу HandlerMapping, который
+                    определяет,
+                    какой Контроллер (Controller) должен быть вызван, после чего HandlerAdapter, отправляет запрос в
+                    нужный
+                    метод Контроллера.
+                </li>
+                <li>
+                    Контроллер принимает запрос и вызывает соответствующий служебный метод, основанный на GET, POST и
+                    т.д.
+                    Вызванный метод формирует данные Модели (например, набор данных из БД) и возвращает их в
+                    DispatcherServlet
+                    вместе с именем Представления (View) (как правило имя html-файла).
+                </li>
+                <li>
+                    При помощи интерфейса ViewResolver DispatcherServlet определяет, какое Представление нужно
+                    использовать на основании полученного имени и получает в ответе имя представления View.
+                    <p class="mb10"></p>
+                    <ol>
+                        <li>
+                            если это REST-запрос на сырые данные (JSON/XML), то DispatcherServlet сам его отправляет;
+                        </li>
+                        <li>
+                            если обычный запрос, то DispatcherServlet отправляет данные Модели в виде атрибутов в
+                            Представление (View) - шаблонизаторы Thymeleaf, FreeMarker и т.д., которые сами отправляют
+                            ответ.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <p>Все действия происходят через один единственный DispatcherServlet.</p>
+        <div class="image-box">
+            <img class="image" src="./img/http-request.png" alt="Схема HTTP-запроса">
+        </div>
+    </div>
+
+    <hr>
+    <div id="configurator">
+        <h3>Конфигурирование</h3>
+        <p>
+            Сконфигурировать наше Spring MVC-приложение мы можем с помощью Java-config, добавив зависимость
+            spring-webmvc и установив над классом конфигурации <an>@EnableWebMvc</an>, которая применит дефолтные
+            настройки - зарегистрирует некоторые специальные бины из Spring MVC и адаптирует их к нашим бинам.
+        </p>
+        <p>
+            Но, если требуется тонкая настройка, то мы можем имплементировать интерфейс
+            <span class="accent-mono">WebMvcConfigurer</span> и переопределить необходимые методы.
+        </p>
+        <p>
+            Теперь нужно зарегистрировать конфигурацию в Spring Context это позволит сделать созданный нами класс
+            MyWebAppInitializer, который нужно унаследовать от Abstract<wbr>Annotation<wbr>Config<wbr>Dispatcher<wbr>Servlet<wbr>Initializer,
+            и
+            передать в его методы классы нашей конфигурации RootConfig.class и App1Config.class:
+        </p>
+        <div class="code">
+            <p class="mb10">
+                public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+            </p>
+            <p class="tab-1"><an>@Override</an></p>
+            <p class="tab-1">protected Class<?>[] getRootConfigClasses() {</p>
+            <p class="tab-2">return new Class<?>[] { RootConfig.class };</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1"><an>@Override</an></p>
+            <p class="tab-1">protected Class<?>[] getServletConfigClasses() {</p>
+            <p class="tab-2">return new Class<?>[] { App1Config.class };</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1"><an>@Override</an></p>
+            <p class="tab-1">protected String[] getServletMappings() {</p>
+            <p class="tab-2">return new String[] { "/*" };</p>
+            <p class="tab-1 mb10">}</p>
+            <p>}</p>
+        </div>
+        <p>
+            Своими внутренними методами он создает два экземпляра WebApplicationContext в виде объектов класса
+            AnnotationConfigWebApplicationContext.
+        </p>
+        <p>
+            Если же у нас только один класс конфигурации, то его нужно передать в метод getRootConfigClasses(), а
+            getServletConfigClasses() должен возвращать null.
+        </p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q25">
+    <h1>ViewResolver</h1>
+    <p class="no_mb">
+        Все платформы MVC предоставляют способ работы с представлениями.
+    </p>
+    <p>
+        Spring делает это с помощью ViewResolver,
+        который позволяет отображать модели в браузере, не привязывая реализацию к определенной технологии
+        представления.
+    </p>
+    <p class="no_mb">
+        ViewResolver сопоставляет имена представлений, возвращаемых методами контроллеров, с фактическими
+        представлениями (html-файлами).
+    </p>
+    <p>
+        Spring Framework поставляется с довольно большим количеством ViewResolver, например
+        InternalResourceViewResolver, XmlViewResolver, ResourceBundleViewResolver и несколькими другими.
+    </p>
+    <p>По умолчанию реализацией интерфейса ViewResolver является класс InternalResourceViewResolver.</p>
+    <p>Любым реализациям ViewResolver желательно поддерживать интернационализацию, то есть множество языков.</p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q26">
+    <h1>Front Controller</h1>
+    <p class="main-mind">Паттерн Front Controller обеспечивает единую точку входа для всех входящих запросов.</p>
+    <p>
+        Все запросы обрабатываются
+        одним фрагментом кода, который затем может делегировать ответственность за обработку запроса другим объектам
+        приложения. Он также обеспечивает интерфейс для общего поведения, такого как безопасность, интернационализация и
+        передача определенных представлений определенным пользователям.
+    </p>
+    <p class="no_mb example">Как реализовано в Spring?</p>
+    <p>
+        В Spring в качестве Front Controller выступает DispatcherServlet, все действия проходят через него. Как правило,
+        в приложении задаётся только один
+        <span class="accent-mono">DispatcherServlet с маппингом "/"</span>,
+        который перехватывает все запросы. Это и есть реализация паттерна Front Controller.
+    </p>
+    <p>
+        Однако иногда необходимо определить два и более DispatcherServlet-а, которые будут отвечать за свой собственный
+        функционал. Например, чтобы один обрабатывал REST-запросы с маппингом "/api", а другой обычные запросы с
+        маппингом "/default".
+    </p>
+    <p>Spring предоставляет нам такую возможность, и для начала нужно понять, что:</p>
+    <ul class="tab-2 sparse-li">
+        <li>
+            Spring может иметь несколько контекстов одновременно. Одним из них будет корневой контекст, а все остальные
+            контексты будут дочерними.
+        </li>
+        <li>
+            Все дочерние контексты могут получить доступ к бинам, определенным в корневом контексте, но не наоборот.
+            Корневой
+            контекст не может получить доступ к бинам дочерних контекстов.
+        </li>
+        <li>Каждый дочерний контекст внутри себя может переопределить бины из корневого контекста.</li>
+    </ul>
+    <p class="no_mb">
+        Каждый DispatcherServlet имеет свой дочерний контекст приложения.
+    </p>
+    <p class="no_mb">
+        DispatcherServlet по сути является сервлетом
+        (он расширяет HttpServlet), основной целью которого является обработка входящих веб-запросов, соответствующих
+        настроенному шаблону URL. Он принимает входящий URI и находит правильную комбинацию контроллера и вида.
+    </p>
+    <p>
+        Веб-приложение может определять любое количество DispatcherServlet-ов. Каждый из них будет работать в своем
+        собственном пространстве имен, загружая свой собственный дочерний WebApplicationContext (на рисунке - Servlet
+        WebApplicationContext) с вьюшками, контроллерами и т.д. Например, когда нам нужно в одном Servlet
+        WebApplicationContext определить обычные контроллеры, а в другом REST-контроллеры.
+    </p>
+    <div class="image-box mb10">
+        <img src="img/dispatcherservlet.png" alt="DispatcherServlet">
+    </div>
+    <p>
+        WebApplicationContext расширяет ApplicationContext (создаёт и управляет бинами и т.д.), но помимо этого он имеет
+        дополнительный метод getServletContext(), через который у него есть возможность получать доступ к
+        ServletContext-у.
+    </p>
+    <p class="no_mb">
+        ContextLoaderListener создает корневой контекст приложения (на рисунке - Root WebApplicationContext) и будет
+        использоваться всеми дочерними контекстами, созданными всеми DispatcherServlet. Напомню, что корневой контекст
+        приложения будет общим и может быть только один. Root WebApplicationContext содержит компоненты, которые видны
+        всем дочерним контекстам, такие как сервисы, репозитории, компоненты инфраструктуры и т.д. После создания
+        корневого контекста приложения он сохраняется в ServletContext как атрибут, имя которого:
+    </p>
+    <div class="scroll">
+        <p><span class="code-word mb20">WebApplicationContext.class.getName() + ".ROOT"</span></p>
+    </div>
+    <p>
+        Чтобы из контроллера любого дочернего контекста обратиться к корневому контексту приложения, мы можем
+        использовать класс WebApplicationContextUtils, содержащий статические методы:
+    </p>
+    <div class="code">
+        <p><an>@Autowired</an></p>
+        <p>ServletContext context;</p>
+        <p>ApplicationContext ac = WebApplicationContextUtils<wbr>.getWebApplicationContext(context);</p>
+        <p> if(ac == null) {</p>
+        <p class="tab-1">return "root application context is null";</p>
+        <p>}</p>
+    </div>
+
+    <div>
+        <h4>ContextLoaderListener vs DispatcherServlet</h4>
+        <ol class="tab-2">
+            <li>ContextLoaderListener создает корневой контекст приложения.</li>
+            <li>Каждый DispatcherServlet создаёт себе один дочерний контекст.</li>
+            <li>Дочерние контексты могут обращаться к бинам, определенным в корневом контексте.</li>
+            <li>Бины в корневом контексте не могут получить доступ к бинам в дочерних контекстах (напрямую).</li>
+            <li>Все контексты добавляются в ServletContext.</li>
+            <li>Мы можем получить доступ к корневому контексту, используя класс WebApplicationContextUtils.</li>
+        </ol>
+        <div class="image-box">
+            <img class="image" src="./img/context.png" alt="ContextLoaderListener vs DispatcherServlet">
+        </div>
+    </div>
+
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q27">
+    <h1>Отличия Model, ModelMap и ModelAndView</h1>
+    <div class="after-h1 tab-2">
+        <p><a href="#model">Model</a></p>
+        <p><a href="#model_map">ModelMap</a></p>
+        <p><a href="#model_view">ModelAndView</a></p>
+    </div>
+    <div id="model">
+        <h3>Model</h3>
+        <p>
+            <span class="accent-mono">Интерфейс</span> , лежит в пакете spring-context.
+            В методах контроллера мы можем использовать объекты Model для
+            того, чтобы складывать туда данные, предназначенные для формирования представлений.
+        </p>
+        <p class="no_mb">Кроме того, в Model мы можем передать даже Map с атрибутами:</p>
+        <div class="code">
+            <p><an>@GetMapping("/showViewPage")</an></p>
+            <p>public String passParametersWithModel(Model model) {</p>
+            <p class="tab-1">Map&lt;String,&nbsp;String&gt; map = new&nbsp;HashMap<>();</p>
+            <p class="tab-1">map.put("spring", "mvc");</p>
+            <p class="tab-1">model.addAttribute("message", "Baeldung");</p>
+            <p class="tab-1">model.mergeAttributes(map);</p>
+            <p class="tab-1">return "viewPage";</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q27"></a>
+    </div>
+    <hr>
+    <div id="model_map">
+        <h3>ModelMap</h3>
+        <p>
+            Этот <span class="accent-mono">класс наследуется от LinkedHashMap &lt;String,&nbsp;Object&gt;</span> и
+            по сути служит общим контейнером модели для Servlet MVC, но не привязан к нему, и лежит в пакете
+            spring-context.
+        </p>
+        <p class="no_mb"></p>
+        Имеет все преимущества LinkedHashMap плюс несколько удобных методов:
+        <div class="code">
+            <p><an>@GetMapping("/printViewPage")</an></p>
+            <p>public String passParametersWithModelMap(ModelMap map) {</p>
+            <p class="tab-1">map.addAttribute("welcomeMessage", "welcome");</p>
+            <p class="tab-1">map.addAttribute("message", "Baeldung");</p>
+            <p class="tab-1">return "viewPage";</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q27"></a>
+    </div>
+    <hr>
+    <div id="model_view">
+        <h3>ModelAndView</h3>
+        <p>
+            Этот <span class="accent-mono">класс</span> лежит в пакете spring-webmvc и
+            <span class="accent-mono">может одновременно хранить модели и представление</span>, чтобы
+            контроллер мог отдавать их в одном возвращаемом значении.
+        </p>
+        <p>
+            Внутри содержит поле private Object view, куда
+            записывает нужное представление, а также поле private ModelMap model, куда и складывает все атрибуты модели:
+        </p>
+        <div class="code">
+            <p><an>@GetMapping("/goToViewPage")</an></p>
+            <p>public ModelAndView passParametersWithModelAndView() {</p>
+            <p class="tab-1">ModelAndView modelAndView = new&nbsp;ModelAndView("viewPage");</p>
+            <p class="tab-1">modelAndView.addObject("message", "Baeldung");</p>
+            <p class="tab-1">return modelAndView;</p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q27"></a>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q28">
+    <h1>Аннотации @Controller и @RestController</h1>
+    <div class="after-h1 tab-2">
+        <p><a href="#controller">@Controller</a></p>
+        <p><a href="#rest_controller">@RestController</a></p>
+        <p><a href="#response_entity">ResponseEntity</a></p>
+    </div>
+
+
+    <hr>
+    <div id="controller">
+        <h3>@Controller</h3>
+        <p>
+            @Controller помечает класс как контроллер HTTP-запросов.
+        </p>
+        <p>
+            @Controller обычно используется в сочетании с
+            аннотацией @RequestMapping, используемой в методах обработки запросов.
+        </p>
+        <p>
+            Это просто дочерняя аннотация
+            аннотации @Component и позволяет автоматически определять классы при сканировании пакетов.
+        </p>
+        <a class="button button--content_table" href="#q28"></a>
+    </div>
+
+    <hr>
+    <div id="rest_controller">
+        <h3>@RestController</h3>
+        <p>
+            Аннотация @RestController была введена в Spring 4.0 для упрощения создания RESTful веб-сервисов. Это удобная
+            аннотация, которая
+            <span class="accent-mono">объединяет @Controller и @ResponseBody</span>
+            что устраняет необходимость аннотировать каждый
+            метод обработки запросов аннотацией @ResponseBody.
+        </p>
+        <p>
+            <span class="accent-mono">@ResponseBody</span>
+            сообщает контроллеру, что возвращаемый объект автоматически сериализуется в json или xml и
+            передается обратно в объект HttpResponse. Контроллер использует Jackson message converter для конвертации
+            входящих/исходящих данных. Как правило целевые данные представлены в json или xml.
+        </p>
+        <a class="button button--content_table" href="#q28"></a>
+    </div>
+
+    <hr>
+    <div id="response_entity">
+        <h3>ResponseEntity</h3>
+        <p>
+            Данный класс используется для формирования ответа HTTP с пользовательскими параметрами (заголовки, код
+            статуса и тело ответа). ResponseEntity необходим, только если мы хотим кастомизировать ответ. Во всех
+            остальных случаях достаточно использовать @ResponseBody.
+        </p>
+        <p>
+            Если мы хотим использовать ResponseEntity, то просто должны вернуть его из метода, Spring позаботится обо
+            всем остальном.
+        </p>
+        <div class="code">
+            <p><an>@GetMapping("/customHeader")</an></p>
+            <p>ResponseEntity&lt;String&gt; customHeader() {</p>
+            <p class="tab-1">HttpHeaders headers = new&nbsp;HttpHeaders();</p>
+            <p class="tab-1">headers.add("Custom-Header", "foo");</p>
+            <p class="tab-1">return new&nbsp;ResponseEntity<>("Custom header set", headers, HttpStatus.OK);</p>
+            <p>}</p>
+        </div>
+        <p>
+            Если клиент ждет от нас JSON/XML, мы можем параметризовать ResponseEntity конкретным классом и добавить к
+            ответу
+            заголовки и Http статус:
+        </p>
+        <div class="code">
+            <p><an>@RequestMapping(value = "/employees/{id}")</an></p>
+            <p>public ResponseEntity &lt;EmployeeVO&gt; getEmployeeById (@PathVariable("id") int id) {</p>
+            <p class="tab-1">if (id <= 3) {</p>
+            <p class="tab-2">EmployeeVO employee =
+                new&nbsp;EmployeeVO(1,"Lokesh","Gupta","howtodoinjava@gmail.com");</p>
+            <p class="tab-2">return new&nbsp;ResponseEntity&lt;EmployeeVO&gt;(employee, HttpStatus.OK);</p>
+            <p class="tab-1">}</p>
+            <p class="tab-1">return new&nbsp;ResponseEntity(HttpStatus.NOT_FOUND); </p>
+            <p>}</p>
+        </div>
+        <a class="button button--content_table" href="#q28"></a>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q29">
+    <h1>Filters, Listeners и Interceptors</h1>
+    <div class="after-h1">
+        <p><a href="#filters">Filters</a></p>
+        <p><a href="#listeners">Listeners</a></p>
+        <p><a href="#interceptors">Interceptors</a></p>
+    </div>
+
+    <div id="filters">
+        <h3>Filter</h3>
+        <p>
+            Это интерфейс из пакета javax.servlet, имплементации которого выполняют задачи фильтрации либо по пути
+            запроса к ресурсу (сервлету, либо по статическому контенту), либо по пути ответа от ресурса, либо в обоих
+            направлениях.
+        </p>
+        <p>
+            Фильтры выполняют фильтрацию в методе <span class="accent-mono">doFilter</span>.
+            Каждый фильтр имеет доступ к объекту FilterConfig, из
+            которого он может получить параметры инициализации и ссылку на ServletContext, который он может
+            использовать, например, для загрузки ресурсов, необходимых для задач фильтрации. Фильтры настраиваются в
+            дескрипторе развертывания веб-приложения.
+        </p>
+        <p>
+            В веб-приложении мы можем написать несколько фильтров, которые вместе называются цепочкой фильтров.
+            Веб-сервер решает, какой фильтр вызывать первым, в соответствии с порядком регистрации фильтров.
+        </p>
+        <p class="no_mb">
+            Когда вызывается метод
+            <span class="accent-mono">
+            doFilter<wbr>(ServletRequest&nbsp;request, ServletResponse&nbsp;response, FilterChain&nbsp;chain)
+            </span>
+            первого фильтра, веб-сервер создает объект FilterChain, представляющий цепочку фильтров, и передаёт её в
+            метод.
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/filter.png" alt="Filters">
+        </div>
+
+        <a class="button button--content_table" href="#q29"></a>
+    </div>
+
+    <hr>
+    <div id="interceptors">
+        <h3>Interceptor</h3>
+        <p>
+            Это интерфейс из пакета org.aopalliance.intercept, предназначенный для аспектно-ориентированного
+            программирования.
+        </p>
+        <p>
+            В Spring, когда запрос отправляется в Controller, перед тем как он в него попадёт, он может пройти через
+            перехватчики Interceptor (0 или более). Это одна из реализаций АОП в Spring. Вы можете использовать
+            Interceptor для выполнения таких задач, как запись в Log, добавление или обновление конфигурации перед тем,
+            как запрос обработается Controller-ом.
+        </p>
+        <p>
+            Стек перехватчиков: он предназначен для связывания перехватчиков в цепочку в определенном порядке. При
+            доступе к перехваченному методу или полю перехватчик в цепочке перехватчиков вызывается в том порядке, в
+            котором он был определен.
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/interseptor.png" alt="interceptors">
+        </div>
+        <p>
+            Мы можем использовать Interceptor-ы для выполнения логики до попадания в контроллер, после обработки в
+            контроллере, а также после формирования представления. Также можем запретить выполнение метода контроллера.
+            Мы можем указать любое количество перехватчиков.
+        </p>
+        <p>
+            Перехватчики работают с <span class="accent-mono">HandlerMapping</span> и поэтому должны реализовывать
+            <span class="accent-mono">интерфейс HandlerInterceptor</span>
+            или <span class="accent-mono">наследоваться</span> от готового класса
+            <span class="accent-mono">HandlerInterceptorAdapter</span>.
+        </p>
+        <p>
+            В случае реализации HandlerInterceptor нам нужно
+            переопределить 3 метода, а в случае HandlerInterceptor, только необходимые нам:
+        </p>
+        <ul class="sparse-li">
+            <li>
+                <div class="code first-line-to-left no_mb">
+                    public boolean preHandle<wbr>
+                    (HttpServletRequest&nbsp;request,<wbr> HttpServletResponse&nbsp;response,<wbr> Object&nbsp;handler)
+                </div>
+                <p>
+                    Вызывается после того, как HandlerMapping определил соответствующий контроллер, но до того, как
+                    HandlerAdapter вызовет метод контроллера. С помощью этого метода каждый перехватчик может решить,
+                    прервать цепочку выполнения или направить запрос на испольнение дальше по цепочке перехватчиков до
+                    метода контроллера. Если этот метод возвращает true, то запрос отправляется следующему перехватчику
+                    или в контроллер. Если метод возвращает false, то исполнение запроса прекращается, обычно отправляя
+                    ошибку HTTP или записывая собственный ответ в response.
+                </p>
+            </li>
+            <li>
+                <div class="code first-line-to-left no_mb">
+                    public void postHandle<wbr>(HttpServletRequest&nbsp;request,<wbr> HttpServletResponse&nbsp;response,
+                    <wbr> Object&nbsp;handler,<wbr> ModelAndView&nbsp;modelAndView)
+                </div>
+                <p>
+                    Отработает после контроллера, но перед формированием представления. Мы можем использовать этот метод
+                    для добавления дополнительных атрибутов в ModelAndView или для определения времени, затрачиваемого
+                    методом-обработчиком на обработку запроса клиента. Вы можете добавить больше объектов модели в
+                    представление, но вы не можете изменить HttpServletResponse, так как он уже зафиксирован.
+                </p>
+            </li>
+            <li>
+                <div class="code first-line-to-left no_mb">
+                    public void afterCompletion<wbr>(HttpServletRequest&nbsp;request,<wbr> HttpServletResponse&nbsp;response,
+                    <wbr> Object&nbsp;handler,<wbr> Exception&nbsp;ex)
+                </div>
+                <p>
+                    Oтработает после формирования представления. Вызывается только в том случае, если метод preHandle
+                    этого перехватчика успешно завершен и вернул true!
+                </p>
+            </li>
+        </ul>
+        <div class="image-box mb20">
+            <img class="image" src="./img/handler_interseptor.png" alt="HandlerInterceptor">
+        </div>
+        <p>
+            Следует знать, что HandlerInterceptor связан с бином DefaultAnnotationHandlerMapping, который
+            отвечает за применение перехватчиков к любому классу, помеченному аннотацией @Controller.
+        </p>
+        <p>
+            Чтобы добавить наши перехватчики в конфигурацию Spring, нам нужно переопределить метод
+            addInterceptors() внутри класса, который реализует WebMvcConfigurer:
+        </p>
+        <div class="code">
+            <p><an>@Override</an></p>
+            <p class="mb20">public void addInterceptors<wbr>(InterceptorRegistry&nbsp;registry) {</p>
+            <p class="tab-1">// LogInterceptor applies to all URLs.</p>
+            <p class="tab-1 mb20">registry<wbr>.addInterceptor(new LogInterceptor());</p>
+            <p class="tab-1">// This interceptor applies to URL /admin/oldLogin.</p>
+            <p class="tab-1">// Using OldURLInterceptor to redirect to new URL.</p>
+            <p class="tab-1 mb20">
+                registry<wbr>.addInterceptor(new&nbsp;OldLoginInterceptor())<wbr>
+                .addPathPatterns("/admin/oldLogin");
+            </p>
+            <p class="tab-1">// This interceptor applies to URLs like /admin/*</p>
+            <p class="tab-1">// Exclude /admin/oldLogin</p>
+            <p class="tab-1 mb20">
+                registry<wbr>.addInterceptor(new&nbsp;AdminInterceptor())<wbr>.addPathPatterns("/admin/*")<wbr>
+                .excludePathPatterns("/admin/oldLogin");
+            </p>
+            <p>}</p>
+        </div>
+
+        <div id="filter_vs_interceptor">
+            <h4>Filter vs. Interceptor</h4>
+            <ul>
+                <li>Перехватчик основан на механизме Reflection, а фильтр основан на обратном вызове функции.</li>
+                <li>Фильтр зависит от контейнера сервлета, тогда как перехватчик не зависит от него.</li>
+                <li>
+                    Перехватчики могут работать только с запросами к контроллерам, в то время как фильтры могут работать
+                    почти со всеми запросами (например, js, .css и т.д.).
+                </li>
+                <li>
+                    Перехватчики в отличии от фильтров могут обращаться к объектам в контейнере Spring, что даёт им
+                    более изощренный функционал.
+                </li>
+            </ul>
+
+            <p class="no_mb">Порядок работы:</p>
+            <ol>
+                <li>Фильтры до;</li>
+                <li>Перехватчики до;</li>
+                <li>Метод контроллера;</li>
+                <li>Перехватчики после;</li>
+                <li>Фильтры после.</li>
+            </ol>
+            <p>
+                HandlerInterceptor в основном похож на Servlet Filter, но в отличие от последнего он просто позволяет
+                настраивать предварительную обработку с возможностью запретить выполнение самого обработчика и
+                настраивать постобработку.
+            </p>
+            <p>
+                Согласно документации Spring, фильтры более мощные, например, они позволяют обмениваться объектами
+                запроса и ответа, которые передаются по цепочке. Это означает, что фильтры работают больше в области
+                запроса/ответа, в то время как HandlerInterceptors являются бинами и могут обращаться к другим
+                компонентам в приложении.
+            </p>
+            <p class="main-mind">
+                Фильтры настраивается в web.xml, а HandlerInterceptor в контексте приложения.
+            </p>
+        </div>
+
+        <a class="button button--content_table" href="#q29"></a>
+    </div>
+
+    <hr>
+    <div id="listeners">
+        <h3>Java Listener</h3>
+        <p>
+            <span class="accent-mono">Listener(Слушатель)</span>
+            - это класс, который реализует интерфейс javax.servlet.ServletContextListener.
+        </p>
+        <p class="main-mind">
+            Он инициализируется только один раз при запуске веб-приложения и уничтожается при остановке веб-приложения.
+        </p>
+        <p>
+            Слушатель сидит и ждет,
+            когда произойдет указанное событие, затем «перехватывает» событие и запускает собственное событие. Например,
+            мы хотим инициализировать пул соединений с базой данных до запуска веб-приложения. ServletContextListener -
+            это то, что нам нужно, он будет запускать наш код до запуска веб-приложения.
+        </p>
+        <p class="main-mind">
+            Все ServletContextListeners уведомляются об инициализации контекста до инициализации любых фильтров или
+            сервлетов в веб-приложении.
+        </p>
+        <p class="main-mind">
+            Все ServletContextListeners уведомляются об уничтожении контекста после того, как все сервлеты и фильтры
+            уничтожены.
+        </p>
+        <p>
+            Чтобы создать свой Listener нам достаточно создать класс, имплементирующий интерфейс ServletContextListener
+            и поставить над ним аннотацию @WebListener:
+        </p>
+        <div class="code">
+            <p><an>@WebListener</an></p>
+            <p class="mb20">public class MyAppServletContextListener implements ServletContextListener {</p>
+            <p class="tab-1">//Run this before web application is started</p>
+            <p class="tab-1"><an>@Override</an></p>
+            <p class="tab-1">public void contextInitialized(ServletContextEvent&nbsp;arg0) {</p>
+            <p class="tab-2">System.out.println("ServletContextListener started");</p>
+            <p class="tab-1 mb20">}</p>
+            <p class="tab-1"><an> @Override</an></p>
+            <p class="tab-1">public void contextDestroyed<wbr>(ServletContextEvent&nbsp;arg0) {</p>
+            <p class="tab-2">System.out.println("ServletContextListener destroyed");</p>
+            <p class="tab-1 mb20">}</p>
+            <p>}</p>
+        </div>
+
+        <a class="button button--content_table" href="#q29"></a>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q30">
+    <h1>Передача параметров в GET-запросе</h1>
+    <h4> Можно ли передать в GET-запросе один и тот же параметр несколько раз и как? </h4>
+    <p class="no_mb accent-mono">Да можно.</p>
+    <p>Можно принять все значения, используя массив в методе контроллера:</p>
+    <div class="code">
+        <p>http://localhost:8080/login?name=Ranga&name=Ravi&name=Sathish</p>
+        <p>&darr;</p>
+        <p>public String method(@RequestParam(value="name") String[] names) {...}</p>
+    </div>
+    <p class="example">или</p>
+
+    <div class="code">
+        <p>http://localhost:8080/api/foos?id=1,2,3</p>
+        <p>&darr;</p>
+        <p><an>@GetMapping("/api/foos")</an></p>
+        <p><an>@ResponseBody</an></p>
+        <p>public String getFoos(@RequestParam List&lt;String&gt;&nbsp;id) {</p>
+        <p class="tab-1">return "IDs are " + id;</p>
+        <p>}</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q31">
+    <h1>Spring Security</h1>
+    <div class="after-h1 tab-2">
+        <p><a href="">Как работает?</a></p>
+        <p><a href="">Как сконфигурировать?</a></p>
+        <p><a href="">Какие интерфейсы используются?</a></p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q32">
+    <h1>Spring Boot</h1>
+    <div class="after-h1 tab-2">
+        <p><a href="#boot_advantage">Преимущества</a></p>
+        <p><a href="#boot_config">Как конфигурируется?</a></p>
+    </div>
+
+    <div id="boot">
+        <p>
+            Spring Boot - это модуль Spring-а, который предоставляет функцию RAD для среды Spring (Rapid Application
+            Development - Быстрая разработка приложений). Он обеспечивает более простой и быстрый способ настройки и
+            запуска как обычных, так и веб-приложений. Он просматривает наши пути к классам и настроенные нами бины,
+            делает разумные предположения о том, чего нам не хватает, и добавляет эти элементы.
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/boot.png" alt="Spring Boot">
+        </div>
+        <p>
+            Spring Boot представляет собой комбинацию Spring Framework и встроенного контейнера сервлетов и отсутствие
+            (или минимальное наличие) конфигурации приложения.
+        </p>
+    </div>
+
+    <hr>
+    <div id="boot_advantage">
+        <h3>Ключевые особенности и преимущества Spring Boot</h3>
+        <ul>
+            <li>
+                <h4>Простота управления зависимостями (spring-boot-starter-* в pom.xml)</h4>
+                <p>
+                    Чтобы ускорить процесс управления зависимостями Spring Boot неявно упаковывает необходимые сторонние
+                    зависимости для каждого типа приложения на основе Spring и предоставляет их разработчику в виде так
+                    называемых starter-пакетов.
+                </p>
+                <p>
+                    Starter-пакеты представляют собой набор удобных дескрипторов зависимостей, которые можно включить в
+                    свое приложение. Это позволяет получить универсальное решение для всех технологий, связанных со
+                    Spring, избавляя программиста от лишнего поиска необходимых зависимостей, библиотек и решения
+                    вопросов, связанных с конфликтом версий различных библиотек.
+                </p>
+                <p class="example">
+                    Например, если вы хотите начать использовать Spring Data JPA для доступа к базе данных, просто
+                    включите в свой проект зависимость spring-boot-starter-data-jpa (вам не придется искать совместимые
+                    драйверы баз данных и библиотеки Hibernate). Если вы хотите создать Spring web-приложение, просто
+                    добавьте зависимость spring-boot-starter-web, которая подтянет в проект все библиотеки, необходимые
+                    для разработки Spring MVC-приложений, таких как spring-webmvc, jackson-json, validation-api и
+                    Tomcat.
+                </p>
+                <p>
+                    Другими словами, Spring Boot собирает все общие зависимости и определяет их в одном месте, что
+                    позволяет разработчикам просто их использовать. Также при использовании Spring Boot, файл pom.xml
+                    содержит намного меньше строк, чем в Spring-приложениях.
+                </p>
+            </li>
+            <li>
+                <h4>Автоматическая конфигурация. @EnableAutoConfiguration.</h4>
+                <p>
+                    Автоматическая конфигурация включается аннотацией @EnableAutoConfiguration (входит в состав
+                    аннотации @SpringBootApplication).
+                </p>
+                <p>
+                    После выбора необходимых для приложения starter-пакетов Spring Boot попытается автоматически
+                    настроить Spring-приложение на основе выбранных jar-зависимостей, доступных в classpath классов,
+                    свойств в application.properties и т.п.
+                </p>
+                <p class="example">
+                    Например, если добавим spring-boot-starter-web, то Spring
+                    boot автоматически сконфигурирует такие бины как DispatcherServlet, ResourceHandlers, MessageSource
+                    и т.д.
+                </p>
+                <p>
+                    <span class="accent-mono">Автоматическая конфигурация работает в последнюю очередь</span> ,
+                    после регистрации пользовательских бинов и
+                    всегда отдает им приоритет.
+                </p>
+                <p class="example">
+                    Если ваш код уже зарегистрировал бин DataSource — автоконфигурация не будет его переопределять.
+                </p>
+            </li>
+            <li>
+                <h4>Встроенная поддержка сервера приложений/контейнера сервлетов (Tomcat, Jetty, и т.д.).</h4>
+                <p>
+                    Каждое Spring Boot web-приложение включает встроенный web-сервер. Не нужно беспокоиться о настройке
+                    контейнера сервлетов и развертывания приложения в нем. Теперь приложение может запускаться само как
+                    исполняемый .jar-файл с использованием встроенного сервера.
+                </p>
+            </li>
+            <li>
+                <h4>Встроенные функции.</h4>
+                <p>
+                    Готовые к работе функции, такие как метрики, проверки работоспособности, security и внешняя
+                    конфигурация.
+                </p>
+            </li>
+            <li>
+                <h4>Инструмент CLI.</h4>
+                <p>
+                    Инструмент CLI (command-line interface) для разработки и тестирования приложения Spring&nbsp;Boot.
+                </p>
+            </li>
+            <li>
+                <h4>Минимизация boilerplate кода.</h4>
+                <p>
+                    Минимизация boilerplate кода (код, который должен быть включен во многих местах практически без
+                    изменений), конфигурации XML и аннотаций.
+                </p>
+            </li>
+        </ul>
+        <a class="button button--content_table" href="#q32"></a>
+    </div>
+
+    <hr>
+    <div id="boot_config">
+        <h3>Как происходит автоконфигурация в Spring&nbsp;Boot</h3>
+        <ul>
+            <li>
+                <h4>@SpringBootApplication</h4>
+                <p>Отмечаем main класс аннотацией @SpringBootApplication. Аннотация инкапсулирует в себе:</p>
+                <ul class="tab-3 no_mb">
+                    <li>@SpringBootConfiguration</li>
+                    <li>@ComponentScan</li>
+                    <li>@EnableAutoConfiguration</li>
+                </ul>
+                <p>
+                    таким образом наличие @SpringBootApplication включает сканирование компонентов, автоконфигурацию и
+                    показывает разным компонентам Spring (например, интеграционным тестам), что это Spring Boot
+                    приложение.
+                </p>
+            </li>
+            <li>
+                <h4>@EnableAutoConfiguration</h4>
+                <p>@EnableAutoConfiguration импортирует класс Enable<wbr>AutoConfiguration<wbr>ImportSelector.</p>
+                <p>Этот класс не объявляет бины сам, а использует так называемые фабрики.</p>
+            </li>
+            <li>
+                <h4>Enable<wbr>AutoConfiguration<wbr>ImportSelector</h4>
+                <p>
+                    Класс Enable<wbr>AutoConfiguration<wbr>ImportSelector смотрит в файл META-INF/spring.factories
+                    и загружает оттуда список значений, которые являются именами классов (авто)конфигураций, которые
+                    Spring&nbsp;Boot импортирует.
+                </p>
+                <p>
+                    Т.е. аннотация @EnableAutoConfiguration просто импортирует ВСЕ (более 150)
+                    перечисленные в spring.factories конфигурации, чтобы предоставить нужные бины в контекст приложения.
+                </p>
+            </li>
+            <li>
+                <h4>Регистрация бинов</h4>
+                <p>
+                    Каждая из этих конфигураций пытается сконфигурировать различные аспекты приложения (web, JPA, AMQP и
+                    т.д.), регистрируя нужные бины. Логика при регистрации бинов управляется набором @ConditionalOn*
+                    аннотаций. Можно указать, чтобы бин создавался при наличии класса в classpath (@ConditionalOnClass),
+                    наличии существующего бина (@ConditionalOnBean), отсуствии бина (@ConditionalOnMissingBean) и т.п.
+                    Таким образом наличие конфигурации не значит, что бин будет создан, и в большинстве случаев
+                    конфигурация ничего делать и создавать не будет.
+                </p>
+            </li>
+            <li>
+                <h4>Annotation<wbr>Config<wbr>Embedded<wbr>Web<wbr>Application<wbr>Context</h4>
+                <p>
+                    Созданный в итоге Annotation<wbr>Config<wbr>Embedded<wbr>Web<wbr>Application<wbr>Context ищет в том
+                    же DI контейнере фабрику
+                    для запуска embedded servlet container.
+                </p>
+            </li>
+            <li>
+                <h4>Запуск Servlet container</h4>
+                <p>Servlet container запускается, приложение готово к работе!</p>
+            </li>
+        </ul>
+        <a class="button button--content_table" href="#q32"></a>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q33">
+    <h1>Нововведения Spring 5</h1>
+    <ul class="sparse-li">
+        <li>Используется JDK 8+ (Optional, CompletableFuture, Time API, java.util.function, default methods)</li>
+        <li>Поддержка Java 9 (Automatic-Module-Name in 5.0, module-info in 6.0+, ASM 6)</li>
+        <li>Поддержка HTTP/2 (TLS, Push), NIO/NIO.2</li>
+        <li>Поддержка Kotlin</li>
+        <li>Реактивность (веб-инфраструктура с реактивным стеком, «Spring WebFlux»)</li>
+        <li>Null-safety аннотации(@Nullable), новая документация</li>
+        <li>Совместимость с Java EE 8 (Servlet 4.0, Bean Validation 2.0, JPA 2.2, JSON Binding API 1.0)</li>
+        <li>Поддержка JUnit 5 + Testing Improvements (conditional and concurrent)</li>
+        <li>Удалена поддержка: Portlet, Velocity, JasperReports, XMLBeans, JDO, Guava</li>
+    </ul>
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q34">
+    <h1>Серввлет (Setvlet)</h1>
+    <p class="example no_mb">Определение от WiKi</p>
+    <p>
+        <span class="accent-mono">Сервлет</span>
+        является интерфейсом Java, реализация которого расширяет функциональные возможности сервера. Сервлет
+        взаимодействует с клиентами посредством принципа запрос-ответ.
+    </p>
+    <p>
+        <span class="accent-mono">Java Servlet API</span>
+        — стандартизированный API, предназначенный для реализации на сервере и работе с клиентом по
+        схеме запрос-ответ.
+    </p>
+    <p>
+        <span class="accent-mono">Сервлет</span>
+        — это класс, который умеет получать запросы от клиента и возвращать ему ответы.
+        С помощью них строится клиент-серверная архитектура.
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+<script src="../../../js/spoiler.js"></script>
+<script src="../../../js/script.js"></script>
+
+</html>
+
+
+

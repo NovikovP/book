@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPA & HIBERNATE</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+
+<body>
+
+<section class="container">
+    <h1 class="no_mb">JPA & HIBERNATE</h1>
+    <div class="after-h1">Вопросы для собеседования</div>
+    <div class="breadcrumbs">
+        <p><a href="../../../">главная</a></p>
+        <p><a href="..">Questions</a></p>
+        <p>JPA</p>
+    </div>
+    <h3 class="no_mt">Воросы:</h3>
+    <ol class="menu">
+        <li><a href="#q1">Что такое: ORM, JPA, Hibernate?</a></li>
+        <li><a href="#q2">Что такое EntityManager? Его функции?</a></li>
+        <li><a href="#q3">Каким условиям должен удовлетворять класс, чтобы являться Entity?</a></li>
+        <li><a href="#q4">Может ли абстрактный класс быть Entity?</a></li>
+        <li><a href="#q5">Наследование Entity классов.</a></li>
+        <li><a href="#q6">Что такое встраиваемый (Embeddable) класс?
+            Какие требования JPA предъявляет к встраиваемым (Embeddable) классам?</a></li>
+        <li><a href="#q7">Что такое Mapped Superclass?</a></li>
+        <li><a href="#q8">Какие три стратегии маппинга при наследовании сущностей описаны в JPA?</a></li>
+        <li><a href="#q9">Как мапятся Enum'ы?</a></li>
+    </ol>
+</section>
+
+<section class="container" id="q1">
+    <h1><a href="#">Что такое: ORM, JPA, Hibernate?</a></h1>
+    <div class="tab-1">
+        <p><a href="#q1_orm">ORM</a></p>
+        <p><a href="#q1_jpa">JPA</a></p>
+        <p><a href="#q1_hibernate">Hibernate</a></p>
+    </div>
+    <hr class="mb10">
+
+    <div id="q1_orm">
+        <h3><a href="#q1">ORM</a></h3>
+        <p class="no_mb main-mind">
+            Object Relational Mapping (ORM)
+            — это концепция/процесс преобразования данных из объектно-ориентированного языка в
+            реляционные БД и наоборот.
+        </p>
+        <p class="example">Например, в Java это делается с помощью рефлексии и JDBC.</p>
+        <p class="no_mb">
+            <span class="accent-mono">JDBC (Java DataBase Connectivity)</span>
+            — API для работы с реляционными (зависимыми) БД.
+        </p>
+        <p>
+            Платформенно независимый промышленный стандарт взаимодействия Java-приложений с различными СУБД,
+            реализованный в виде пакета java.sql, входящего в состав Java SE.
+        </p>
+        <p>
+
+            Предоставляет методы для получения и
+            обновления данных. Не зависит от конкретного типа базы. Библиотека, которая входит в стандартную библиотеу,
+            содержит: набор классов и интерфейсов для работы с БД (для нас разработчиков api) + интерфейсы баз данных.
+        </p>
+        <p>
+            JDBC реализует механизмы работы подключений к базе данных, создания запросов и обработки результатов.
+        </p>
+
+        <div>
+            <h4>JDBC Архитектура</h4>
+            <div class="image-box">
+                <img class="image" src="./img/arch.png" alt="JDBC Архитектура">
+            </div>
+        </div>
+
+        <div>
+            <h4>JDBC Сущности</h4>
+            <ol class="marker-mono">
+                <li>
+                    <p class="mb10">
+                        <span class="accent-mono">Connection</span>
+                        (класс) объект которого отвечает за соединение с базой и режим работы с ней.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span class="accent-mono">Statement</span>
+                        (объект для оператора JDBC) используется для отправки SQL-оператора на сервер баз данных.
+                    </p>
+                    <p class="mb10">
+                        Объект для оператора связан с объектом Connection и является объектом, обрабатывающим
+                        взаимодействие между приложением и сервером баз данных.
+                    </p>
+                    <div class="tab-1">
+                        <p>Можно:</p>
+                        <ul>
+                            <li>что-то поменять Update statement (create, delete, insert) в базе;</li>
+                            <li>что-то запросить Query statement (select) из базы;</li>
+                        </ul>
+                    </div>
+                    <div class="tab-1">
+                        <p>Виды Statement-ов:</p>
+                        <ul>
+                            <li>
+                                <span class="accent-mono">Statement (обычный)</span>
+                                передаем в него либо Update, либо Query;
+                            </li>
+                            <li>
+                                <span class="accent-mono">PreparedStatement</span>
+                                - возможность сделать некий шаблон запроса, подставлять в него к-то значения и
+                                использовать его;
+                            </li>
+                            <li>
+                                <span class="accent-mono">CallableStatement</span>
+                                - предоставляет возможность вызова хранимой процедуры,
+                                расположенной на сервере, из Java™-приложения.
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="accent-mono">ResultSet</span>
+                    - объект с результатом запроса, который вернула база. Внутри него таблица.
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <h4>Рефлексия</h4>
+            <div class="tab-1">
+                <p class="no_mb">это API, который позволяет:</p>
+                <ul>
+                    <li>
+                        получать информацию о переменных, методах внутри класса, о самом классе, его конструкторах,
+                        реализованных интерфейсах и т.д.;
+                    </li>
+                    <li>получать новый экземпляр класса;</li>
+                    <li>получать доступ ко всем переменным и методам, в том числе <span>приватным</span>;</li>
+                    <li>преобразовывать классы одного типа в другой (cast);</li>
+                    <li>делать все это <span>во время исполнения программы</span> (динамически, в <span>Runtime</span>).
+                    </li>
+                </ul>
+            </div>
+            <p>
+                В Java есть специальный класс по имени Class. Поэтому его и называют классом класса.
+                С помощью него осуществляется работа с рефлексией.
+            </p>
+        </div>
+
+    </div>
+
+    <hr>
+    <div id="q1_jpa">
+        <h3><a href="#q1">JPA</a></h3>
+        <p class="main-mind">
+            Java Persistence API (JPA)
+            - это спецификация (стандарт, технология), обеспечивающая объектно-реляционное отображение простых
+            JAVA-объектов (Plain Old Java Object - POJO) и предоставляющая универсальный API для сохранения, получения и
+            управления такими объектами.
+        </p>
+        <p>
+            Сам JPA не умеет ни сохранять, ни управлять объектами, JPA только определяет правила игры: как должен
+            действовать каждый провайдер (Hibernate, EclipseLink, OJB, Torque и т.д.), реализующий стандарт JPA. Для
+            этого JPA определяет интерфейсы, которые должны быть реализованы провайдерами. Также JPA определяет правила,
+            как должны описываться метаданные отображения и как должны работать провайдеры. Каждый провайдер обязан
+            реализовывать всё из JPA, определяя стандартное получение, сохранение и управление объектами. Помимо этого,
+            провайдеры могут добавлять свои личные классы и интерфейсы, расширяя функционал JPA.
+        </p>
+        <p class="bold no_mb">JPA </p>
+        <div class="tab-1">
+            <ul>
+                <li>API в пакете javax.persistance (набор интерфейсов EntityManager, Query, EntityTransaction);</li>
+                <li>JPQL - объектный язык запросов (запросы выполняются к объектам);</li>
+                <li>Metadata (аннотации или xml)</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    <div id="q1_hibernate">
+        <h3><a href="#q1">HIBERNATE</a></h3>
+        <p>
+            <span class="accent-mono">Hibernate</span>
+            - это провайдер, реализующий спецификацию JPA. Hibernate полностью реализует JPA плюс добавляет функционал в
+            виде своих классов и интерфейсов, расширяя свои возможности по работе с сущностями и БД.
+        </p>
+    </div>
+
+    <a class="button button--top" href="#"></a>
+
+</section>
+
+<section class="container" id="q2">
+    <h1><a href="#">Что такое EntityManager?<br>Какие функции он выполняет?</a></h1>
+
+    <div id="q2_entity_manager">
+        <h3>EntityManager</h3>
+        <p class="main-mind">
+            Это интерфейс JPA, используемый для взаимодействия с персистентным контекстом.
+        </p>
+        <p class="no_mb">
+            EntityManager описывает API для всех основных операций над Entity, а также для получения данных и других
+            сущностей JPA.
+        </p>
+        <p>По сути - главный API для работы с JPA.</p>
+        <p>
+            <span class="accent-mono">Персистентный контекст</span>
+            - это набор экземпляров сущностей, загруженных из БД или только что созданных.
+        </p>
+        <p>
+            Персистентный контекст является своего рода кэшем данных в рамках транзакции
+            - это и есть кэш первого уровня.
+        </p>
+        <p>
+            Внутри контекста персистентности происходит управление экземплярами сущностей и их жизненным циклом.
+        </p>
+        <p>
+            EntityManager автоматически сохраняет в БД все изменения, сделанные в его персистентном контексте,
+            в момент коммита транзакции, либо при явном вызове метода <span class="code-word">flush()</span>.
+        </p>
+        <p>
+            Один или несколько EntityManager образуют или могут образовать
+            <span class="accent-mono">persistence context</span>.
+        </p>
+        <p>
+            Если проводить аналогию с обычным JDBC, то EntityManagerFactory будет аналогом DataSource,
+            а EntityManager аналогом Connection.
+        </p>
+        <p>
+            Создание EntityManagerFactory довольно дорогая операция, поэтому обычно её создают один раз
+            и на всё приложение.
+            А чаще всего не создают сами, а делегируют это фреймворку, такому как Spring, например.
+        </p>
+        <p>
+            Интерфейс Session из Hibernate представлен в JPA как раз интерфейсом EntityManager.
+        </p>
+
+        <table class="list" aria-label="">
+            <thead>
+            <tr>
+                <th>JPA</th>
+                <th>JDBC (по аналогии)</th>
+                <th>Hibernate</th>
+            <tr>
+            </thead>
+            <tr>
+                <td>EntityManagerFactory</td>
+                <td>DataSource</td>
+                <td>SessionFactory</td>
+            </tr>
+            <tr>
+                <td>EntityManager</td>
+                <td>Connection</td>
+                <td>Session</td>
+            </tr>
+            <tr>
+                <td>JPQL</td>
+                <td></td>
+                <td>HQL</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="q2_entity_manager_function">
+        <h3>Основные функции EntityManager</h3>
+        <ol>
+            <li>
+                <p>Операции над Entity:</p>
+                <ul>
+                    <li><span class="accent-mono">persist</span> (добавление Entity под управление JPA)</li>
+                    <li><span class="accent-mono">merge</span> (изменение)</li>
+                    <li><span class="accent-mono">remove</span> (удаление)</li>
+                    <li><span class="accent-mono">refresh</span> (обновление данных)</li>
+                    <li><span class="accent-mono">detach</span> (удаление из-под управления контекста персистентности)
+                    </li>
+                    <li><span class="accent-mono">lock</span> (блокирование Entity от изменений в других thread)</li>
+                </ul>
+            </li>
+            <li>
+                <p>Получение данных:</p>
+                <ul>
+                    <li><span class="accent-mono">find</span> (поиск и получение Entity)</li>
+                    <li><span class="accent-mono">createQuery</span></li>
+                    <li><span class="accent-mono">createNamedQuery</span></li>
+                    <li><span class="accent-mono">createNativeQuery</span></li>
+                    <li><span class="accent-mono">contains</span></li>
+                    <li><span class="accent-mono">createNamedStoredProcedureQuery</span></li>
+                    <li><span class="accent-mono">createStoredProcedureQuery</span></li>
+                </ul>
+            </li>
+            <li>
+                <p>Получение других сущностей JPA</p>
+                <ul>
+                    <li><span class="accent-mono">getTransaction</span></li>
+                    <li><span class="accent-mono">getEntityManagerFactory,</span></li>
+                    <li><span class="accent-mono">getCriteriaBuilder</span></li>
+                    <li><span class="accent-mono">getMetamodel</span></li>
+                    <li><span class="accent-mono">getDelegate</span></li>
+                </ul>
+            </li>
+            <li>
+                <p>Работа с EntityGraph</p>
+                <ul>
+                    <li><span class="accent-mono">createEntityGraph</span></li>
+                    <li><span class="accent-mono">getEntityGraph</span></li>
+                </ul>
+            </li>
+            <li>
+                <p>Общие операции</p>
+                <ul>
+                    <li><span class="accent-mono">close</span></li>
+                    <li><span class="accent-mono">isOpen</span></li>
+                    <li><span class="accent-mono">getProperties</span></li>
+                    <li><span class="accent-mono">setProperty</span></li>
+                    <li><span class="accent-mono">clear</span></li>
+                </ul>
+            </li>
+        </ol>
+        <p class="main-mind">
+            Объекты EntityManager не являются потокобезопасными.
+        </p>
+        <p>
+            Это означает, что каждый поток должен получить свой экземпляр EntityManager,
+            поработать с ним и закрыть его в конце.
+        </p>
+
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q3">
+    <h1><a href="#">Каким условиям должен удовлетворять класс, чтобы являться Entity?</a></h1>
+    <div class="tab-1">
+        <p><a href="#q3_entity">Entity</a></p>
+        <p><a href="#q3_entity_jpa">Требования к Entity классу в JPA</a></p>
+        <p><a href="#q3_entity_hibernate">Требования к Entity классу в Hibernate</a></p>
+    </div>
+
+    <hr>
+    <div id="q3_entity">
+        <h3><a href="#q3">Entity</a></h3>
+        <p class="main-mind">Сущность (entity) - это объект персистентной области.</p>
+        <p>
+            Как правило, сущность представляет таблицу в реляционной базе данных, и каждый экземпляр сущности
+            соответствует строке в этой таблице.
+        </p>
+        <p>
+            Основным программным представлением сущности является класс сущности.
+        </p>
+        <p>
+            Класс сущности может использовать другие классы, которые служат
+            вспомогательными классами или используются для представления состояния сущности (например embedded).
+        </p>
+        <p>
+            <span class="accent-mono">Персистентное состояние</span>
+            сущности представлено персистентными полями или персистентными свойствами.
+        </p>
+        <p>
+            <span class="accent-mono">Персистентное поле</span>
+            - поле сущности, которое отражается в БД в виде столбца таблицы.
+        </p>
+        <p>
+            <span class="accent-mono">Персистентное свойство</span>
+            - это методы, которые аннотированы вместо полей для доступа провайдера к ним (полям).
+        </p>
+        <p>
+            Эти поля или свойства используют аннотации объектно-реляционного сопоставления (маппинга) для сопоставления
+            сущностей и отношений между ними с реляционными данными в хранилище данных.
+        </p>
+        <p>
+            Примеры аннотаций:
+            <span class="annotation">@OneToOne</span>,
+            <span class="annotation">@OneToMany</span>,
+            <span class="annotation">@ManyToOne</span>,
+            <span class="annotation">@ManyToMany</span>.
+        </p>
+        <p>Есть два вида доступа к состоянию сущности:</p>
+        <ul>
+            <li class="mb10">
+                <p><span class="accent-mono">Доступ по полю</span>, когда аннотации стоят над полями.</p>
+                <p>В этом случае провайдер, например, Hibernate, обращается к полям класса напрямую, используя
+                    Reflection.</p>
+            </li>
+            <li>
+                <p>
+                    <span class="accent-mono">Доступ по свойству</span>,
+                    когда аннотации стоят над методами-геттерами.
+                </p>
+                <p>В этом случае провайдер, например, Hibernate, обращается к полям класса через методы.</p>
+            </li>
+        </ul>
+        <p>В JPA принято называть эти персистентные поля и свойства атрибутами класса-сущности.</p>
+    </div>
+
+    <hr>
+    <div id="q3_entity_jpa">
+        <h3><a href="#q3">Требования к Entity классу в JPA</a></h3>
+        <ul>
+            <li class="mb10">
+                Entity класс должен быть помечен аннотацией @Entity или описан в XML файле конфигурации JPA.
+            </li>
+            <li class="mb10">
+                Entity класс должен содержать public или protected конструктор без аргументов
+                (он также может иметь конструкторы с аргументами).
+            </li>
+            <li class="mb10">
+                Entity класс должен быть классом верхнего уровня
+                (<a href="../core/classes/#q1" target="_blank" title="для тех кто забыл">top-level class</a>).
+            </li>
+            <li class="mb10">
+                Перечисление (enum) или интерфейс (interface) не могут быть определены как сущность.
+            </li>
+            <li class="mb10">
+                <p>Entity класс не может быть финальным классом (final class).</p>
+                <p>
+                    Entity класс не может содержать финальные поля или методы, если они участвуют в маппинге
+                    (persistent final methods or persistent final instance variables).
+                </p>
+            </li>
+            <li class="mb10">
+                Если объект Entity класса будет передаваться по значению как отделённый от контекста персистентности
+                объект (detached object), например через удаленный интерфейс (through a remote interface), то он также
+                должен реализовывать интерфейс Serializable (чтобы объекты, которые достаются из базы, могли сохраняться
+                в кэше).
+            </li>
+            <li class="mb10">
+                <p>Как обычный так и абстрактный класс может быть Entity.</p>
+                <p>Entities могут наследоваться как от не Entity классов, так и от Entity классов. </p>
+                <p>А не Entity классы могут наследоваться от Entity классов.</p>
+            </li>
+            <li class="mb10">
+                <p>
+                    Поля Entity класса должны быть объявлены private, protected или package-private, быть напрямую
+                    доступными только методам самого Entity класса и не должны быть напрямую доступны другим классам,
+                    использующим этот Entity.
+                </p>
+                <p>
+                    Другие классы должны обращаться только к специальным методам Entity класса, предоставляющим доступ
+                    к этим полям (getter/setter-методам или другим методам бизнес-логики в Entity классе).
+                </p>
+            </li>
+            <li class="mb10">
+                Entity класс должен содержать первичный ключ, то есть атрибут или группу атрибутов,
+                которые уникально определяют запись этого Entity класса в базе данных.
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <div id="q3_entity_hibernate">
+        <h3><a href="#q3">Требования к Entity классу в Hibernate</a></h3>
+        <p>Hibernate не так строг в своих требованиях. Вот отличия от требований JPA:</p>
+        <ol>
+            <li class="mb10">
+                Класс сущности должен иметь конструктор без аргументов, который может быть не только public
+                или protected, но и package visibility (default).
+            </li>
+            <li class="mb10">Класс сущности необязательно должен быть классом верхнего уровня.</li>
+            <li class="mb10">
+                <p>Технически Hibernate может сохранять финальные классы или классы
+                    с финальными методами (getter / setter).</p>
+                <p class="example">Однако, как правило, это не очень хорошая идея, так как это лишит Hibernate
+                    возможности генерировать прокси для отложенной загрузки сущности.</p>
+            </li>
+            <li class="mb10">
+                <p>Hibernate не запрещает разработчику приложения открывать прямой доступ к переменным экземпляра и
+                    ссылаться на них извне класса сущности.</p>
+                <p class="example">Однако обоснованность такого подхода спорна.</p>
+            </li>
+        </ol>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q4">
+    <h1><a href="#">Может ли абстрактный класс быть Entity?</a></h1>
+    <p class="main-mind"> Абстрактный класс может быть Entity классом.</p>
+    <p>
+        Абстрактный Entity класс отличается от обычных Entity классов только тем, что нельзя создать объект этого
+        класса. Имена абстрактных классов могут использоваться в запросах.
+    </p>
+
+    <p>
+        Абстрактные Entity классы используются в наследовании, когда их потомки наследуют поля абстрактного класса:
+    </p>
+
+    <div class="code">
+        <p class="annotation">@Entity</p>
+        <p class="annotation">@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)</p>
+        <p>public abstract class <span class="name">Employee</span> {</p>
+        <p class="tab-1 annotation">@Id</p>
+        <p class="tab-1 annotation">@GeneratedValue</p>
+        <p class="tab-1">private long id;</p>
+        <p class="tab-1">private String name;</p>
+        <p class="tab-2">...</p>
+        <p>}</p>
+    </div>
+
+    <div class="code">
+        <p class="annotation">@Entity</p>
+        <p class="annotation">@Table(name = "FULL_TIME_EMP")</p>
+        <p>public class <span class="name">FullTimeEmployee</span> extends <span class="name">Employee</span></p>
+        <p class="tab-1">private int salary;</p>
+        <p class="tab-2">...</p>
+        <p>}</p>
+    </div>
+
+    <div class="code">
+        <p class="annotation">@Entity</p>
+        <p class="annotation">@Table(name = "PART_TIME_EMP")</p>
+        <p>public class <span class="name">PartTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+        <p class="tab-1">private int hourlyRate;</p>
+        <p class="tab-2">...</p>
+        <p>}</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q5">
+    <h1><a href="#">Наследование Entity классов.</a></h1>
+
+    <p>Таблица вариантов наследования Entity классов:</p>
+    <table class="list list--content-center" aria-label="entity_inheritance">
+        <thead>
+        <tr>
+            <th>Родитель/Наследник</th>
+            <th>Entity класс</th>
+            <th>не Entity класс</th>
+        <tr>
+        </thead>
+        <tr>
+            <td>Entity класс</td>
+            <td>+</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>Entity класс</td>
+            <td>+</td>
+            <td>обычное наследование в&nbsp;Java</td>
+        </tr>
+    </table>
+
+    <hr>
+    <div id="q5_entity_inherit_not_entity">
+        <h3>Может ли Entity класс наследоваться от не Entity классов (non-entity classes)?</h3>
+        <p>
+            <span class="accent-mono">Да</span>,
+            сущности могут наследоваться от не Entity классов, которые, в свою очередь, могут быть как абстрактными, так
+            и обычными.
+        </p>
+        <p>
+            Состояние (поля) не Entity суперкласса не является персистентным, то есть не хранится в БД и не
+            обрабатывается провайдером (Hibernate), поэтому любое такое состояние (поля), унаследованное Entity классом,
+            также не будет отображаться в БД.
+        </p>
+        <p>
+            Не Entity суперклассы не могут участвовать в операциях EntityManager или Query. Любые маппинги или аннотации
+            отношений в не Entity суперклассах игнорируются.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q5_entity_inherit_entity">
+        <h3>Может ли Entity класс наследоваться от Entity классов?</h3>
+        <p><span class="accent-mono">Да</span>, может.</p>
+    </div>
+
+    <hr>
+    <div id="q5_not_entity_inherit_entity">
+        <h3>Может ли не Entity класс наследоваться от Entity класса?</h3>
+        <p><span class="accent-mono">Да</span>, может.</p>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q6">
+    <h1><a href="#">Что такое встраиваемый (Embeddable) класс?
+        <br>Какие требования JPA предъявляет к встраиваемым (Embeddable) классам?</a></h1>
+    <div class="tab-1">
+        <p><a href="#q6_embeddable">Описание</a></p>
+        <p><a href="#q6_embeddable_features">Особенности</a></p>
+        <p><a href="#q6_embeddable_requirement">Требования</a></p>
+    </div>
+
+    <hr>
+    <div id="q6_embeddable">
+        <h3><a href="#q6">Встраиваемый (Embeddable) класс</a></h3>
+        <p>
+            Это класс, который не используется сам по себе, а только как часть одного или нескольких Entity классов.
+        </p>
+        <p class="no_mb">Hibernate называет эти классы <span class="accent-mono">компонентами</span>. </p>
+        <p>JPA называет их <span class="accent-mono">встраиваемыми</span>.</p>
+        <p>В любом случае, концепция одна и та же: композиция значений.</p>
+        <p>Встраиваемый класс помечается аннотацией <span class="annotation">@Embeddable</span>.</p>
+        <p class="no_mb">
+            Встраиваемый класс может быть встроен в несколько классов-сущностей, но встроенный объект с конкретным
+            состоянием принадлежит исключительно владеющей им сущности и не может использоваться одновременно другими
+            сущностями, он не является общим для нескольких сущностей.
+        </p>
+        <p class="example">
+            То есть, если класс <span class="code-word">Person</span> с полями
+            <span class="code-word">name</span> и <span class="code-word">age</span>
+            встроен и в класс <span class="code-word">Driver</span>, и в класс <span class="code-word">Baker</span>,
+            то у обоих последних классов появятся оба поля из класса Person. Но если у объекта Driver эти поля будут
+            иметь значения "Иван" и "35", то эти же поля у объекта Baker могут иметь совершенно иные значения, никак не
+            связанные с объектом Driver.
+        </p>
+        <p>
+            В целом, встраиваемый класс служит для того, чтобы выносить определение общих атрибутов для нескольких
+            сущностей, можно считать что JPA просто встраивает в сущность вместо объекта такого класса те атрибуты,
+            которые он содержит.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q6_embeddable_features">
+        <h3><a href="#q6">Особенности встраиваемых классов</a></h3>
+        <ul>
+            <li class="mb10">
+                все поля встраиваемого класса, даже коллекции, станут полями класса, в который происходит встраивание;
+            </li>
+            <li class="mb10">
+                встраиваемые классы могут быть встроены в одну и ту же сущность несколько раз, нужно только поменять
+                имена полей;
+            </li>
+            <li class="mb10">
+                экземпляры встраиваемых классов, в отличие от экземпляров сущностей, не имеют собственного
+                персистентного состояния, вместо этого они существуют только как часть состояния объекта, которому они
+                принадлежат;
+            </li>
+            <li class="mb10">
+                экземпляры встраиваемых классов, в отличие от экземпляров сущностей, не имеют собственного
+                персистентного состояния, вместо этого они существуют только как часть состояния объекта, которому они
+                принадлежат;
+            </li>
+            <li class="mb10">
+                <p>встраиваемые классы могут использовать в качестве полей:</p>
+                <ul class="dash-style">
+                    <li>базовые типы;</li>
+                    <li>коллекции базовых типов (с аннотацией @ElementCollection);</li>
+                    <li>другие встраиваемые классы;</li>
+                    <li>коллекции других встраиваемых классов (с аннотацией @ElementCollection);</li>
+                    <li>сущности;</li>
+                    <li>коллекции сущностей;</li>
+                </ul>
+            </li>
+            <li class="mb10">
+                сущность может использовать в качестве полей одиночные встраиваемые классы и коллекции встраиваемых
+                классов;
+            </li>
+            <li>
+                встраиваемые классы могут использоваться в качестве ключей и значений Map.
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <div id="q6_embeddable_requirement">
+        <h3><a href="#q6">Требования к встраиваемым классам</a></h3>
+        <ul>
+            <li>
+                Должны соответствовать <a href="#q3_entity_jpa">требованиям для сущностей</a>, за исключением того,
+                что у встраиваемых классов не ставится аннотация @Entity и может отсутствовать первичный ключ @Id.
+            </li>
+            <li>Должны быть аннотированы @Embeddable.</li>
+        </ul>
+        <div>
+            <p>
+                Например, у нас может быть встраиваемый класс ClassA, который представляет собой композицию строкового и
+                числового значений, и эти два поля будут добавлены в класс EntityA:
+            </p>
+            <div class="code">
+                <p class="annotation">@Entity</p>
+                <p>public class <span class="name">EntityA</span> {</p>
+                <p class="tab-1 annotation">@Id</p>
+                <p class="tab-1 annotation">@GeneratedValue</p>
+                <p class="tab-1">private int id;</p>
+                <p class="tab-1">...</p>
+                <p class="tab-1 annotation">@Embedded</p>
+                <p class="tab-1">private <span class="name">ClassA</span> classARef;</p>
+                <p class="tab-1">...</p>
+                <p>}</p>
+            </div>
+            <div class="code">
+                <p class="annotation">@Embeddable</p>
+                <p>public class <span class="name">ClassA</span> {</p>
+                <p class="tab-1">private String myStr;</p>
+                <p class="tab-1">private int myInt;</p>
+                <p class="tab-1">...</p>
+                <p>}</p>
+            </div>
+            <div class="image-box">
+                <img class="image" src="./img/embeddable.png" alt="Embeddable">
+            </div>
+            <p>
+                Так как мы можем встраивать классы в неограниченное количество других классов, то у каждого класса,
+                содержащего встраиваемый класс, мы можем изменить названия полей из встраиваемого класса.
+            </p>
+            <p>
+                Например, у класса Driver поля из встраиваемого класса Person будут изменены с name на driver_name и с
+                age на driver_age:
+            </p>
+            <div class="code">
+                <p class="annotation">@Embeddable</p>
+                <p>public class <span class="name">Person</span> {</p>
+                <p class="tab-1">private String name;</p>
+                <p class="tab-1">name; private int age;</p>
+                <p>}</p>
+            </div>
+            <div class="code">
+                <p class="annotation">@Entity</p>
+                <p>public class <span class="name">Driver</span> {</p>
+                <p class="tab-1 annotation">@Embedded</p>
+                <p class="tab-1"><span class="annotation">@AttributeOverrides</span>({</p>
+                <p class="tab-3">
+                    <span class="annotation">@AttributeOverride</span>(name = "name", column =
+                    <span class="annotation">@Column</span>(name = "driver_name")),
+                </p>
+                <p class="tab-3">
+                    <span class="annotation">@AttributeOverride</span>(name = "age", column =
+                    <span class="annotation">@Column</span>(name = "driver_age")),
+                </p>
+                <p class="tab-1">})</p>
+                <p class="tab-1">private Person person;</p>
+                <p class="tab-1">...</p>
+                <p>}</p>
+            </div>
+            <p>
+                Сущности, которые имеют встраиваемые классы, могут аннотировать поле или свойство аннотацией @Embedded,
+                но не обязаны это делать.
+            </p>
+        </div>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q7">
+    <h1><a href="#">Что такое Mapped Superclass?</a></h1>
+
+    <div class="tab-1">
+        <p><a href="#q7_description">Определение</a></p>
+        <p><a href="#q7_feature">Особенности</a></p>
+        <p><a href="#q7_vs_embeddable">Mapped Superclass vs. Embeddable class</a></p>
+    </div>
+
+    <hr>
+    <div id="q7_description">
+        <h3><a href="#q7">Mapped Superclass</a></h3>
+        <p class="main-mind">
+            Mapped Superclass (сопоставленный суперкласс) - это класс, от которого наследуются Entity, он может
+            содержать
+            аннотации JPA, однако сам такой класс не является Entity, ему не обязательно выполнять все требования,
+            установленные для Entity (например, он может не содержать первичного ключа).
+        </p>
+        <p>
+            Эти суперклассы чаще всего
+            используются, когда у нас есть общая для нескольких классов сущностей информация о состоянии и отображении,
+            которую можно вынести в Mapped Superclass.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q7_feature">
+        <h3><a href="#q7">Особенности Mapped Superclass</a></h3>
+        <ul>
+            <li>Должен быть помечен аннотацией @MappedSuperclass или описан в xml файле.</li>
+            <li>
+                Не может использоваться в операциях EntityManager или Query, вместо этого нужно использовать
+                классы-наследники.
+            </li>
+            <li>
+                Не может состоять в отношениях с другими сущностями
+                (в сущности нельзя создать поле с типом сопоставленного суперкласса).
+            </li>
+            <li>Может быть абстрактным.</li>
+            <li>Не имеет своей таблицы в БД.</li>
+        </ul>
+        <p>
+            Для того, чтобы использовать Mapped Superclass, достаточно унаследовать его в классах-потомках:
+        </p>
+        <div class="code">
+            <p class="annotation">@MappedSuperclass</p>
+            <p>public class <span class="name">Employee</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1 annotation">@GeneratedValue</p>
+            <p class="tab-1">private long id;</p>
+            <p class="tab-1">private String name;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@Table(name = "FULL_TIME_EMP")</p>
+            <p>public class <span class="name">FullTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int salary;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@Table(name = "PART_TIME_EMP")</p>
+            <p>public class <span class="name">PartTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int hourlyRate;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <p>
+            В указанном примере кода в БД будут таблицы FULL_TIME_EMPLOYEE и PART_TIME_EMPLOYEE,
+            но таблицы EMPLOYEE не будет:
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/superclass.png" alt="MappedSuperclass">
+        </div>
+        <p>
+            Это похоже на стратегию наследования “Таблица для каждого конкретного класса сущностей”, но в модели данных
+            нет
+            объединения таблиц или наследования. Также тут нет таблицы для Mapped Superclass. Наследование существует
+            только
+            в объектной модели.
+        </p>
+        <p>
+            Основным недостатком использования сопоставленного суперкласса является то, что полиморфные запросы
+            невозможны,
+            то есть мы не можем загрузить всех наследников Mapped Superclass.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q7_vs_embeddable">
+        <h3><a href="#q7">Mapped Superclass vs. Embeddable class</a></h3>
+        <p>Сходства:</p>
+        <ul>
+            <li>не являются сущностями и могут иметь все аннотации, кроме @Entity;</li>
+            <li>не имеют своих таблиц в БД;</li>
+            <li>не могут использоваться в операциях EntityManager или Query.</li>
+        </ul>
+        <p>Различия:</p>
+        <ul>
+            <li>
+                MappedSuperclass - наследование, Embeddable class - композиция (экземпляр «части» может входить только в
+                одно целое (или никуда не входить));
+            </li>
+            <li>
+                поля из Mapped Superclass могут быть у сущности в одном экземпляре, полей из Embeddable class может быть
+                сколько угодно (встроив в сущность Embeddable class несколько раз и поменяв имена полей);
+            </li>
+            <li>
+                в сущности нельзя создать поле с типом сопоставленного суперкласса, а с Embeddable можно и нужно.
+            </li>
+        </ul>
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q8">
+    <h1><a href="#">Какие три стратегии маппинга при наследовании сущностей
+        описаны в JPA?</a></h1>
+    <div class="tab-1">
+        <p><a href="#q8_single">SINGLE_TABLE</a></p>
+        <p><a href="#q8_joined">JOINED</a></p>
+        <p><a href="#q8_everyone">TABLE_PER_CLASS</a></p>
+    </div>
+
+    <hr>
+    <div>
+        <h3>Entity Inheritance Mapping Strategies</h3>
+        <p class="main-mind">
+            Стратегии наследования нужны для того, чтобы дать понять провайдеру (Hibernate)
+            как ему отображать в БД сущности-наследники.
+        </p>
+        <p>
+            Для этого нам нужно декорировать родительский класс аннотацией @Inheritance и указать один из типов
+            отображения.
+        </p>
+        <p>
+            Следующие три стратегии используются для отображения данных сущности-наследника и родительской сущности:
+        </p>
+        <ol class="marker-mono">
+            <li class="mb10">
+                <p class="accent-mono">SINGLE_TABLE</p>
+                <p>Одна таблица на всю иерархию классов.</p>
+            </li>
+            <li class="mb10">
+                <p class="accent-mono">JOINED</p>
+                <p>
+                    Стратегия "соединения", при которой поля или свойства, специфичные для подклассов, отображаются в
+                    таблицах этих подклассов, а поля или свойства родительского класса отображаются в
+                    таблице родительского класса.
+                </p>
+            </li>
+            <li class="mb10">
+                <p class="accent-mono">TABLE_PER_CLASS</p>
+                <p>Таблица для каждого конкретного класса сущностей.</p>
+            </li>
+        </ol>
+    </div>
+
+    <hr>
+    <div id="q8_single">
+        <h3><a href="#q8">SINGLE TABLE</a></h3>
+        <p class="main-mind">Одна таблица на всю иерархию классов</p>
+        <p>
+            <span class="accent-mono">Является стратегией по умолчанию</span>
+            и используется, когда аннотация @Inheritance не указана в родительском классе
+            или когда она указана без конкретной стратегии.
+        </p>
+        <div class="image-box">
+            <img class="image" src="img/single.png" alt="SINGLE TABLE">
+        </div>
+        <p class="main-mind no_mb">
+            Все entity, со всеми наследниками записываются в одну таблицу.
+        </p>
+        <p class="main-mind">
+            Для идентификации типа entity (наследника) определяется специальная
+            колонка "discriminator column".
+        </p>
+        <p class="mb20 main-mind">
+            Минусом
+            стратегии является невозможность применения ограничения NOT NULL для тех колонок таблицы, которые
+            характерны только для классов-наследников.
+        </p>
+        <p>
+            Например, если есть entity Employee c классами-потомками FullTimeEmployee и PartTimeEmployee, то при такой
+            стратегии все FullTimeEmployee и
+            PartTimeEmployee записываются в таблицу Employee, и при этом в таблице появляется дополнительная колонка с
+            именем <span class="accent-mono">DTYPE</span>,
+            в которой будут записаны значения, определяющие принадлежность к классу.
+        </p>
+        <p>
+            По умолчанию эти значения формируются из имён классов, в нашем случае - либо «FullTimeEmployee» либо
+            «PartTimeEmployee».
+        </p>
+        <p>
+            Но мы можем их поменять в аннотации у каждого класса-наследника:
+            <span class="accent-mono">@DiscriminatorValue("F")</span>.
+        </p>
+        <p>
+            Если мы хотим поменять имя колонки, то мы должны указать её новое имя в параметре аннотации у
+            класса-родителя: <span class="accent-mono">@DiscriminatorColumn(name=EMP_TYPE)</span> .
+        </p>
+        <div class="code">
+            <p class="annotation">@Inheritance(strategy = InheritanceType.SINGLE_TABLE)</p>
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@DiscriminatorColumn(name = "EMP_TYPE")</p>
+            <p>public class <span class="name">Employee</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1 annotation">@GeneratedValue</p>
+            <p class="tab-1">private long id;</p>
+            <p class="tab-1">private String name;</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@DiscriminatorValue("F")</p>
+            <p>public class <span class="name">FullTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int salary;</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@DiscriminatorValue("P")</p>
+            <p>public class <span class="name">PartTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int hourlyRate;</p>
+            <p>}</p>
+        </div>
+        <p>
+            Эта стратегия обеспечивает хорошую поддержку полиморфных отношений между сущностями и запросами, которые
+            охватывают всю иерархию классов сущностей:
+        </p>
+        <div class="code tab-1">
+            <p class="bold">-- Persisting entities --</p>
+            <p>FullTimeEmployee{id=0, name='Sara', salary=100000}</p>
+            <p class="mb10">PartTimeEmployee{id=0, name='Tom', hourlyRate='60'}</p>
+            <p class="bold">-- Native queries --</p>
+            <p class="good bold">'Select * from Employee'</p>
+            <p>[F, 1, Sara, null, 100000]</p>
+            <p class="mb10">[P, 2, Tom, 60, null]</p>
+            <p class="bold">-- Loading entities --</p>
+            <p>FullTimeEmployee{id=1, name='Sara', salary=100000}</p>
+            <p>PartTimeEmployee{id=2, name='Tom', hourlyRate='60'}</p>
+        </div>
+    </div>
+
+    <hr>
+    <div id="q8_joined">
+        <h3><a href="#q8">JOINED</a></h3>
+        <p class="main-mind">Стратегия "соединения"</p>
+        <p class="main-mind">
+            В данной стратегии корневой класс иерархии представлен отдельной таблицей, а каждый класс-наследник имеет
+            свою таблицу, в которой отображены только поля этого класса-наследника.
+        </p>
+        <p>
+            То есть таблица подкласса не содержит столбцы для полей, унаследованных от родительского класса, за
+            исключением поля для первичного ключа @Id, который должен быть определен только в родительской таблице.
+        </p>
+        <p>
+            Столбец первичного ключа в таблице подкласса служит внешним ключом первичного ключа таблицы суперкласса.
+        </p>
+        <p>
+            Также в таблице родительского класса добавляется столбец
+            <span class="accent-mono">DiscriminatorColumn</span> с <span class="accent-mono">DiscriminatorValue</span>
+            для определения типа наследника.
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/joined.png" alt="JOINED">
+        </div>
+        <div class="code">
+            <p class="annotation">@Inheritance(strategy = InheritanceType.JOINED)</p>
+            <p class="annotation">@Entity</p>
+            <p><span class="annotation">@DiscriminatorColumn(name = "EMP_TYPE")</span> //определение типа наследника</p>
+            <p>public class <span class="name">Employee</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1 annotation">@GeneratedValue</p>
+            <p class="tab-1">private long id;</p>
+            <p class="tab-1">private String name;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@DiscriminatorValue("F")</p>
+            <p class="annotation">@Table(name = "FULL_TIME_EMP")</p>
+            <p>public class <span class="name">FullTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int salary;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@DiscriminatorValue("P")</p>
+            <p class="annotation">@Table(name = "PART_TIME_EMP")</p>
+            <p>public class <span class="name">PartTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int hourlyRate;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code tab-1">
+            <p class="bold">-- Persisting entities --</p>
+            <p>FullTimeEmployee{id=0, name='Sara', salary=100000}</p>
+            <p class="mb10">PartTimeEmployee{id=0, name='Robert', hourlyRate='60'}</p>
+            <p class="bold">-- Native queries --</p>
+            <p class="good bold">'Select * from Employee'</p>
+            <p>[F, 1, Sara]</p>
+            <p class="mb10">[P, 2, Robert]</p>
+            <p class="good bold">'Select * from FULL_TIME_EMP'</p>
+            <p class="mb10">[100000, 1]</p>
+            <p class="good bold">'Select * from PART_TIME_EMP'</p>
+            <p>[60, 2]</p>
+        </div>
+        <p>
+            Эта стратегия обеспечивает хорошую поддержку полиморфных отношений, но требует выполнения одной или
+            нескольких операций соединения таблиц при создании экземпляров подклассов сущностей.
+        </p>
+        <p> В глубоких иерархиях классов это может привести к недопустимому снижению производительности. </p>
+        <p>
+            Точно так же запросы, которые покрывают всю иерархию классов, требуют операций соединения между таблицами
+            подклассов, что приводит к снижению производительности:
+        </p>
+        <div class="code tab-1">
+            <p class="bold">-- Loading entities --</p>
+            <p>List&lt;Employee&gt; entityAList = em</p>
+            <p class="tab-4">.createQuery("Select t from Employee t")</p>
+            <p class="tab-4 mb10">.getResultList();</p>
+            <p class="mb10">// Hibernate создает соединения для сборки объектов</p>
+            <p class="bold">-- Result --</p>
+            <p>FullTimeEmployee{id=1, name='Sara', salary=100000}</p>
+            <p>PartTimeEmployee{id=2, name='Robert', hourlyRate='60'}</p>
+        </div>
+    </div>
+
+    <hr>
+    <div id="q8_everyone">
+        <h3><a href="#q8">TABLE PER CLASS</a></h3>
+        <p class="main-mind">Таблица для каждого класса сущностей</p>
+        <p>
+            Каждый класс-наследник имеет свою таблицу. Во всех таблицах подклассов хранятся все поля этого класса плюс
+            те, которые унаследованы от суперкласса.
+        </p>
+        <div class="image-box">
+            <img class="image" src="./img/per_class.png" alt="TABLE PER CLASS">
+        </div>
+        <div class="code">
+            <p class="annotation">@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)</p>
+            <p class="annotation">@Entity</p>
+            <p>public class <span class="name">Employee</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1 annotation">@GeneratedValue</p>
+            <p class="tab-1">private long id;</p>
+            <p class="tab-1">private String name;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@Table(name = "FULL_TIME_EMP")</p>
+            <p>public class <span class="name">FullTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int salary;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="annotation">@Table(name = "PART_TIME_EMP")</p>
+            <p>public class <span class="name">PartTimeEmployee</span> extends <span class="name">Employee</span> {</p>
+            <p class="tab-1">private int hourlyRate;</p>
+            <p class="tab-1">...</p>
+            <p>}</p>
+        </div>
+    </div>
+    <div class="code tab-1">
+        <p class="bold">-- Persisting entities --</p>
+        <p>FullTimeEmployee{id=0, name='Sara', salary=100000}</p>
+        <p class="mb10">PartTimeEmployee{id=0, name='Robert', hourlyRate='60'}</p>
+        <p class="bold">-- Native queries --</p>
+        <p class="bold good">'Select * from Employee'</p>
+        <p class="mb10">no data</p>
+        <p class="bold good">'Select * from FULL_TIME_EMP'</p>
+        <p class="mb10">[1, Sara, 100000]</p>
+        <p class="bold good">'Select * from PART_TIME_EMP'</p>
+        <p class="mb10">[2, Robert, 60]</p>
+        <p class="bold">-- Loading entities --</p>
+        <p>List&lt;Employee&gt; entityAList = em</p>
+        <p class="tab-4">.createQuery("Select t from Employee t")</p>
+        <p class="tab-4 mb10">.getResultList();</p>
+        <p>// Hibernate выполнит дополнительные sql-запросы</p>
+        <p class="mb10">// или запросы объединения для получения сущностей</p>
+        <p class="bold">-- Result ---</p>
+        <p>FullTimeEmployee{id=1, name='Sara', salary=100000}</p>
+        <p>PartTimeEmployee{id=2, name='Robert', hourlyRate='60'}</p>
+    </div>
+    <p class="main-mind">
+        Минусом является плохая поддержка полиморфизма (polymorphic relationships) и то, что для выборки всех классов
+        иерархии потребуется большое количество отдельных sql-запросов для каждой таблицы-наследника или использование
+        UNION-запроса для соединения таблиц всех наследников в одну таблицу.
+    </p>
+    <p class="main-mind">
+        Также недостатком этой стратегии является повторение одних и тех же атрибутов в таблицах.
+    </p>
+    <p>
+        При TABLE PER CLASS
+        <span class="accent-mono">не работает стратегия генератора первичных ключей IDENTITY</span>,
+        поскольку может быть несколько объектов подкласса, имеющих один и тот же идентификатор, и запрос базового класса
+        приведет к получению объектов с одним и тем же идентификатором (даже если они принадлежат разным типам).
+    </p>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+<section class="container" id="q9">
+    <h1><a href="#">Как мапятся Enum'ы?</a></h1>
+    <div class="tab-1">
+        <p><a href="#q9_per_id">По порядковым номерам</a></p>
+        <p><a href="#q9_per_name">По именам</a></p>
+        <p><a href="#q9_postload_prepersist">Методы обратного вызова</a></p>
+        <p><a href="#q9_converter">Converter</a></p>
+    </div>
+
+    <hr>
+    <div id="q9_per_id">
+        <h3><a href="#q9">По порядковым номерам</a></h3>
+        <p>
+            Если мы сохраняем в БД сущность, у которой есть поле-перечисление (Enum), то в таблице этой сущности
+            создаётся
+            <span class="accent-mono">
+            колонка для значений этого перечисления и по умолчанию в ячейки сохраняется порядковый номер этого
+            перечисления (ordinal).
+            </span>
+        </p>
+        <div class="code">
+            <p>public enum <span class="name">MyEnum</span> {</p>
+            <p class="tab-1">ConstA,</p>
+            <p class="tab-1">ConstB,</p>
+            <p class="tab-1">ConstC;</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p>public class <span class="name">MyEntity</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1">private long myId;</p>
+            <p class="tab-1 mb10">private MyEnum myEnum;</p>
+            <p class="tab-1">public MyEntity() {</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1">public MyEntity(long myId, MyEnum myEnum) {</p>
+            <p class="tab-2">this.myId = myId;</p>
+            <p class="tab-2">this.myEnum = myEnum;</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1 mb10">...</p>
+            <p>}</p>
+        </div>
+        <p>
+            В JPA типы Enum могут быть помечены аннотацией
+            <span class="annotation">@Enumerated</span>, которая может принимать в качестве атрибута
+            <span class="accent-mono">EnumType.ORDINAL</span>
+            или
+            <span class="accent-mono">EnumType.STRING</span>,
+            определяющий, отображается ли перечисление (enum) на столбец с типом Integer или String соответственно.
+        </p>
+        <p class="main-mind">
+            <span class="annotation">@Enumerated(EnumType.ORDINAL)</span>
+            - значение по умолчанию, говорит о том, что в базе будут храниться порядковые
+            номера Enum (0, 1, 2…).
+        </p>
+        <p class="no_mb">Проблема с этим типом отображения возникает, когда нам нужно изменить наш Enum.</p>
+        <p class="no_mb">
+            Если мы добавим новое значение в середину или просто изменим порядок перечисления, мы сломаем существующую
+            модель данных.
+        </p>
+        <p>Такие проблемы могут быть трудно уловимыми, и нам придется обновлять все записи базы данных.</p>
+
+    </div>
+
+    <hr>
+    <div id="q9_per_name">
+        <h3><a href="#q9">По именам</a></h3>
+        <p class="main-mind">
+            <span class="annotation"> @Enumerated(EnumType.STRING)</span>
+            - означает, что в базе будут храниться имена Enum.
+        </p>
+        <p>
+            Мы можем безопасно добавлять новые значения перечисления или изменять порядок перечисления.
+        </p>
+        <p>
+            <span class="accent-mono">Однако</span>
+            переименование значения enum все равно нарушит работу базы данных.
+        </p>
+        <p class="no_mb">
+            Кроме того, даже несмотря на то, что это представление данных гораздо более читаемо по сравнению с
+            параметром @Enumerated(EnumType.ORDINAL), оно потребляет намного больше места, чем необходимо.
+        </p>
+        <p>
+            Это может оказаться серьезной проблемой, когда нам нужно иметь дело с большим объемом данных.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q9_postload_prepersist">
+        <h3><a href="#q9">@PostLoad и @PrePersist</a></h3>
+        <p class="no_mb">
+            Другой вариант - использование стандартных методов обратного вызова из JPA.
+        </p>
+        <p>
+            Мы можем смапить наши перечисления в БД и обратно в методах с аннотациями
+            <span class="annotation">@PostLoad </span>
+            и
+            <span class="annotation">@PrePersist</span>.
+        </p>
+        <p class="main-mind">
+            Идея состоит в том, чтобы в сущности иметь не только поле с Enum, но и вспомогательное поле.
+            Поле с Enum аннотируем @Transient, а в БД будет храниться значение из вспомогательного поля.
+        </p>
+        <p>
+            Создадим Enum с полем <span class="code-word">priority</span> содержащем числовое значение приоритета:
+        </p>
+        <div class="code">
+            <p>public enum <span class="name">Priority</span> { </p>
+            <p class="tab-1 mb10">LOW(100), MEDIUM(200), HIGH(300);</p>
+            <p class="tab-1 mb10">private int priority;</p>
+
+            <p class="tab-1">private <span class="name">Priority</span>(int priority) {</p>
+            <p class="tab-2">this.priority = priority;</p>
+            <p class="tab-1 mb10">}</p>
+
+            <p class="tab-1">public int getPriority() {</p>
+            <p class="tab-2">return priority;</p>
+            <p class="tab-1 mb10">}</p>
+
+            <p class="tab-1">public static <span class="name">Priority</span> of(int priority) {</p>
+            <p class="tab-2">return Stream.of(Priority.values())</p>
+            <p class="tab-3">.filter(p -> p.getPriority() == priority)</p>
+            <p class="tab-3">.findFirst()</p>
+            <p class="tab-3">.orElseThrow(IllegalArgumentException::new);</p>
+            <p class="tab-1 mb10">}</p>
+            <p>}</p>
+        </div>
+        <p>
+            Мы добавили метод
+            <span class="accent-mono">Priority.of()</span>,
+            чтобы упростить получение экземпляра
+            <span class="accent-mono">Priority</span>
+            на основе его значения
+            <span class="accent-mono">int</span>.
+        </p>
+        <p>
+            Теперь, чтобы использовать его в нашем классе
+            <span class="accent-mono">Article</span>,
+            нам нужно добавить два атрибута и реализовать методы
+            обратного вызова:
+        </p>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p class="mb10">public class <span class="name">Article</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1">private int id;</p>
+            <p class="tab-1">private String title;</p>
+            <p class="tab-1 annotation">@Enumerated(EnumType.ORDINAL)</p>
+            <p class="tab-1">private Status status;</p>
+            <p class="tab-1 annotation">@Enumerated(EnumType.STRING)</p>
+            <p class="tab-1">private Type type;</p>
+            <p class="tab-1 annotation">@Basic</p>
+            <p class="tab-1">private int priorityValue;</p>
+            <p class="tab-1 annotation">@Transient</p>
+            <p class="tab-1 mb10">private Priority priority;</p>
+            <p class="tab-1 annotation">@PostLoad</p>
+            <p class="tab-1">void fillTransient() {</p>
+            <p class="tab-2">if (priorityValue > 0) {</p>
+            <p class="tab-3">this.priority = Priority.of(priorityValue);</p>
+            <p class="tab-2">}</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1 annotation">@PrePersist</p>
+            <p class="tab-1">void fillPersistent() {</p>
+            <p class="tab-2">if (priority != null) {</p>
+            <p class="tab-3">this.priorityValue = priority.getPriority();</p>
+            <p class="tab-2">}</p>
+            <p class="tab-1 mb10">}</p>
+            <p>}</p>
+        </div>
+        <p class="no_mb">
+            Несмотря на то, что этот вариант дает нам б<span class="accent-mono">о</span>льшую гибкость по сравнению
+            с ранее описанными решениями, он не идеален.
+            Просто кажется неправильным иметь в сущности целых два атрибута, представляющих одно перечисление.
+        </p>
+        <p>
+            Кроме того, если мы используем этот вариант, мы не сможем использовать значение Enum в запросах JPQL.
+        </p>
+    </div>
+
+    <hr>
+    <div id="q9_converter">
+        <h3><a href="#q9">Converter</a></h3>
+        <p>
+            В JPA с версии 2.1 можно использовать
+            <span class="accent-mono">Converter</span>
+            для конвертации Enum’а в некое его значение для сохранения в БД и получения из БД.
+        </p>
+        <p>
+            Все, что нам нужно сделать, это создать новый класс, который реализует
+            <span class="accent-mono">javax.persistence.AttributeConverter</span> и аннотировать его с помощью
+            <span class="annotation">@Converter</span>.
+        </p>
+
+        <div class="code">
+            <p>public enum <span class="name">Category</span></p>
+            <p class="tab-1 mb10">SPORT("S"), MUSIC("M"), TECHNOLOGY("T");</p>
+            <p class="tab-1 mb10">private String code;</p>
+            <p class="tab-1">private <span class="name">Category</span>(String code) {</p>
+            <p class="tab-2">this.code = code;</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1">public String getCode() {</p>
+            <p class="tab-2">return code;</p>
+            <p class="tab-1 mb10">}</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Entity</p>
+            <p>public class <span class="name">Article</span> {</p>
+            <p class="tab-1 annotation">@Id</p>
+            <p class="tab-1">private int id;</p>
+            <p class="tab-1">private String title;</p>
+            <p class="tab-1 annotation">@Basic</p>
+            <p class="tab-1">private int priorityValue;</p>
+            <p class="tab-1 annotation">@Transient</p>
+            <p class="tab-1">private <span class="name">Priority</span> priority;</p>
+            <p class="tab-1">private <span class="name">Category</span> category;</p>
+            <p>}</p>
+        </div>
+        <div class="code">
+            <p class="annotation">@Converter(autoApply = true)</p>
+            <p>public class <span class="name">CategoryConverter</span>
+                implements
+                <span class="name">AttributeConverter</span>&lt;<span class="name">Category</span>, String&gt; {</p>
+            <p class="tab-1 annotation">@Override</p>
+            <p class="tab-1">public String convertToDatabaseColumn(<span class="name">Category</span> category) {</p>
+            <p class="tab-2">if (category == null) {</p>
+            <p class="tab-3">return null;</p>
+            <p class="tab-2">}</p>
+            <p class="tab-2">return category.getCode();</p>
+            <p class="tab-1 mb10">}</p>
+            <p class="tab-1 annotation">@Override</p>
+            <p class="tab-1">public <span class="name">Category</span> convertToEntityAttribute(String code) {</p>
+            <p class="tab-2">if (code == null) {</p>
+            <p class="tab-3">return null;</p>
+            <p class="tab-2">}</p>
+            <p class="tab-2">return Stream.of(Category.values())</p>
+            <p class="tab-3">.filter(c -> c.getCode().equals(code))</p>
+            <p class="tab-3">.findFirst()</p>
+            <p class="tab-3">.orElseThrow(IllegalArgumentException::new); } }</p>
+            <p class="tab-1 mb10">}</p>
+            <p>}</p>
+        </div>
+        <p class="no_mb">
+            Мы установили
+            <span class="accent-mono">@Converter(autoApply=true)</span>,
+            чтобы JPA автоматически применял логику преобразования ко всем сопоставленным атрибутам типа
+            <span class="accent-mono">Category</span>.
+        </p>
+        <p>
+            В противном случае нам пришлось бы поместить аннотацию @Converter непосредственно над полем Category у
+            каждой сущности, где оно имеется.
+        </p>
+        <p>В результате в столбце таблицы будут храниться значения: "S", "M" или "T".</p>
+        <p>
+            Как мы видим, мы можем просто установить наши собственные правила преобразования перечислений в
+            соответствующие значения базы данных, если мы используем интерфейс AttributeConverter.
+        </p>
+        <p>
+            Более того, мы можем безопасно добавлять новые значения enum или изменять существующие, не нарушая уже
+            сохраненные данные.
+        </p>
+        <p>
+            Это решение просто в реализации и устраняет все недостатки с @Enumerated(EnumType.ORDINAL),
+            @Enumerated(EnumType.STRING) и методами обратного вызова.
+        </p>
+
+    </div>
+
+    <a href="#" class="button button--top"></a>
+</section>
+
+
+<footer>
+    <div class="footer__text"><a href="https://t.me/success_dca" title="Я в телеграм">
+        Новиков Павел, 2018-2023
+    </a></div>
+</footer>
+
+</body>
+
+</html>
