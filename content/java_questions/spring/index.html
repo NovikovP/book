@@ -1973,7 +1973,7 @@
 
     <br>
     <hr>
-    <h3 id="q20_predestroy">Аннотация @PreDestroy</h3>
+    <h3 id="q20_predestroy">Аннотация @PostConstruct</h3>
     <p>
         Spring вызывает методы, аннотированные @PostConstruct, только один раз, сразу после инициализации свойств
         компонента. За данную аннотацию отвечает один из BeanPostProcessor-ов.
@@ -1991,7 +1991,7 @@
     <a class="button button--content_table" href="#q20"></a>
 
     <hr>
-    <h3 id="q20_postconstuct">Аннотация @PostConstruct</h3>
+    <h3 id="q20_postconstuct">Аннотация @PreDestroy</h3>
     <p>
         Метод, аннотированный @PreDestroy, запускается только один раз, непосредственно перед тем, как Spring удаляет
         наш компонент из контекста приложения.
@@ -2031,9 +2031,9 @@
         <p>Spring Framework поддерживает шесть scopes:</p>
         <ol class="tab-2 sparse-li">
             <li><a href="#q21_singleton">Singleton</a></li>
-            <li><a href="#q21_singleton">Singleton</a></li>
+            <li><a href="#q21_singleton">Prototype</a></li>
             <li><a href="#q21_request">Request</a></li>
-            <li><a href="#q21_request">Request</a></li>
+            <li><a href="#q21_request">Session</a></li>
             <li><a href="#q21_application">Application</a></li>
             <li><a href="#q21_websocket">Websocket</a></li>
             <li>
@@ -2055,7 +2055,7 @@
                     </div>
                     <div class="vertical-schema__sub-menu">
                         <div class="vertical-schema__sub-item"><a href="#q21_singleton">Singleton</a></div>
-                        <div class="vertical-schema__sub-item"><a href="#q21_singleton">Singleton</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_singleton">Prototype</a></div>
                         <div class="vertical-schema__sub-item">
                             <p class="no_mb">Thread</p>
                             <p class="no_mb example">SimpleThreadScope</p>
@@ -2069,7 +2069,7 @@
                     </div>
                     <div class="vertical-schema__sub-menu">
                         <div class="vertical-schema__sub-item"><a href="#q21_request">Request</a></div>
-                        <div class="vertical-schema__sub-item"><a href="#q21_request">Request</a></div>
+                        <div class="vertical-schema__sub-item"><a href="#q21_request">Session</a></div>
                         <div class="vertical-schema__sub-item"><a href="#q21_application">Application</a></div>
                         <div class="vertical-schema__sub-item"><a href="#q21_websocket">Websocket</a></div>
                     </div>
